@@ -9,6 +9,7 @@
 // init vars
 $path = dirname(__FILE__);
 
+jimport('joomla.html.parameter');
 // load classes
 require_once($path.'/classes/object.php');
 require_once($path.'/classes/helper.php');

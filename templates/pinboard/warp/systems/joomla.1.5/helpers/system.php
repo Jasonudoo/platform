@@ -77,7 +77,6 @@ class WarpHelperSystem extends WarpHelper {
 
             // get template params
 			if ($file = $path->path('template:params.ini')) {
-				JLoader::register('JParameter', JPATH_LIBRARIES . DS . 'joomla' . DS . 'html');
 				$params = new JParameter(file_get_contents($file));
 	            $config->loadArray($params->toArray());
 			}
