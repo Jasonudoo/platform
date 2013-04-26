@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models
+END
+addlocation.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/addlocation.php
+END
+members.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/members.php
+END
+events.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/events.php
+END
+event.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/event.php
+END
+categories.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/categories.php
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/index.html
+END
+calendar.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/calendar.php
+END
+category.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/category.php
+END
+cart.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/cart.php
+END
+archive.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/archive.php
+END
+register.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/register.php
+END
+search.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/search.php
+END
+registrants.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/eventbooking/!svn/ver/7/trunk/components/com_eventbooking/models/registrants.php
+END
+invite.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/invite.php
+END
+waitinglist.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/waitinglist.php
+END
+registrant.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/registrant.php
+END
+reminder.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/reminder.php
+END
+locationlist.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/locationlist.php
+END
+history.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/eventbooking/!svn/ver/7/trunk/components/com_eventbooking/models/history.php
+END
+upcomingevents.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/upcomingevents.php
+END
+location.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/models/location.php
+END

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="2.5"
+	client="site"
+	method="upgrade">
+  <help url="HELP_MODULE" key="HELP_MODULE"></help>
+  <name>Freestyle FAQs: Category Listing</name>
+	<author>Freestyle Joomla</author>
+	<creationDate>2012 05 21</creationDate>
+	<version>1.9.1.1332</version>
+	<description>Module to list your faq categories</description>
+	<files>
+		<filename>mod_fsf_catprods.xml</filename>
+		<filename module="mod_fsf_catprods">mod_fsf_catprods.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_fsf_catprods.ini</language>
+	</languages>
+	
+	<!-- For Joomla 1.5 -->
+	<params addpath="/administrator/components/com_fsf/elements">
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+		<param name="listtype" type="radio" default="faqcat" label="List Type" description="Choose to list faq cats, kb cats or kb products">
+			<option value="faqcat">FAQ Categories</option>
+			<!---->
+		</param>
+		
+		<!---->
+		
+		<param name="@spacer" type="spacer" default="General parameters" label="" description="" />
+		<param name="show_images" type="radio" default="1" label="Show Images" description="Show images against category heading">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+	
+	<!-- For Joomla 1.6 + -->
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="listtype" type="radio" default="faqcat" label="List Type" description="Choose to list faq cats, kb cats or kb products">
+					<option value="faqcat">FAQ Categories</option>
+					<!---->
+				</field>
+			</fieldset>
+			
+			<!---->
+			
+			<fieldset name="general" label="General parameters">
+				<field name="show_images" type="radio" default="1" label="Show Images" description="Show images against category heading">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+			</fieldset>
+			
+			<fieldset name="advanced">
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	  type="module"
+	  version="1.6.0"
+	  client="site"
+	  method="upgrade">
+	  
+	<name>VirtueMart Scroller</name>
+	<author>HotJoomlaTemplates.com</author>
+	<creationDate>October 2011</creationDate>
+	<copyright>
+		Copyright (C) 2011 HotJoomlaTemplates.com. All rights reserved.
+	</copyright>
+	<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>	
+	<version>1.0</version>
+	<description>This module shows VirtueMart 2.x products in a scrollable box.</description>
+
+	<files>		
+		<filename>helper.php</filename>
+		<filename module="mod_vmscroller">mod_vmscroller.php</filename>
+		<filename>index.html</filename>
+		<filename>hot_vmscroller.js</filename>
+        <filename>jquery.min.js</filename>
+		<filename>jquery-ui.min.js</filename>
+	</files>
+
+	<config>
+		<fields name="params">
+			<fieldset name="system" label="Module Settings">
+				<field name="moduleclass_sfx" type="text" size="30" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+                                
+                                <field name="loadjQuery" type="radio" default="0" label="Load jQuery" description="Add JQuery Reference if you don't have it already">
+                                        <option value="0">No</option>
+					<option value="1">Yes</option>
+
+				</field>
+                                
+                                <field name="loadjQueryUI" type="radio" default="0" label="Load jQuery UI" description="Add JQuery UI Reference if you don't have it already">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+                                <field name="loadScript" type="radio" default="1" label="Load Script Run-time" description="Disable this except on first one if you have multiple scrollers on page">
+					<option value="1">Yes</option>
+                                        <option value="0">No</option>
+				</field>				
+
+                                <field name="NumberOfProducts" type="text" default="5" abel="Number of Products" description="The Number of Products that are member of the Scrollshow" />
+				<field name="categoryId" type="text" default="0" label="Product Category Id" description="Products in a specific category (0 - all categories)" />
+				<field name="featuredProducts" type="radio" default="0" label="Featured Products Only" description="Display only products that are featured (marked special)">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="ScrollSortMethod" type="radio" default="random" label="In which Order the products shall be displayed?" description="Defines the display order of the products.">
+					<option value="newest">Newest</option>
+					<option value="oldest">Oldest</option>
+					<option value="random">Random</option>
+				</field>
+				<field name="direction" type="list" default="0" label="Direction" description="Direction Style">
+					<option value="0">Horizontal</option>
+					<option value="1">Vertical</option>			
+				</field>
+				<field name="transition" type="list" default="linear" label="Transition effect" description="transition effect">
+					<option value="linear">linear</option>
+					<option value="swing">swing</option>
+					<option value="easeInQuad">easeInQuad</option>
+					<option value="easeOutQuad">easeOutQuad</option>
+					<option value="easeInOutQuad">easeInOutQuad</option>
+					<option value="easeInCubic">easeInCubic</option>
+					<option value="easeOutCubic">easeOutCubic</option>
+					<option value="easeInOutCubic">easeInOutCubic</option>
+					<option value="easeInQuart">easeInQuart</option>
+					<option value="easeOutQuart">easeOutQuart</option>
+					<option value="easeInOutQuart">easeInOutQuart</option>
+					<option value="easeInQuint">easeInQuint</option>
+					<option value="easeOutQuint">easeOutQuint</option>
+					<option value="easeInOutQuint">easeInOutQuint</option>
+					<option value="easeInSine">easeInSine</option>
+					<option value="easeOutSine">easeOutSine</option>
+					<option value="easeInOutSine">easeInOutSine</option>
+					<option value="easeInExpo">easeInExpo</option>
+					<option value="easeOutExpo">easeOutExpo</option>
+					<option value="easeInOutExpo">easeInOutExpo</option>
+					<option value="easeInCirc">easeInCirc</option>
+					<option value="easeOutCirc">easeOutCirc</option>
+					<option value="easeInOutCirc">easeInOutCirc</option>
+					<option value="easeInElastic">easeInElastic</option>
+					<option value="easeOutElastic">easeOutElastic</option>
+					<option value="easeInOutElastic">easeInOutElastic</option>
+					<option value="easeInBack">easeInBack</option>
+					<option value="easeOutBack">easeOutBack</option>
+					<option value="easeInOutBack">easeInOutBack</option>
+					<option value="easeInBounce">easeInBounce</option>
+					<option value="easeOutBounce">easeOutBounce</option>
+					<option value="easeInOutBounce">easeInOutBounce</option>
+				</field>
+				<field name="moduleWidth"   type="text" default="100%" label="Module width(% or px)" description=""/>	
+				<field name="moduleHeight"   type="text" default="100px" label="Module height(only px)" description=""/>
+				<field name="itemWidth"   type="text" default="280px" label="Item width(only px)" description=""/>	
+				<field name="spacer" type="text" default="10px" label="Space between items(px)" description=""/>				
+				<field name="speed" type="text" default="1000" label="Speed (seconds)"  description="second(s)"/>
+				<field name="delay" type="text" default="4000" label="Delay (seconds)"  description="second(s)"/>
+				<field name="bgcolor" type="text" default="#000000" label="Background Color" description="Background Color" /> 
+				<field name="panelcolor" type="text" default="#1d1d1d" label="Panel Color" description="Panel Color" />
+				<field name="bordercolor" type="text" default="#404040" label="Border Color" description="Border Color" />
+				<field name="borderthick" type="text" default="1px" label="Border Thickness(px)" description="Border Thickness" />
+				<field name="panelmargin" type="text" default="4px" label="Panel Margin(px)" description="Panel Margin" />
+				<field name="show_product_name" type="radio" default="yes"
+					label="Show Product Title"
+					description="Defines wether the Title of the shown Product is displayed or not.">
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</field>
+				<field name="titlecolor" type="text" default="#cfca36" label="Title Color" description="Title Color" />
+				<field name="titlecolorhover" type="text" default="#000000" label="Title Hover Color" description="Title Hover Color" />
+				<field name="titlealign" type="list" default="center"
+					label="Title Align"
+					description="Align the title output of your content items.">
+					<option value="left">Left Align</option>
+					<option value="right">Right Align</option>
+					<option value="center">Center Align</option>
+				</field>
+				<field name="imageSize" type="text" default="120px" label="Image Size" description="Scale images to this image size"/>
+				<field name="imageAlign" type="list" default="center"
+					label="Image Align"
+					description="Align the image of your content items.">
+					<option value="left">Left Align</option>
+					<option value="right">Right Align</option>
+					<option value="center">Center Align</option>
+				</field>
+				<field name="show_Detail" type="radio" default="yes" label="Show Product Short Description" description="shows the product short description if available inside the animated captions area">
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</field>
+				<field name="detailcolor" type="text" default="#e5eff5" label="Detail Color" description="Detail Color" />
+				<field name="detailalign" type="list" default="left" label="Detail Align" description="Align the detail output of your content items.">
+					<option value="left">Left Align</option>
+					<option value="right">Right Align</option>
+					<option value="center">Center Align</option>
+				</field>
+				<field name="show_price" type="radio" default="yes"
+					label="Show Prices"
+					description="Show or Hide the prices for the displayed Products">
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</field>
+				<field name="pricecolor" type="text" default="#e5eff5" label="Price Color" description="Price Color" />
+				<field name="pricealign" type="list" default="left" label="Price Align" description="Align the price of your content items.">
+					<option value="left">Left Align</option>
+					<option value="right">Right Align</option>
+					<option value="center">Center Align</option>
+				</field>
+				<field name="show_addtocart" type="radio" default="yes" label="Show Add-To-Cart Link" description="Defines wether an Add-To-Cart Link is shown under the Product Image or not.">
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</field>
+				<field name="cartcolor" type="text" default="#e5eff5" label="Cart Color" description="Cart Color" />
+				<field name="cart_text" type="text" size="30" default="Add to cart" label="Add to cart text" description="Set 'Add to cart' button text" />
+				
+				<field name="cache" type="list" default="0" label="Caching" description="Select whether to cache the content of this module">
+					<option value="1">Use global</option>
+					<option value="0">No caching</option>
+				</field>
+				<field name="cache_time" type="text" default="900" label="Cache Time" description="The time before the module is recached" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension
+	type="module"
+	version="1.6.0"
+	client="site"
+	method="upgrade">
+	<name>HOT Image Slider</name>
+	<author>HotJoomlaTemplates.com</author>
+	<creationDate>2010-12-06</creationDate>
+	<copyright>All rights reserved by HotJoomlaTemplates.com</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>info@hotjoomlatemplates.com</authorEmail> 
+	<authorUrl>http://www.hotjoomlatemplates.com</authorUrl> 
+	<version>1.1</version>
+	<description>MODULE_DESC</description>
+
+	<files>
+		<filename module="mod_hot_image_slider">mod_hot_image_slider.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_hot_image_slider.xml</filename>
+		<folder>images</folder>
+		<folder>js</folder>
+		<folder>tmpl</folder>
+	</files>
+	
+	<languages>
+		<language tag="en-GB">en-GB.mod_hot_image_slider.ini</language>
+	</languages>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+				<field name="enablejQuery" type="list" default="1" label="LABEL JQUERY" description="DESC JQUERY">
+					<option value="1">Enable</option>
+					<option value="0">Disable</option>
+				</field>
+				<field name="@spacer" type="spacer" default="" label="" description="" />
+				<field name="sliderWidth" type="text" default="300" label="LABEL SLIDER WIDTH" description="DESC SLIDER WIDTH" />
+				<field name="sliderHeight" type="text" default="150" label="LABEL SLIDER HEIGHT" description="DESC SLIDER HEIGHT" />
+				<field name="borderWidth" type="text" default="20" label="LABEL BORDER WIDTH" description="DESC BORDER WIDTH" />
+				<field name="backgroundColor" type="text" default="000000" label="LABEL BACKGROUND" description="DESC BACKGROUND" />
+				<field name="descColor" type="text" default="ffffff" label="LABEL DESC COLOR" description="DESC DESC COLOR" />
+				<field name="showButtons" type="list" default="1" label="LABEL BUTTONS" description="DESC BUTTONS">
+					<option value="1">Enable</option>
+					<option value="0">Disable</option>
+				</field>
+				<field name="showNames" type="list" default="1" label="LABEL NAMES" description="DESC NAMES">
+					<option value="1">Enable</option>
+					<option value="0">Disable</option>
+				</field>
+				<field name="showDesc" type="list" default="1" label="LABEL DESC" description="DESC DESC">
+					<option value="1">Enable</option>
+					<option value="0">Disable</option>
+				</field>
+				<field name="showLink" type="list" default="1" label="LABEL SHOW LINK" description="DESC SHOW LINK">
+					<option value="1">Enable</option>
+					<option value="0">Disable</option>
+				</field>
+				<field name="linkNewWindow" type="list" default="0" label="LABEL LINK NEW WINDOW" description="DESC LINK NEW WINDOW">
+					<option value="1">Enable</option>
+					<option value="0">Disable</option>
+				</field>
+				<field name="animation" type="list" default="0" label="LABEL ANIMATION" description="DESC ANIMATION">
+					<option value="slide">Slide</option>
+					<option value="fade">Fade</option>
+				</field>
+				<field name="fadeSpeed" type="text" default="600" label="LABEL FADE SPEED" description="DESC FADE SPEED" />
+				<field name="@spacer" type="spacer" default="" label="" description="" />
+				<field name="buttonColor" type="list" default="green" label="LABEL BUTTON COLOR" description="DESC BUTTON COLOR">
+					<option value="green">green</option>
+					<option value="yellow">yellow</option>
+					<option value="brick">brick</option>
+					<option value="pink">pink</option>
+					<option value="purple">purple</option>
+					<option value="white">white</option>
+				</field>
+				<field name="@spacer" type="spacer" default="" label="" description="" />
+				<field name="imageFolder" type="text" default="images/stories" label="LABEL FOLDER" description="DESC FOLDER" />
+				<field name="@spacer" type="spacer" default="" label="" description="" />
+				<field type="spacer" default="Image 1" />
+				<field name="image1" type="text" default="" label="LABEL IMAGE" description="DESC IMAGE" />
+				<field name="image1title" type="text" default="" label="LABEL IMAGE TITLE" description="DESC IMAGE TITLE" />
+				<field name="image1desc" type="text" default="" label="LABEL IMAGE DESC" description="DESC IMAGE DESC" />
+				<field name="image1link" type="text" default="" label="LABEL IMAGE LINK" description="DESC IMAGE LINK" />
+				<field type="spacer" default="Image 2" />
+				<field name="image2" type="text" default="" label="LABEL IMAGE" description="DESC IMAGE" />
+				<field name="image2title" type="text" default="" label="LABEL IMAGE TITLE" description="DESC IMAGE TITLE" />
+				<field name="image2desc" type="text" default="" label="LABEL IMAGE DESC" description="DESC IMAGE DESC" />
+				<field name="image2link" type="text" default="" label="LABEL IMAGE LINK" description="DESC IMAGE LINK" />
+				<field type="spacer" default="Image 3" />
+				<field name="image3" type="text" default="" label="LABEL IMAGE" description="DESC IMAGE" />
+				<field name="image3title" type="text" default="" label="LABEL IMAGE TITLE" description="DESC IMAGE TITLE" />
+				<field name="image3desc" type="text" default="" label="LABEL IMAGE DESC" description="DESC IMAGE DESC" />
+				<field name="image3link" type="text" default="" label="LABEL IMAGE LINK" description="DESC IMAGE LINK" />
+				<field type="spacer" default="Image 4" />
+				<field name="image4" type="text" default="" label="LABEL IMAGE" description="DESC IMAGE" />
+				<field name="image4title" type="text" default="" label="LABEL IMAGE TITLE" description="DESC IMAGE TITLE" />
+				<field name="image4desc" type="text" default="" label="LABEL IMAGE DESC" description="DESC IMAGE DESC" />
+				<field name="image4link" type="text" default="" label="LABEL IMAGE LINK" description="DESC IMAGE LINK" />
+				<field type="spacer" default="Image 5" />
+				<field name="image5" type="text" default="" label="LABEL IMAGE" description="DESC IMAGE" />
+				<field name="image5title" type="text" default="" label="LABEL IMAGE TITLE" description="DESC IMAGE TITLE" />
+				<field name="image5desc" type="text" default="" label="LABEL IMAGE DESC" description="DESC IMAGE DESC" />
+				<field name="image5link" type="text" default="" label="LABEL IMAGE LINK" description="DESC IMAGE LINK" />
+				<field type="spacer" default="Image 6" />
+				<field name="image6" type="text" default="" label="LABEL IMAGE" description="DESC IMAGE" />
+				<field name="image6title" type="text" default="" label="LABEL IMAGE TITLE" description="DESC IMAGE TITLE" />
+				<field name="image6desc" type="text" default="" label="LABEL IMAGE DESC" description="DESC IMAGE DESC" />
+				<field name="image6link" type="text" default="" label="LABEL IMAGE LINK" description="DESC IMAGE LINK" />
+				<field type="spacer" default="Image 7" />
+				<field name="image7" type="text" default="" label="LABEL IMAGE" description="DESC IMAGE" />
+				<field name="image7title" type="text" default="" label="LABEL IMAGE TITLE" description="DESC IMAGE TITLE" />
+				<field name="image7desc" type="text" default="" label="LABEL IMAGE DESC" description="DESC IMAGE DESC" />
+				<field name="image7link" type="text" default="" label="LABEL IMAGE LINK" description="DESC IMAGE LINK" />
+				<field type="spacer" default="Image 8" />
+				<field name="image8" type="text" default="" label="LABEL IMAGE" description="DESC IMAGE" />
+				<field name="image8title" type="text" default="" label="LABEL IMAGE TITLE" description="DESC IMAGE TITLE" />
+				<field name="image8desc" type="text" default="" label="LABEL IMAGE DESC" description="DESC IMAGE DESC" />
+				<field name="image8link" type="text" default="" label="LABEL IMAGE LINK" description="DESC IMAGE LINK" />
+				<field type="spacer" default="Image 9" />
+				<field name="image9" type="text" default="" label="LABEL IMAGE" description="DESC IMAGE" />
+				<field name="image9title" type="text" default="" label="LABEL IMAGE TITLE" description="DESC IMAGE TITLE" />
+				<field name="image9desc" type="text" default="" label="LABEL IMAGE DESC" description="DESC IMAGE DESC" />
+				<field name="image9link" type="text" default="" label="LABEL IMAGE LINK" description="DESC IMAGE LINK" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

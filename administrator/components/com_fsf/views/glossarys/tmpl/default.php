@@ -1,0 +1,110 @@
+<?php
+/**
+* @Copyright Freestyle Joomla (C) 2010
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+*     
+* This file is part of Freestyle FAQs
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+* 
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+**/
+?>
+<?php defined('_JEXEC') or die('Restricted access'); ?>
+<form action="<?php echo JRoute::_( 'index.php?option=com_fsf&view=glossarys' );?>" method="post" name="adminForm">
+<?php $ordering = ($this->lists['order'] == "ordering"); ?>
+<div id="editcell">
+	<table>
+		<tr>
+			<td width="100%">
+				<?php echo JText::_("FILTER"); ?>:
+				<input type="text" name="search" id="search" value="<?php echo JView::escape($this->lists['search']);?>" class="text_area" onchange="document.adminForm.submit();" title="<?php echo JText::_("FILTER_BY_TITLE_OR_ENTER_ARTICLE_ID");?>"/>
+				<button onclick="this.form.submit();"><?php echo JText::_("GO"); ?></button>
+				<button onclick="document.getElementById('search').value='';this.form.getElementById('ispublished').value='-1';this.form.submit();"><?php echo JText::_("RESET"); ?></button>
+			</td>
+			<td nowrap="nowrap">
+				<?php
+				echo $this->lists['published'];
+				?>
+			</td>
+		</tr>
+	</table>
+
+    <table class="adminlist">
+    <thead>
+        <tr>
+			<th width="5">#</th>
+            <th width="20">
+   				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->data ); ?>);" />
+			</th>
+            <th width="30%">
+                <?php echo JHTML::_('grid.sort',   'Word', 'word', @$this->lists['order_Dir'], @$this->lists['order'] ); ?>
+            </th>
+			<th  class="title" width="65%" nowrap="nowrap">
+				<?php echo JHTML::_('grid.sort',   'Description', 'description', @$this->lists['order_Dir'], @$this->lists['order'] ); ?>
+			</th>
+			<th width="1%" nowrap="nowrap">
+				<?php echo JHTML::_('grid.sort',   'Published', 'published', @$this->lists['order_Dir'], @$this->lists['order'] ); ?>
+			</th>
+		</tr>
+    </thead>
+    <?php
+
+    $k = 0;
+    for ($i=0, $n=count( $this->data ); $i < $n; $i++)
+    {
+        $row =& $this->data[$i];
+        $checked    = JHTML::_( 'grid.id', $i, $row->id );
+        $link = JRoute::_( 'index.php?option=com_fsf&controller=glossary&task=edit&cid[]='. $row->id );
+
+    	$published = FSF_GetPublishedText($row->published);
+
+        ?>
+        <tr class="<?php echo "row$k"; ?>">
+            <td>
+                <?php echo $row->id; ?>
+            </td>
+           	<td>
+   				<?php echo $checked; ?>
+			</td>
+			<td>
+			    <a href="<?php echo $link; ?>"><?php echo $row->word; ?></a>
+			</td>
+			<td>
+			    <?php echo $row->description; ?>
+			</td>
+        	<td align="center">
+				<a href="javascript:void(0);" class="jgrid" onclick="return listItemTask('cb<?php echo $i;?>','<?php echo $row->published ? 'unpublish' : 'publish' ?>')">
+					<?php echo $published; ?>
+				</a>
+			</td>
+		</tr>
+        <?php
+        $k = 1 - $k;
+    }
+    ?>
+	<tfoot>
+		<tr>
+			<td colspan="9"><?php echo $this->pagination->getListFooter(); ?></td>
+		</tr>
+	</tfoot>
+
+    </table>
+</div>
+
+<input type="hidden" name="option" value="com_fsf" />
+<input type="hidden" name="task" value="" />
+<input type="hidden" name="boxchecked" value="0" />
+<input type="hidden" name="controller" value="glossary" />
+<input type="hidden" name="filter_order" value="<?php echo $this->lists['order']; ?>" />
+<input type="hidden" name="filter_order_Dir" value="<?php echo $this->lists['order_Dir']; ?>" />
+</form>
+

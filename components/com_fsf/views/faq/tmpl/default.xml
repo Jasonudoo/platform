@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="FAQS_LIST_ALL">
+		<help url = "http://www.freestyle-joomla.com/comhelp/fsf/frontend-view-faq-default" />
+		<message></message>
+	</layout>
+	<state>
+		<name>FAQS_LIST_ALL</name>
+		<url addpath="/administrator/components/com_fsf/elements">
+			<param name="catid" type="sql" default="" label="Select Category" query="(SELECT '' as id, 'Show Category List' as title) UNION (SELECT id, title FROM #__fsf_faq_cat ORDER BY ordering)" key_field="id" value_field="title" />
+		</url>
+		<params>
+			<param name="@spacer" type="spacer" default="When Showing list of Categories" label="" description="" />
+			<param name="always_show_faqs" type="radio" default="0" label="Always show faq list" description="Always show faq list even when not in a category">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+      <param name="hide_allfaqs" type="radio" default="0" label="Hide 'All FAQs'" description="Hide the all faqs option in category listing">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </param>
+      <param name="hide_tags" type="radio" default="0" label="Hide 'Tags'" description="Hide the tags option in category listing">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </param>
+      <param name="hide_search" type="radio" default="0" label="Hide Search" description="Hide the search option in category listing">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+			<param name="num_cat_colums" type="text" size="3" default="1" label="Number Of Category Colums" description="How many colums to list the faq categories in. No effect when 'Category View Mode' is not 'Normal List'" />
+			<param name="view_mode_cat" type="list" default="list" label="Category View Mode" description="Category List View mode">
+				<option value="list">Normal List</option>
+				<option value="inline">Inline FAQs</option>
+				<option value="accordian">Accordian FAQs</option>
+				<option value="popup">Popup FAQs</option>
+			</param>
+			<param name="view_mode_incat" type="list" default="accordian" label="FAQs Within Category View Mode" description="FAQ List View mode when showed inline with categories. No effect when above is set to 'Normal List'. NOTE: You cannot have both category list and faqs as accordian at the same time.">
+				<option value="allononepage">All on one page</option>
+				<option value="accordian">Accordian List</option>
+				<option value="questionwithtooltip">Question With Tool Tip</option>
+				<option value="questionwithlink">Question With Link</option>
+				<option value="questionwithpopup">Question With Popup</option>
+			</param>
+			<param name="@spacer" type="spacer" default="When Showing list of FAQs" label="" description="" />
+			<param name="always_show_cats" type="radio" default="0" label="Always Show Cat list" description="Always show category list even when in a cetegory">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+			<param name="view_mode" type="list" default="accordian" label="FAQs View Mode" description="FAQ List View mode">
+				<option value="allononepage">All on one page</option>
+				<option value="accordian">Accordian List</option>
+				<option value="questionwithtooltip">Question With Tool Tip</option>
+				<option value="questionwithlink">Question With Link</option>
+				<option value="questionwithpopup">Question With Popup</option>
+			</param>
+			<param name="enable_pages" type="radio" default="1" label="Enable Pages" description="Enable page support on faq listings">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+		</params>
+
+		<fields name="request">
+			<fieldset name="request" label="Main Settings">
+				<field name="catid" type="sql" default="" label="Select Category" query="(SELECT '' as id, 'Show Category List' as title) UNION (SELECT id, title FROM #__fsf_faq_cat ORDER BY ordering)" key_field="id" value_field="title" />
+			</fieldset>
+		</fields>
+
+		<fields name="params">
+			<fieldset name="cats"	label="When Showing list of Categories">
+				<field name="always_show_faqs" type="radio" default="0" label="Always show faq list" description="Always show faq list even when not in a category">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="hide_allfaqs" type="radio" default="0" label="Hide 'All FAQs'" description="Hide the all faqs option in category listing">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+        <field name="hide_tags" type="radio" default="0" label="Hide 'Tags'" description="Hide the tags option in category listing">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </field>
+				<field name="hide_search" type="radio" default="0" label="Hide Search" description="Hide the search option in category listing">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="num_cat_colums" type="text" size="3" default="1" label="Number Of Category Colums" description="How many colums to list the faq categories in. No effect when 'Category View Mode' is not 'Normal List'" />
+				<field name="view_mode_cat" type="list" default="list" label="Category View Mode" description="Category List View mode">
+					<option value="list">Normal List</option>
+					<option value="inline">Inline FAQs</option>
+					<option value="accordian">Accordian FAQs</option>
+					<option value="popup">Popup FAQs</option>
+				</field>
+				<field name="view_mode_incat" type="list" default="questionwithlink" label="FAQs Within Category View Mode" description="FAQ List View mode when showed inline with categories. No effect when above is set to 'Normal List'. NOTE: You cannot have both category list and faqs as accordian at the same time.">
+					<option value="allononepage">All on one page</option>
+					<option value="accordian">Accordian List</option>
+					<option value="questionwithtooltip">Question With Tool Tip</option>
+					<option value="questionwithlink">Question With Link</option>
+					<option value="questionwithpopup">Question With Popup</option>
+				</field>
+			</fieldset>
+
+			<fieldset name="list"	label="When Showing list of FAQs">
+
+				<field name="always_show_cats" type="radio" default="0" label="Always Show Cat list" description="Always show category list even when in a cetegory">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="view_mode" type="list" default="questionwithpopup" label="FAQs View Mode" description="FAQ List View mode">
+					<option value="allononepage">All on one page</option>
+					<option value="accordian">Accordian List</option>
+					<option value="questionwithtooltip">Question With Tool Tip</option>
+					<option value="questionwithlink">Question With Link</option>
+					<option value="questionwithpopup">Question With Popup</option>
+				</field>
+				<field name="enable_pages" type="radio" default="1" label="Enable Pages" description="Enable page support on faq listings">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+			</fieldset>
+		</fields>
+	</state>
+</metadata>

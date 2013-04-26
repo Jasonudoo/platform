@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <layout title="GLOSSARY_LIST_ALL_ARTICLES">
+	  <help url = "http://www.freestyle-joomla.com/comhelp/fsf/frontend-view-glossary-default" />
+	  <message></message>
+  </layout>
+  <state>
+    <name>GLOSSARY_LIST_ALL_ARTICLES</name>
+    <params>
+      <param name="use_letter_bar" type="list" default="0" label="Show Letter Bar" description="How to show the letter bar">
+        <option value="0">No letter bar</option>
+        <option value="1">Letter bar - all on one page</option>
+        <option value="2">Letter bar - one letter per page</option>
+      </param>
+    </params>
+
+    <fields name="params">
+      <fieldset name="main"	label="Main Settings">
+        <field name="use_letter_bar" type="list" default="0" label="Show Letter Bar" description="How to show the letter bar">
+          <option value="0">No letter bar</option>
+          <option value="1">Letter bar - all on one page</option>
+          <option value="2">Letter bar - one letter per page</option>
+        </field>
+
+      </fieldset>
+    </fields>
+  </state>
+</metadata>

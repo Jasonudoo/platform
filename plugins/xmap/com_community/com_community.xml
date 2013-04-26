@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="xmap" version="1.7">
+	<name>JomSocial</name>
+	<author>Latitud WEB Joomla! Extensions</author>
+	<authorEmail>joomlaextensions@latitudweb.com</authorEmail>
+	<authorUrl>http://joomlaextensions.latitudweb.com</authorUrl>
+	<creationDate>January 2012</creationDate>
+	<copyright>
+    	Copyright (C) 2009-2012 Business Excellence throguh Information Technologies S.L., Latitud WEB. All rights reserved.
+	</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<version>5.0</version>
+	<description>XMAP plugin for JomSocial Component!</description>
+	<files>
+		<filename plugin="com_community">com_community.php</filename>
+        <filename>index.html</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="contents" label="Contents Display" description="">
+				<field name="profile_priority" type="list" default="1" label="Profile Priority" description="Set the priority for member profiles">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="1">1</option>
+					<option value="0.9">0.9</option>
+					<option value="0.8">0.8</option>
+					<option value="0.7">0.7</option>
+					<option value="0.6">0.6</option>
+					<option value="0.5">0.5</option>
+					<option value="0.4">0.4</option>
+					<option value="0.3">0.3</option>
+					<option value="0.2">0.2</option>
+					<option value="0.1">0.1</option>
+					<option value="0.0">0.0</option>
+					<option value="-2">Don't display links</option>
+				</field>
+				<field name="profile_changefreq" type="list" default="weekly" label="Profile Change Freq." description="Set the change frequency for member profiles">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="always">Always</option>
+					<option value="hourly">Hourly</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+					<option value="yearly">Yearly</option>
+					<option value="never">Never</option>
+				</field>
+				<field name="photos_priority" type="list" default="0.5"	label="Photos Priority" description="Set the priority for member photos and albums">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="1">1</option>
+					<option value="0.9">0.9</option>
+					<option value="0.8">0.8</option>
+					<option value="0.7">0.7</option>
+					<option value="0.6">0.6</option>
+					<option value="0.5">0.5</option>
+					<option value="0.4">0.4</option>
+					<option value="0.3">0.3</option>
+					<option value="0.2">0.2</option>
+					<option value="0.1">0.1</option>
+					<option value="0.0">0.0</option>
+					<option value="-2">Don't display links</option>
+				</field>
+				<field name="photos_changefreq" type="list" default="weekly" label="Photos Change Freq." description="Set the change frequency for member photos">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="always">Always</option>
+					<option value="hourly">Hourly</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+					<option value="yearly">Yearly</option>
+					<option value="never">Never</option>
+				</field>
+				<field name="videos_priority" type="list" default="0.5"	label="Videos Priority" description="Set the priority for the member videos">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="1">1</option>
+					<option value="0.9">0.9</option>
+					<option value="0.8">0.8</option>
+					<option value="0.7">0.7</option>
+					<option value="0.6">0.6</option>
+					<option value="0.5">0.5</option>
+					<option value="0.4">0.4</option>
+					<option value="0.3">0.3</option>
+					<option value="0.2">0.2</option>
+					<option value="0.1">0.1</option>
+					<option value="0.0">0.0</option>
+					<option value="-2">Don't display links</option>
+				</field>
+				<field name="videos_changefreq" type="list" default="weekly" label="Videos Change Freq." description="Set the change frequency for member videos">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="always">Always</option>
+					<option value="hourly">Hourly</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+					<option value="yearly">Yearly</option>
+					<option value="never">Never</option>
+				</field>
+				<field name="groupscat_priority" type="list" default="0.7" label="Group Categories Priority" description="Set the priority for the group categoriess">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="1">1</option>
+					<option value="0.9">0.9</option>
+					<option value="0.8">0.8</option>
+					<option value="0.7">0.7</option>
+					<option value="0.6">0.6</option>
+					<option value="0.5">0.5</option>
+					<option value="0.4">0.4</option>
+					<option value="0.3">0.3</option>
+					<option value="0.2">0.2</option>
+					<option value="0.1">0.1</option>
+					<option value="0.0">0.0</option>
+					<option value="-2">Don't display links</option>
+				</field>
+				<field name="groupscat_changefreq" type="list" default="weekly" label="Group Cat. Change Freq." description="Set the change frequency for group categories">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="always">Always</option>
+					<option value="hourly">Hourly</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+					<option value="yearly">Yearly</option>
+					<option value="never">Never</option>
+				</field>
+				<field name="groups_priority" type="list" default="0.7" label="Groups Priority" description="Set the priority for the groups">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="1">1</option>
+					<option value="0.9">0.9</option>
+					<option value="0.8">0.8</option>
+					<option value="0.7">0.7</option>
+					<option value="0.6">0.6</option>
+					<option value="0.5">0.5</option>
+					<option value="0.4">0.4</option>
+					<option value="0.3">0.3</option>
+					<option value="0.2">0.2</option>
+					<option value="0.1">0.1</option>
+					<option value="0.0">0.0</option>
+					<option value="-2">Don't display links</option>
+				</field>
+				<field name="groups_changefreq" type="list" default="weekly" label="Groups Change Freq." description="Set the change frequency for groups">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="always">Always</option>
+					<option value="hourly">Hourly</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+					<option value="yearly">Yearly</option>
+					<option value="never">Never</option>
+				</field>
+				<field name="bulletins_priority" type="list" default="0.7" label="Group Bulletins Priority" description="Set the priority for the group bulletins">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="1">1</option>
+					<option value="0.9">0.9</option>
+					<option value="0.8">0.8</option>
+					<option value="0.7">0.7</option>
+					<option value="0.6">0.6</option>
+					<option value="0.5">0.5</option>
+					<option value="0.4">0.4</option>
+					<option value="0.3">0.3</option>
+					<option value="0.2">0.2</option>
+					<option value="0.1">0.1</option>
+					<option value="0.0">0.0</option>
+					<option value="-2">Don't display links</option>
+				</field>
+				<field name="bulletins_changefreq" type="list" default="monthly" label="Bulletins Change Freq." description="Set the change frequency for group bulletins">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="always">Always</option>
+					<option value="hourly">Hourly</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+					<option value="yearly">Yearly</option>
+					<option value="never">Never</option>
+				</field>
+				<field name="discussions_priority" type="list" default="0.7" label="Group Discussions Priority" description="Set the priority for the group discussions">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="1">1</option>
+					<option value="0.9">0.9</option>
+					<option value="0.8">0.8</option>
+					<option value="0.7">0.7</option>
+					<option value="0.6">0.6</option>
+					<option value="0.5">0.5</option>
+					<option value="0.4">0.4</option>
+					<option value="0.3">0.3</option>
+					<option value="0.2">0.2</option>
+					<option value="0.1">0.1</option>
+					<option value="0.0">0.0</option>
+					<option value="-2">Don't display links</option>
+				</field>
+				<field name="discussions_changefreq" type="list" default="weekly" label="Discussions Change Freq." description="Set the change frequency for group discussions">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="always">Always</option>
+					<option value="hourly">Hourly</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+					<option value="yearly">Yearly</option>
+					<option value="never">Never</option>
+				</field>
+				<field name="eventscat_priority" type="list" default="0.9" label="Event Categories Priority" description="Set the priority for the event categoriess">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="1">1</option>
+					<option value="0.9">0.9</option>
+					<option value="0.8">0.8</option>
+					<option value="0.7">0.7</option>
+					<option value="0.6">0.6</option>
+					<option value="0.5">0.5</option>
+					<option value="0.4">0.4</option>
+					<option value="0.3">0.3</option>
+					<option value="0.2">0.2</option>
+					<option value="0.1">0.1</option>
+					<option value="0.0">0.0</option>
+					<option value="-2">Don't display links</option>
+				</field>
+				<field name="eventscat_changefreq" type="list" default="weekly" label="Events Cat. Change Freq." description="Set the change frequency for event categories">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="always">Always</option>
+					<option value="hourly">Hourly</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+					<option value="yearly">Yearly</option>
+					<option value="never">Never</option>
+				</field>
+				<field name="events_priority" type="list" default="0.8" label="Events Priority" description="Set the priority for community events">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="1">1</option>
+					<option value="0.9">0.9</option>
+					<option value="0.8">0.8</option>
+					<option value="0.7">0.7</option>
+					<option value="0.6">0.6</option>
+					<option value="0.5">0.5</option>
+					<option value="0.4">0.4</option>
+					<option value="0.3">0.3</option>
+					<option value="0.2">0.2</option>
+					<option value="0.1">0.1</option>
+					<option value="0.0">0.0</option>
+					<option value="-2">Don't display links</option>
+				</field>
+				<field name="events_changefreq" type="list" default="weekly" label="Events Change Freq." description="Set the change frequency for community events">
+					<option value="-1">Use Parent Menu Settings</option>
+					<option value="always">Always</option>
+					<option value="hourly">Hourly</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+					<option value="yearly">Yearly</option>
+					<option value="never">Never</option>
+				</field>	
+			</fieldset>
+			<fieldset name="containers" label="Containers Display" description="">
+				<field name="show_empty_albums" type="list" default="1"	label="Display Empty Albums" description="Whether to display member albums link when they contain no photos">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_empty_videos" type="list" default="1" label="Display Empty Videos" description="Whether to display member videos link when they contain no videos">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_empty_bulletins" type="list" default="1" label="Display Empty Bulletins" description="Whether to display group bulletins link when they contain no bulletins">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_empty_discussions" type="list" default="1" label="Display Empty Discussions" description="Whether to display group discussions link when they contain no bulletins">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
