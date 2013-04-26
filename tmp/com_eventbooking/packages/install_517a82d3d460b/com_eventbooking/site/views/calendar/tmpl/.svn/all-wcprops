@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/views/calendar/tmpl
+END
+daily.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/views/calendar/tmpl/daily.php
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/views/calendar/tmpl/index.html
+END
+default.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/views/calendar/tmpl/default.xml
+END
+weekly.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/views/calendar/tmpl/weekly.php
+END
+default.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/views/calendar/tmpl/default.php
+END

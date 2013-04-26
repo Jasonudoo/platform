@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/views/invite
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/views/invite/index.html
+END
+metadata.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/views/invite/metadata.xml
+END
+view.html.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/views/invite/view.html.php
+END

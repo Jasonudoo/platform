@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6.0" type="plugin" group="eventbooking" method="upgrade">
+	<name>Events Booking - ACYMailing newsletter Plugin</name>
+	<author>Tuan Pham Ngoc</author>
+	<creationDate>Aug 2010</creationDate>
+	<copyright>Ossolution Team</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>contact@joomdonation.com</authorEmail>
+	<authorUrl>www.joomdonation.com</authorUrl>
+	<version>1.5.0</version>
+	<description>This plugin is user to subscriber registrants to ACYMailing newsletter</description>
+	<files>
+		<filename plugin="acymailing">acymailing.php</filename>
+	</files>	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="list_ids" type="text" size="50" default="" label="List Ids" description="Enter IDs of ACYMailing lists which you want donors to subscribe to automatically (comma seperated). Leave it blank to subscribe donors to all the current available lists"></field>
+			</fieldset>
+		</fields>		
+	</config>
+</extension>

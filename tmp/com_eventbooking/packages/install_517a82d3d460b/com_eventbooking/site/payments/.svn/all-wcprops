@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments
+END
+os_offline.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_offline.xml
+END
+os_payments.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_payments.php
+END
+os_offline.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_offline.php
+END
+os_authnet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_authnet.xml
+END
+os_authnet.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_authnet.php
+END
+os_payment.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_payment.php
+END
+os_paypal.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_paypal.xml
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/index.html
+END
+os_paypal.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_paypal.php
+END
+os_worldpay.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_worldpay.xml
+END
+os_worldpay.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_worldpay.php
+END
+os_eway.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_eway.xml
+END
+os_eway.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/eventbooking/!svn/ver/2/trunk/components/com_eventbooking/payments/os_eway.php
+END

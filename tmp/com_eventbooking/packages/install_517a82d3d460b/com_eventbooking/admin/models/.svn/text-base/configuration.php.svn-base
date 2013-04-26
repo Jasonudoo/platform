@@ -1,0 +1,116 @@
+<?php
+/**
+ * @version		1.5.3
+ * @package		Joomla
+ * @subpackage	Event Booking
+ * @author  Tuan Pham Ngoc
+ * @copyright	Copyright (C) 2010 Ossolution Team
+ * @license		GNU/GPL, see LICENSE.php
+ */
+// no direct access
+defined('_JEXEC') or die();
+
+/**
+ * Event Booking Component Configuration Model
+ *
+ * @package		Joomla
+ * @subpackage	Event Booking
+ * @since 1.5
+ */
+class EventBookingModelConfiguration extends JModelLegacy
+{
+
+	/**
+	 * Containing all config data,  store in an object with key, value
+	 *
+	 * @var object
+	 */
+	var $_data = null;
+
+	function __construct()
+	{
+		parent::__construct();
+	}
+
+	/**
+	 * Get configuration data
+	 *
+	 */
+	function getData()
+	{
+		if (empty($this->_data))
+		{
+			$config = new stdClass();
+			if (JLanguageMultilang::isEnabled())
+			{
+				$language = JRequest::getVar('language', '', 'post');
+				if (!$language)
+				{
+					$language = JRequest::getVar('language', '', 'get');
+				}
+				if (!$language)
+				{
+					$language = JComponentHelper::getParams('com_languages')->get('site', 'en-GB');
+				}
+			}
+			else
+				$language = JComponentHelper::getParams('com_languages')->get('site', 'en-GB');
+			$sql = 'SELECT COUNT(*) FROM #__eb_configs WHERE `language`="' . $language . '"';
+			$this->_db->setQuery($sql);
+			$total = $this->_db->loadResult();
+			if ($total)
+			{
+				$sql = 'SELECT config_key, config_value FROM #__eb_configs WHERE `language`="' . $language . '"';
+			}
+			else
+			{
+				$defaultLanguage = JComponentHelper::getParams('com_languages')->get('site', 'en-GB');
+				$sql = 'SELECT config_key, config_value FROM #__eb_configs WHERE `language`="' . $defaultLanguage . '"';
+			}
+			$this->_db->setQuery($sql);
+			$rows = $this->_db->loadObjectList();
+			if (count($rows))
+			{
+				for ($i = 0, $n = count($rows); $i < $n; $i++)
+				{
+					$row = $rows[$i];
+					$key = $row->config_key;
+					$value = $row->config_value;
+					$config->$key = stripslashes($value);
+				}
+			}
+			else
+			{
+				$config = new stdClass();
+			}
+			$this->_data = $config;
+		}
+		return $this->_data;
+	}
+
+	/**
+	 * Store the configuration data
+	 *
+	 * @param array $post
+	 */
+	function store($data)
+	{
+		$language = $data['language'];
+		$sql = 'DELETE FROM #__eb_configs WHERE `language`="' . $language . '"';
+		$this->_db->setQuery($sql);
+		$this->_db->query();
+		$row = & $this->getTable('EventBooking', 'Config');
+		foreach ($data as $key => $value)
+		{
+			if ($key != 'language')
+			{
+				$row->id = 0;
+				$row->config_key = $key;
+				$row->config_value = $value;
+				$row->language = $language;
+				$row->store();
+			}
+		}
+		return true;
+	}
+}
