@@ -23,6 +23,8 @@
 	</uninstall>
 	<media destination="com_scheduleorder" folder="site/media">
 		<folder>images</folder>
+		<folder>css</folder>
+		<folder>js</folder>
 		<filename>index.html</filename>
 	</media>
 	<!--
