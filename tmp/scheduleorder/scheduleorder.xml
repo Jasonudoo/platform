@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Id$ -->
 <extension type="component" version="2.5.0" method="upgrade">
-	<name>COM_scheduleorder</name>
+	<name>com_scheduleorder</name>
 	<author>Jason Coder</author>
 	<creationDate>2013-04-27</creationDate>
 	<copyright>Copyright NetWebX.COM. All rights reserved.	</copyright>

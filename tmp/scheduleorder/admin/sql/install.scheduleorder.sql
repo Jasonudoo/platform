@@ -1,14 +1,15 @@
 DROP TABLE IF EXISTS `#__schorder_country`;
 CREATE TABLE IF NOT EXISTS `#__schorder_country` (
-  `country_id` int(11) NOT NULL UNSIGNED AUTO_INCREMENT,
-  `zone_id` int(11) NOT NULL DEFAULT '1',
-  `name` varchar(64) DEFAULT NULL,
-  `country_3_code` char(3) DEFAULT NULL,
-  `country_2_code` char(2) DEFAULT NULL,
-  `published` tinyint(4) NOT NULL DEFAULT '0',
+  `country_id` int(11) NOT NULL UNSIGNED AUTO_INCREMENT COMMENT 'country unique id',
+  `zone_id` int(11) NOT NULL DEFAULT '1' COMMENT 'zone id',
+  `name` varchar(64) DEFAULT NULL COMMENT 'country full name',
+  `country_3_code` char(3) DEFAULT NULL COMMENT 'country short name with 3 letters',
+  `country_2_code` char(2) DEFAULT NULL COMMENT 'country short name with 2 letters',
+  `published` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'the country is published or not, 1 - pubished, 0 - disabled',
   PRIMARY KEY (`country_id`),
   KEY `idx_country_name` (`name`)
-) ENGINE=MyISAM CHARACTER SET `utf8`;
+) ENGINE=MyISAM COMMENT='Country Information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
+
 INSERT INTO `#__schorder_country` (`country_id`, `zone_id`, `name`, `country_3_code`, `country_2_code`, `published`) VALUES
 (1, 1, 'Afghanistan', 'AFG', 'AF', 1),
 (2, 1, 'Albania', 'ALB', 'AL', 1),
@@ -258,11 +259,11 @@ INSERT INTO `#__schorder_country` (`country_id`, `zone_id`, `name`, `country_3_c
 
 DROP TABLE IF EXISTS `#__schorder_currency`;
 CREATE TABLE IF NOT EXISTS `#__schorder_currency` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `currency_code` varchar(10) DEFAULT NULL,
-  `currency_name` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'currency unique id',
+  `currency_code` varchar(10) DEFAULT NULL COMMENT 'currency short code',
+  `currency_name` varchar(255) DEFAULT NULL COMMENT 'currency full name',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM CHARACTER SET `utf8`;
+) ENGINE=MyISAM COMMENT='currency information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 INSERT INTO `#__schorder_currencies` (`id`, `currency_code`, `currency_name`) VALUES
 (1, 'CAD', 'Canadian Dollars'),
 (2, 'EUR', 'Euros'),
@@ -290,16 +291,16 @@ INSERT INTO `#__schorder_currencies` (`id`, `currency_code`, `currency_name`) VA
 
 DROP TABLE IF EXISTS `#__schorder_states` ;
 CREATE TABLE IF NOT EXISTS `#__schorder_states` (
-  `state_id` int(11) NOT NULL AUTO_INCREMENT,
-  `country_id` int(11) NOT NULL DEFAULT '1',
-  `state_name` varchar(64) DEFAULT NULL,
-  `state_3_code` char(3) DEFAULT NULL,
-  `state_2_code` char(2) DEFAULT NULL,
+  `state_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'state unique id',
+  `country_id` int(11) NOT NULL DEFAULT '1' COMMENT 'country unique id',
+  `state_name` varchar(64) DEFAULT NULL COMMENT 'state name',
+  `state_3_code` char(3) DEFAULT NULL COMMENT 'state short name with 3 letters',
+  `state_2_code` char(2) DEFAULT NULL COMMENT 'stage short name with 2 letters',
   PRIMARY KEY (`state_id`),
   UNIQUE KEY `state_3_code` (`country_id`,`state_3_code`),
   UNIQUE KEY `state_2_code` (`country_id`,`state_2_code`),
   KEY `idx_country_id` (`country_id`)
-) ENGINE=MyISAM CHARACTER SET `utf8`;
+) ENGINE=MyISAM COMMENT='state information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 INSERT INTO `#__schorder_states` (`state_id`, `country_id`, `state_name`, `state_3_code`, `state_2_code`) VALUES
 (1, 223, 'Alabama', 'ALA', 'AL'),
 (2, 223, 'Alaska', 'ALK', 'AK'),
@@ -752,10 +753,10 @@ INSERT INTO `#__schorder_states` (`state_id`, `country_id`, `state_name`, `state
 
 DROP TABLE IF EXISTS `#__schorder_timezone`;
 CREATE TABLE IF NOT EXISTS `#__schorder_timezone` (
-  `Name` char(64) NOT NULL,
-  `Time_zone_id` int(10) unsigned NOT NULL,
+  `Name` char(64) NOT NULL COMMENT 'Timezone name',
+  `Time_zone_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Timezone unique id',
   PRIMARY KEY (`Name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Time zone names';
+) ENGINE=MyISAM COMMENT='Time zone information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 INSERT INTO `#__schorder_timezone` (`Name`, `Time_zone_id`) VALUES
 ('Africa/Abidjan', 1),
@@ -1258,24 +1259,30 @@ INSERT INTO `#__schorder_timezone` (`Name`, `Time_zone_id`) VALUES
 ('US/Pacific-New', 572),
 ('US/Samoa', 573);
 
+DROP TABLE IF EXISTS `#__schorder_member`;
 CREATE TABLE IF NOT EXISTS `#__schorder_member` (
-   `mid` int(11) NOT NULL UNSIGNED AUTO_INCRMENT,
-   `name` varchar(255) NOT NULL,
-   `password` varchar(100) NOT NULL,
-   `first_name` varchar(100) NOT NULL,
-   `last_name` varchar(100) NOT NULL,
-   `email` varchar(100),
-   `block` tinyint(4) NOT NULL DEFAULT 0,
-   `time_zone` int(11) unsigned NOT NULL,
-   `frontend_language` int(11) unsigned NOT NULL,
-   `payment_id` int(11) unsigned NOT NULL,
-   `billing_address1` varchar(255) NOT NULL,
-   `billing_address2` varchar(255) NOT NULL,
-   `billing_city` varchar(255) NOT NULL,
-   `
-   `register_date` datetime NOT NULL,
-   `lastvisit_date` datetime DEFAULT NULL
-) ENGINE=MyISAM CHARACTER SET 'utf-8';
+   `mid` int(11) NOT NULL UNSIGNED AUTO_INCREMENT COMMENT 'member unique id',
+   `name` varchar(255) NOT NULL COMMENT 'member login username',
+   `password` varchar(100) NOT NULL COMMENT 'member password',
+   `first_name` varchar(100) NOT NULL COMMENT 'member first name',
+   `last_name` varchar(100) NOT NULL COMMENT 'member last name',
+   `email` varchar(100) NOT NULL COMMENT 'member email address',
+   `block` tinyint(4) NOT NULL DEFAULT 0 COMMENT 'member is block or not, 1 - blocked, 0 - actived',
+   `time_zone` int(11) unsigned NOT NULL COMMENT 'the timezone choosed by member',
+   `frontend_language` int(11) unsigned NOT NULL COMMENT 'front page language',
+   `payment_id` int(11) unsigned NOT NULL COMMENT 'the default payment id',
+   `billing_address1` varchar(255) NOT NULL COMMENT 'the billing address',
+   `billing_address2` varchar(255) NOT NULL COMMENT 'the billing address',
+   `billing_city` varchar(255) NOT NULL COMMENT 'the billing city',
+   `billing_country` int(11) NOT NULL UNSIGNED COMMENT 'the billing country',
+   `billing_state` varchar(255) DEFAULT NULL COMMENT 'the billing state',
+   `billing_zip` varchar(50) NOT NULL COMMENT 'the billing zip',
+   `billing_phone` varchar(30) DEFAULT NULL COMMENT 'the billing phone',
+   `register_date` datetime NOT NULL COMMENT 'the member register date',
+   `lastvisit_date` datetime DEFAULT NULL COMMENT 'the member last visit date',
+   PRIMARY KEY (`mid`),
+   UNIQUE KEY `IDX_name` (`name`)
+) ENGINE=MyISAM COMMENT='member basic information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 DELIMITER //
 CREATE TRIGGER member_register_datetime BEFORE INSERT ON `#__schorder_member`
@@ -1297,10 +1304,59 @@ CREATE TRIGGER member_visit_datetime BEFORE UPDATE ON `#__schorder_member`
    END;//
 DELIMITER;
 
+DROP TABLE IF EXISTS `#__schorder_payment`;
+CREATE TABLE IF NOT EXISTS `#__schorder_payment` (
+	`payment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	`payment_name` varchar(255) NOT NULL DEFAULT '',
+	`payment_description` text NOT NULL,
+	`payment_images` text NOT NULL,
+	`payment_params` text NOT NULL,
+	`payment_type` varchar(255) NOT NULL DEFAULT '',
+	`payment_zone_namekey` varchar(255) NOT NULL DEFAULT '',
+	`payment_access` varchar(255) NOT NULL DEFAULT 'all',
+	`payment_shipping_methods` text NOT NULL,
+	`payment_currency` varchar(255) NOT NULL,
+	`payment_price` decimal(17,5) NOT NULL DEFAULT '0.00000',
+	PRIMARY KEY (`payment_id`),
+	UNIQUE KEY `IDX_payment_type` (`payment_type`)
+) ENGINE=MyISAM COMMENT='payment information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
+
+DROP TABLE IF EXISTS `#__schorder_address`;
+CREATE TABLE IF NOT EXISTS `#__schorder_address` (
+	`address_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	`address_user_id` int(10) unsigned NOT NULL DEFAULT '0',
+	`address_title` varchar(255) DEFAULT NULL,
+	`address_firstname` varchar(255) DEFAULT NULL,
+	`address_middle_name` varchar(255) DEFAULT NULL,
+	`address_lastname` varchar(255) DEFAULT NULL,
+	`address_company` varchar(255) DEFAULT NULL,
+	`address_street` varchar(255) DEFAULT NULL,
+	`address_street2` varchar(255) NOT NULL DEFAULT '',
+	`address_post_code` varchar(255) DEFAULT NULL,
+	`address_city` varchar(255) DEFAULT NULL,
+	`address_telephone` varchar(255) DEFAULT NULL,
+	`address_telephone2` varchar(255) DEFAULT NULL,
+	`address_fax` varchar(255) DEFAULT NULL,
+	`address_state` varchar(255) DEFAULT NULL,
+	`address_country` varchar(255) DEFAULT NULL,
+	`address_published` tinyint(4) NOT NULL DEFAULT '1',
+	`address_vat` varchar(255) DEFAULT NULL,
+	`address_default` tinyint(4) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`address_id`),
+	KEY `IDX_address_user_id` (`address_user_id`)
+) ENGINE=MyISAM COMMENT='member address information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
+
+DROP TABLE IF EXISTS `#__schorder_config`;
+CREATE TABLE IF NOT EXISTS `#__schorder_config` (
+	`config_namekey` varchar(200) NOT NULL,
+	`config_value` text NOT NULL,
+	`config_default` text NOT NULL,
+	PRIMARY KEY (`config_namekey`)
+) ENGINE=MyISAM COMMENT='configuration for schedule order' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 DROP TABLE IF EXISTS `#__schorder_cart`;
 CREATE TABLE IF NOT EXISTS `#__schorder_cart` (
-   `cart_id` int(11) NOT NULL UNSIGNED AUTO_INCREMENT,
+   `cart_id` int(11) NOT NULL UNSIGNED AUTO_INCREMENT COMMENT='',
    `mem_id` int(11) NOT NULL UNSIGNED DEFAULT '0',
    `session_id` varchar(255) NOT NULL,
    `cart_total` decimal(15,3) NOT NULL DEFAULT '0.000',
@@ -1313,7 +1369,7 @@ CREATE TABLE IF NOT EXISTS `#__schorder_cart` (
    PRIMARY KEY (`cart_id`),
    KEY `IDX_mem_id` (`mem_id`)
    KEY `IDX_session_id` (`session_id`)
-) ENGINE=MyISAM CHARACTER SET 'utf-8';
+) ENGINE=MyISAM COMMENT='cart information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 DELIMITER //
 CREATE TRIGGER cart_created_datetime BEFORE INSERT ON `#__schorder_cart`
@@ -1335,6 +1391,7 @@ CREATE TRIGGER cart_updated_datetime BEFORE UPDATE ON `#__schorder_cart`
    END;//
 DELIMITER;
 
+DROP TABLE IF EXISTS `#__schorder_cart_product`;
 CREATE TABLE IF NOT EXISTS `#__schorder_cart_product` (
    `cart_product_id` int(11) NOT NULL UNSIGNED AUTO_INCREMENT,
    `cart_id` int(11) NOT NULL UNSIGNED DEFAULT '0',
@@ -1343,6 +1400,7 @@ CREATE TABLE IF NOT EXISTS `#__schorder_cart_product` (
    KEY `IDX_cart_id` (`cart_id)
 ) ENGINE=MyISAM CHARACTER SET 'utf-8';
 
+DROP TABLE IF EXISTS `#__schorder_order`;
 CREATE TABLE IF NOT EXISTS `#__schorder_order` (
 	`order_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`order_billing_address_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1350,7 +1408,6 @@ CREATE TABLE IF NOT EXISTS `#__schorder_order` (
 	`order_user_id` int(10) unsigned NOT NULL DEFAULT '0',
 	`order_status` varchar(255) NOT NULL DEFAULT '',
 	`order_discount_code` varchar(255) NOT NULL DEFAULT '',
-	`order_created` int(10) unsigned NOT NULL DEFAULT '0',
 	`order_ip` varchar(255) NOT NULL DEFAULT '',
 	`order_currency_id` int(10) unsigned NOT NULL DEFAULT '0',
 	`order_shipping_price` decimal(17,5) NOT NULL DEFAULT '0.00000',
@@ -1360,12 +1417,7 @@ CREATE TABLE IF NOT EXISTS `#__schorder_order` (
 	`order_payment_id` varchar(255) NOT NULL DEFAULT '',
 	`order_payment_method` varchar(255) NOT NULL DEFAULT '',
 	`order_full_price` decimal(17,5) NOT NULL DEFAULT '0.00000',
-	`order_modified` int(10) unsigned NOT NULL DEFAULT '0',
-	`order_partner_id` int(10) unsigned NOT NULL DEFAULT '0',
-	`order_partner_price` decimal(17,5) NOT NULL DEFAULT '0.00000',
-	`order_partner_paid` int(11) NOT NULL DEFAULT '0',
 	`order_type` varchar(255) NOT NULL DEFAULT 'sale',
-	`order_partner_currency_id` int(10) unsigned NOT NULL DEFAULT '0',
 	`order_shipping_tax` decimal(17,5) NOT NULL DEFAULT '0.00000',
 	`order_discount_tax` decimal(17,5) NOT NULL DEFAULT '0.00000',
 	`order_number` varchar(255) NOT NULL DEFAULT '',
@@ -1374,45 +1426,50 @@ CREATE TABLE IF NOT EXISTS `#__schorder_order` (
 	`order_tax_info` text NOT NULL,
 	`order_payment_price` decimal(17,5) NOT NULL DEFAULT '0.00000',
 	`order_invoice_created` int(10) unsigned NOT NULL DEFAULT '0',
+	`created_by` int(10) unsigned NOT NULL DEFAULT '0',
+	`modified_by` int(10) unsigned NOT NULL DEFAULT '0',
+	`created_on` datetime DEFAULT NULL,
+	`modified_on` datetime DEFAULT NULL
 	PRIMARY KEY (`order_id`),
-	KEY `order_user_id` (`order_user_id`)
-) ENGINE=MyISAM /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
+	KEY `IDX_mem_id` (`order_user_id`)
+) ENGINE=MyISAM COMMENT='order information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
+DELIMITER //
+CREATE TRIGGER order_created_datetime BEFORE INSERT ON `#__schorder_order`
+   FOR EACH ROW
+   BEGIN
+	  if new.created_on is null then
+	     set new.created_on = now();
+	  end if;
+   END;//
+DELIMITER;
+
+DELIMITER //
+CREATE TRIGGER order_modified_datetime BEFORE UPDATE ON `#__schorder_order`
+   FOR EACH ROW
+   BEGIN
+	  if new.modified_on is null then
+	     set new.modified_on = now();
+	  end if;
+   END;//
+DELIMITER;
+
+DROP TABLE IF EXISTS `#__schorder_order_product`;
 CREATE TABLE IF NOT EXISTS `#__schorder_order_product` (
-	`order_product_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`order_id` int(10) unsigned NOT NULL DEFAULT '0',
-	`product_id` int(10) unsigned NOT NULL DEFAULT '0',
+	`order_product_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	`order_id` int(11) unsigned NOT NULL DEFAULT '0',
+	`product_id` int(11) unsigned NOT NULL DEFAULT '0',
 	`order_product_quantity` int(10) unsigned NOT NULL DEFAULT '1',
 	`order_product_name` varchar(255) NOT NULL DEFAULT '',
 	`order_product_code` varchar(255) NOT NULL DEFAULT '',
 	`order_product_price` decimal(17,5) NOT NULL DEFAULT '0.00000',
 	`order_product_tax` decimal(17,5) NOT NULL DEFAULT '0.00000',
 	`order_product_options` text NOT NULL,
-	`order_product_option_parent_id` int(10) unsigned DEFAULT '0',
-	`order_product_tax_info` text NOT NULL,
-	`order_product_wishlist_id` int(11) NOT NULL DEFAULT '0',
 	PRIMARY KEY (`order_product_id`),
-	KEY `order_id` (`order_id`)
-) ENGINE=MyISAM /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
+	KEY `IDX_order_id` (`order_id`)
+) ENGINE=MyISAM COMMENT='the product in an order' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
-CREATE TABLE IF NOT EXISTS `#__schorder_payment` (
-	`payment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`payment_name` varchar(255) NOT NULL DEFAULT '',
-	`payment_description` text NOT NULL,
-	`payment_images` text NOT NULL,
-	`payment_params` text NOT NULL,
-	`payment_type` varchar(255) NOT NULL DEFAULT '',
-	`payment_zone_namekey` varchar(255) NOT NULL DEFAULT '',
-	`payment_access` varchar(255) NOT NULL DEFAULT 'all',
-	`payment_shipping_methods` text NOT NULL,
-	`payment_currency` varchar(255) NOT NULL,
-	`payment_price` decimal(17,5) NOT NULL DEFAULT '0.00000',
-	PRIMARY KEY (`payment_id`),
-	UNIQUE KEY `payment_type` (`payment_type`)
-) ENGINE=MyISAM /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
-
-
-
+DROP TABLE IF EXISTS `#__schorder_category`;
 CREATE TABLE IF NOT EXISTS `#__schorder_category` (
    `cid` int(11) NOT NULL UNSIGNED AUTO_INCREMENT,
    `parent` int(11) UNSIGNED DEFAULT 0,
@@ -1425,7 +1482,7 @@ CREATE TABLE IF NOT EXISTS `#__schorder_category` (
    `created_on` datetime DEFAULT NULL,
    `modified_on` datetime DEFAULT NULL,
    PRIMARY KEY (`cid`)
-) ENGINE=MyISAM CHARACTER SET 'utf-8';
+) ENGINE=MyISAM COMMENT='the category information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 DELIMITER //
 CREATE TRIGGER cg_created_datetime BEFORE INSERT ON `#__schorder_category`
@@ -1452,6 +1509,7 @@ VALUES('100001', '0', 'Vegetables', 'Vegetables Category', '1', '0'),
 ('100002', '0', 'Fruit', 'Fruit Category', '2', '0'),
 ('100003', '0', 'Milk', 'Milk Category', '3', '0');
 
+DROP TABLE IF EXISTS `#__schorder_product`;
 CREATE TABLE IF NOT EXISTS `#__schorder_product` (
    `product_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
    `product_name` varchar(255) NOT NULL,
@@ -1491,7 +1549,7 @@ CREATE TABLE IF NOT EXISTS `#__schorder_product` (
    PRIMARY KEY (`product_id`),
    UNIQUE KEY `IDX_product_code` (`product_code`),
    KEY `product_main_index` (`product_type`,`product_quantity`,`product_published`)
-) ENGINE=MyISAM CHARACTER SET 'utf-8';
+) ENGINE=MyISAM COMMENT='the product information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 DELIMITER //
 CREATE TRIGGER prod_created_datetime BEFORE INSERT ON `#__schorder_product`
@@ -1513,6 +1571,7 @@ CREATE TRIGGER prod_updated_datetime BEFORE UPDATE ON `#__schorder_product`
    END;//
 DELIMITER;
 
+DROP TABLE IF EXISTS `#__schorder_product_image`;
 CREATE TABLE IF NOT EXISTS `#__schorder_product_image` (
    `image_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
    `product_id` int(11) unsigned NOT NULL DEFAULT 0,
@@ -1528,7 +1587,7 @@ CREATE TABLE IF NOT EXISTS `#__schorder_product_image` (
    `modified_on` datetime DEFAULT NULL,
    PRIMARY KEY (`image_id`),
    KEY `IDX_product_id` (`product_id`)
-) ENGINE=MyISAM CHARACTER SET 'utf-8';
+) ENGINE=MyISAM COMMENT='the product image information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 DELIMITER //
 CREATE TRIGGER img_created_datetime BEFORE INSERT ON `#__schorder_product_image`
@@ -1550,6 +1609,7 @@ CREATE TRIGGER img_updated_datetime BEFORE UPDATE ON `#__schorder_product_image`
    END;//
 DELIMITER;
 
+DROP TABLE IF EXISTS `#__schorder_product_category`;
 CREATE TABLE IF NOT EXISTS `#__schorder_product_category` (
 	`product_category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 	`cid` int(11) unsigned NOT NULL,
@@ -1558,17 +1618,22 @@ CREATE TABLE IF NOT EXISTS `#__schorder_product_category` (
 	PRIMARY KEY (`product_category_id`),
 	UNIQUE KEY `IDX_category_id` (`cid`,`product_id`),
 	KEY `IDX_product_id` (`product_id`)
-) ENGINE=MyISAM CHARACTER SET 'utf-8';
+) ENGINE=MyISAM COMMENT='the category and product information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
-CREATE TABLE IF NOT EXISTS `#__schorder_product_related` (
-	`product_id` int(10) unsigned NOT NULL,
-	`product_related_id` int(10) unsigned NOT NULL,
-	`product_related_type` varchar(255) NOT NULL DEFAULT 'related',
-	`product_related_ordering` int(10) unsigned DEFAULT '0',
-	PRIMARY KEY (`product_id`,`product_related_id`,`product_related_type`)
-) ENGINE=MyISAM CHARACTER SET 'utf-8';
-
-
-
-
-
+DROP TABLE IF EXISTS `#__schorder_shipping`;
+CREATE TABLE IF NOT EXISTS `#__schorder_shipping` (
+	`shipping_id` int(11) NOT NULL AUTO_INCREMENT,
+	`shipping_type` varchar(255) NOT NULL DEFAULT 'manual',
+	`shipping_zone_namekey` varchar(255) NOT NULL,
+	`shipping_tax_id` int(10) unsigned NOT NULL DEFAULT '0',
+	`shipping_price` decimal(17,5) NOT NULL DEFAULT '0.00000',
+	`shipping_currency_id` int(10) unsigned NOT NULL DEFAULT '0',
+	`shipping_name` varchar(255) NOT NULL,
+	`shipping_description` text NOT NULL,
+	`shipping_published` tinyint(4) NOT NULL DEFAULT '1',
+	`shipping_ordering` int(10) unsigned NOT NULL DEFAULT '0',
+	`shipping_params` text NOT NULL,
+	`shipping_images` varchar(255) NOT NULL DEFAULT '',
+	`shipping_access` varchar(255) NOT NULL DEFAULT 'all',
+	PRIMARY KEY (`shipping_id`)
+) ENGINE=MyISAM COMMENT='the shipping information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;

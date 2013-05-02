@@ -1,4 +1,5 @@
 <?php
+
 jimport('joomla.database.table');
  
 /**
