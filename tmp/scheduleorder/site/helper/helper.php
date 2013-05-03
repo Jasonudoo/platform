@@ -164,7 +164,7 @@ class ScheduleOrderHelper
      * @param object $config
      * @param object $row
      * @return string
-     */ 
+     */
     public static function getEmailContent($config, $row)
     {
         $Itemid = JRequest::getInt('Itemid');
@@ -240,7 +240,7 @@ class ScheduleOrderHelper
             ;
             $db->setQuery($sql);
             $rowLocation = $db->loadObject();
-            //Override config			
+            //Override config
             $params = new JRegistry($rowEvent->params);
             $keys = array('s_lastname', 'r_lastname', 's_organization',
                     'r_organization', 's_address', 'r_address', 's_address2',
@@ -522,7 +522,7 @@ class ScheduleOrderHelper
      *
      * @param int $eventId
      * @param int $numberRegistrants
-     * @return 
+     * @return
      */
     public static function getRegistrationRate($eventId, $numberRegistrants)
     {
@@ -542,7 +542,7 @@ class ScheduleOrderHelper
     }
     /**
      * Check to see whether the ideal payment plugin installed and activated
-     * @return boolean	 
+     * @return boolean
      */
     public static function idealEnabled()
     {
@@ -557,7 +557,7 @@ class ScheduleOrderHelper
             return false;
         }
     }
-    /**	 
+    /**
      * Get list of banks for ideal payment plugin
      * @return array
      */
@@ -575,7 +575,7 @@ class ScheduleOrderHelper
      *
      * @param RegistrantScheduleOrder $row
      * @param object $config
-     */ 
+     */
     public static function sendEmails($row, $config)
     {
         $db = JFactory::getDBO();
@@ -602,7 +602,7 @@ class ScheduleOrderHelper
         foreach ($keys as $key) {
             $config->$key = $params->get($key, 0);
         }
-        //Need to over-ridde some config options				
+        //Need to over-ridde some config options
         $emailContent = ScheduleOrderHelper::getEmailContent($config, $row);
         if ($config->multiple_booking) {
             $sql = 'SELECT event_id FROM #__eb_registrants WHERE id='
@@ -859,7 +859,7 @@ class ScheduleOrderHelper
     }
     /**
      * Send email when users fill-in waitinglist
-     * 
+     *
      * @param  object $row
      * @param object $config
      */
@@ -969,7 +969,7 @@ class ScheduleOrderHelper
     /**
      * Get title of the given payment method
      * @param string $methodName
-     */ 
+     */
     public static function getPaymentMethodTitle($methodName)
     {
         static $titles;
@@ -1078,7 +1078,7 @@ class ScheduleOrderHelper
         return $match[0];
     }
     /**
-     * 
+     *
      * Resize image to a pre-defined size
      * @param string $srcFile
      * @param string $desFile
@@ -1086,7 +1086,7 @@ class ScheduleOrderHelper
      * @param int $thumbHeight
      * @param string $method gd1 or gd2
      * @param int $quality
-     */ 
+     */
     public static function resizeImage($srcFile, $desFile, $thumbWidth,
             $thumbHeight, $quality)
     {
@@ -1108,7 +1108,7 @@ class ScheduleOrderHelper
         }
         $srcWidth = $imgInfo[0];
         $srcHeight = $imgInfo[1];
-        //Should canculate the ration	        	        	        
+        //Should canculate the ration
         $ratio = max($srcWidth / $thumbWidth, $srcHeight / $thumbHeight, 1.0);
         $desWidth = (int) $srcWidth / $ratio;
         $desHeight = (int) $srcHeight / $ratio;
@@ -1173,7 +1173,7 @@ class ScheduleOrderHelper
     /**
      * Calcuate total discount for the registration
      * @return decimal
-     */ 
+     */
     function calcuateDiscount()
     {
         return 10;
@@ -1252,10 +1252,10 @@ class ScheduleOrderHelper
         }
     }
     /**
-     * Check to see whether the current user can 
+     * Check to see whether the current user can
      *
      * @param int $eventId
-     */ 
+     */
     public static function checkEventAccess($eventId)
     {
         $mainframe = JFactory::getApplication();
@@ -1285,7 +1285,7 @@ class ScheduleOrderHelper
         }
     }
     /**
-     * 
+     *
      * Check the access to registrants history from frontend
      */
     public static function checkRegistrantsAccess()
@@ -1310,7 +1310,7 @@ class ScheduleOrderHelper
                         COMPONENT_NAME);
     }
     /**
-     * 
+     *
      * Check to see whether this users has permission to edit registrant
      */
     public static function checkEditRegistrant()
@@ -1341,7 +1341,7 @@ class ScheduleOrderHelper
         }
     }
     /**
-     * Check to see whether this event can be cancelled	 
+     * Check to see whether this event can be cancelled
      * @param int $eventId
      */
     public static function canCancel($eventId)
@@ -1377,7 +1377,7 @@ class ScheduleOrderHelper
     }
     /**
      * Check to see whether the users can cancel registration
-     * 
+     *
      * @param int $eventId
      */
     public static function canCancelRegistration($eventId)
@@ -1426,7 +1426,7 @@ class ScheduleOrderHelper
         $rowEvent = $db->loadObject();
         if (!$rowEvent)
             return false;
-        //User can only edit event created by himself	
+        //User can only edit event created by himself
         if ($rowEvent->created_by != $user->get('id'))
             return false;
 
@@ -1461,7 +1461,7 @@ class ScheduleOrderHelper
     }
     /**
      * Check to see whether the current users can add events from front-end
-     * 
+     *
      */
     public static function checkAddEvent()
     {
@@ -1470,13 +1470,13 @@ class ScheduleOrderHelper
                 && $user->authorise('scheduleorder .addevent', COMPONENT_NAME));
     }
     /**
-     * Create a user account	 
+     * Create a user account
      * @param array $data
      * @return int Id of created user
      */
     public static function saveRegistration($data)
     {
-        //Need to load com_users language file			
+        //Need to load com_users language file
         $lang = JFactory::getLanguage();
         $tag = $lang->getTag();
         if (!$tag)
@@ -1503,7 +1503,7 @@ class ScheduleOrderHelper
      * @param int $dailyFrequency
      * @param int $numberOccurencies
      * @return array
-     */ 
+     */
     public static function getDailyRecurringEventDates($startDate, $endDate,
             $dailyFrequency, $numberOccurencies)
     {
@@ -1739,7 +1739,7 @@ class ScheduleOrderHelper
 
     /**
      * Add submenus, only used for Joomla 1.6
-     * 
+     *
      * @param string $vName
      */
     public static function addSubMenus($vName = 'events')
@@ -1750,21 +1750,9 @@ class ScheduleOrderHelper
         JSubMenuHelper::addEntry(JText::_('Categoriy'),
                 'index.php?option=' . COMPONENT_NAME . '&view=category',
                 $vName == 'categories');
-        JSubMenuHelper::addEntry(JText::_('Events'),
-                'index.php?option=' . COMPONENT_NAME . '&view=events',
-                $vName == 'events');
         JSubMenuHelper::addEntry(JText::_('Registrants'),
-                'index.php?option=' . COMPONENT_NAME . '&view=registrants',
+                'index.php?option=' . COMPONENT_NAME . '&view=member',
                 $vName == 'registrants');
-        JSubMenuHelper::addEntry(JText::_('Custom Fields'),
-                'index.php?option=' . COMPONENT_NAME . '&view=fields',
-                $vName == 'fields');
-        JSubMenuHelper::addEntry(JText::_('Locations'),
-                'index.php?option=' . COMPONENT_NAME . '&view=locations',
-                $vName == 'locations');
-        JSubMenuHelper::addEntry(JText::_('Coupons'),
-                'index.php?option=' . COMPONENT_NAME . '&view=coupons',
-                $vName == 'coupons');
         JSubMenuHelper::addEntry(JText::_('Payment Plugins'),
                 'index.php?option=' . COMPONENT_NAME . '&view=plugins',
                 $vName == 'plugins');
@@ -1774,12 +1762,6 @@ class ScheduleOrderHelper
         JSubMenuHelper::addEntry(JText::_('Export Registrants'),
                 'index.php?option=' . COMPONENT_NAME . '&task=csv_export',
                 false);
-        JSubMenuHelper::addEntry(JText::_('Waiting List'),
-                'index.php?option=' . COMPONENT_NAME . '&view=waitings',
-                $vName == 'waitings');
-        JSubMenuHelper::addEntry(JText::_('Mass Mail'),
-                'index.php?option=' . COMPONENT_NAME . '&view=massmail',
-                $vName == 'massmail');
     }
 }
 ?>
