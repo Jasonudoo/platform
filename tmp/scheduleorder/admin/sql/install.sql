@@ -122,7 +122,7 @@ CREATE TRIGGER img_updated_datetime BEFORE UPDATE ON `tbl_schorder_product_image
       end if;
    END;//
 
-INSERT INTO `tbl_schorder_package` (`cid`, `name`, `description`, `ordering`, `created_by`, `published`)
+INSERT INTO `tbl_schorder_package` (`pid`, `name`, `description`, `ordering`, `created_by`, `published`)
 VALUES('100001', 'Vegetables', 'Vegetables Category', '1', '1', '0'),
 ('100002', 'Fruit', 'Fruit Category', '2', '1', '0'),
 ('100003', 'Milk', 'Milk Category', '3', '1', '0');

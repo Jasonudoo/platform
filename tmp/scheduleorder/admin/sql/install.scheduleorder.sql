@@ -1425,7 +1425,7 @@ CREATE TABLE IF NOT EXISTS `#__schorder_package` (
    `modified_by` int(11) UNSIGNED DEFAULT NULL,
    `created_on` datetime DEFAULT NULL,
    `modified_on` datetime DEFAULT NULL,
-   PRIMARY KEY (`cid`)
+   PRIMARY KEY (`pid`)
 ) ENGINE=MyISAM COMMENT='the category information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 
