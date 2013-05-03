@@ -11,6 +11,10 @@
 defined('_JEXEC') or die('Restricted Access');
 //Require the controller
 error_reporting(0);
+if( !defined('COMPONENT_NAME'))
+{
+    define('COMPONENT_NAME', 'com_scheduleorder');
+}
 //Import Joomla Controller Library
 jimport('joomla.application.component.controller');
 //Get an instance of the controller prefixed by ScheduleOrder

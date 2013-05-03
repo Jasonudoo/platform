@@ -12,7 +12,6 @@ defined('_JEXEC') or die('Restricted access');
 
 //Require the controller
 error_reporting(0);
-define('EB_AFFILIATE', 0);
 
 // Access check.
 if (!JFactory::getUser()->authorise('core.manage', 'com_scheduleorder')) {

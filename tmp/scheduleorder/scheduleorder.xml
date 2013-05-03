@@ -21,6 +21,11 @@
 			<file driver="mysql" charset="utf8">sql/uninstall.scheduleorder.sql</file>
 		</sql>
 	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
 	<media destination="com_scheduleorder" folder="site/media">
 		<folder>images</folder>
 		<folder>css</folder>
@@ -35,18 +40,7 @@
 	<files folder="site">
 		<filename>index.html</filename>
 		<filename>scheduleorder.php</filename>
-		<filename></filename>
-	</files>
-	<update>
-		<schemas>
-			<schemapath type="mysql">sql/updates/mysql</schemapath>
-		</schemas>
-	</update>
-	<files folder="site">
-		<filename>index.html</filename>
-		<filename>scheduleorder.php</filename>
 		<filename>controllder.php</filename>
-		<filename>fields.xml</filename>
 		<folder>models</folder>
 		<folder>helper</folder>
 		<folder>views</folder>
@@ -69,8 +63,12 @@
 		</files>
 		<menu>Schedule Order</menu>
 		<submenu>
+			<menu link="option=com_scheduleorder&amp;view=category">Category</menu>
 			<menu link="option=com_scheduleorder&amp;view=product">Products</menu>
-			<menu link="option=com_scheduleorder&amp;view=order">Product Order</menu>
+			<menu link="option=com_scheduleorder&amp;view=member">Member</menu>
+			<menu link="option=com_scheduleorder&amp;view=order">Order</menu>
+			<menu link="option=com_scheduleorder&amp;view=cart">Schedule Cart</menu>
+			<menu link="option=com_scheduleorder&amp;view=config">Configuration</menu>
 		</submenu>
 		<languages folder="admin">
 			<language tag="en-GB">language/en-GB/en-GB.com_scheduleorder.sys.ini</language>

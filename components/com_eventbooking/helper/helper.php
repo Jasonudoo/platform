@@ -865,7 +865,7 @@ class EventBookingHelper {
 	 *
 	 */
 	public static function displayCopyRight() {		
-		echo '<div class="copyright" style="text-align:center;margin-top: 5px;"><a href="http://joomdonation.com/components/events-booking.html" target="_blank"><strong>Event Booking</strong></a> version 1.5.3, Copyright (C) 2010-2012 <a href="http://joomdonation.com" target="_blank"><strong>Ossolution Team</strong></a></div>' ;
+		echo '<div class="copyright" style="text-align:center;margin-top: 5px;"><a href="http://netwebx.com/components/events-booking.html" target="_blank"><strong>Event Booking</strong></a> version 1.5.3, Copyright (C) 2010-2013 <a href="http://netwebx.com" target="_blank"><strong>NetWebX.COM</strong></a></div>' ;
 	}
 	/**
 	 * Load bootstrap css and javascript file
