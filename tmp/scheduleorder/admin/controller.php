@@ -29,7 +29,10 @@ class ScheduleOrderController extends JController
     function display($cachable = false)
     {
         $document = JFactory::getDocument();
-        $document->addStyleSheet(JURI::base(true) . '/components/com_scheduleorder/assets/css/style.css');
+        $document
+                ->addStyleSheet(
+                        JURI::base(true)
+                                . '/components/com_scheduleorder/assets/css/style.css');
         $task = $this->getTask();
         switch ($task) {
         case 'edit_category':
@@ -64,7 +67,7 @@ class ScheduleOrderController extends JController
         if (version_compare(JVERSION, '3.0', 'le')) {
             ScheduleOrderHelper::loadBootstrap();
         }
-        ScheduleOrderHelper::addSubmenus(JRequest::getVar('view', 'events'));
+        //ScheduleOrderHelper::addSubmenus(JRequest::getVar('view', 'scheduleorder'));
         ScheduleOrderHelper::displayCopyRight();
         // call parent behavior
         parent::display($cachable);

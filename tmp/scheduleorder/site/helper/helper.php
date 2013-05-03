@@ -111,7 +111,8 @@ class ScheduleOrderHelper
     {
         $db = JFactory::getDBO();
         $user = JFactory::getUser();
-        $sql = "SELECT id FROM #__menu WHERE link LIKE '%index.php?option=" . COMPONENT_NAME . "%' AND published=1 AND `access` IN ("
+        $sql = "SELECT id FROM #__menu WHERE link LIKE '%index.php?option="
+                . COMPONENT_NAME . "%' AND published=1 AND `access` IN ("
                 . implode(',', $user->getAuthorisedViewLevels())
                 . ") ORDER BY `access`";
         $db->setQuery($sql);
@@ -169,8 +170,10 @@ class ScheduleOrderHelper
         $Itemid = JRequest::getInt('Itemid');
         $db = JFactory::getDBO();
         $viewConfig['name'] = 'form';
-        $viewConfig['base_path'] = JPATH_ROOT . '/components/' . COMPONENT_NAME . '/emailtemplates';
-        $viewConfig['template_path'] = JPATH_ROOT . '/components/' . COMPONENT_NAME . '/emailtemplates';
+        $viewConfig['base_path'] = JPATH_ROOT . '/components/' . COMPONENT_NAME
+                . '/emailtemplates';
+        $viewConfig['template_path'] = JPATH_ROOT . '/components/'
+                . COMPONENT_NAME . '/emailtemplates';
         //We will need to check
         if ($config->multiple_booking) {
             $viewConfig['layout'] = 'cart';
@@ -374,11 +377,14 @@ class ScheduleOrderHelper
     {
         jimport('joomla.filesystem.folder');
         $path = JPATH_ROOT . '/media/' . COMPONENT_NAME;
-        $files = JFolder::files($path, strlen(trim($config->attachment_file_types)) ? $config->attachment_file_types : 'bmp|gif|jpg|png|swf|zip|doc|pdf|xls');
+        $files = JFolder::files($path,
+                strlen(trim($config->attachment_file_types)) ? $config
+                                ->attachment_file_types
+                        : 'bmp|gif|jpg|png|swf|zip|doc|pdf|xls');
         $options = array();
-        $options[] = JHTML::_('select.option', '', JText::_('EB_SELECT_ATTACHMENT'));
-        for ($i = 0, $n = count($files); $i < $n; $i++) 
-        {
+        $options[] = JHTML::_('select.option', '',
+                JText::_('EB_SELECT_ATTACHMENT'));
+        for ($i = 0, $n = count($files); $i < $n; $i++) {
             $file = $files[$i];
             $options[] = JHTML::_('select.option', $file, $file);
         }
@@ -394,7 +400,8 @@ class ScheduleOrderHelper
     public static function getTotalEvent($categoryId, $includeChildren = true)
     {
         $user = JFactory::getUser();
-        $hidePastEvents = ScheduleOrderHelper::getConfigValue('hide_past_events');
+        $hidePastEvents = ScheduleOrderHelper::getConfigValue(
+                'hide_past_events');
         $db = JFactory::getDBO();
         $arrCats = array();
         $cats = array();
@@ -631,7 +638,8 @@ class ScheduleOrderHelper
         $replaces['email'] = $row->email;
         $replaces['transaction_id'] = $row->transaction_id;
         $replaces['comment'] = $row->comment;
-        $replaces['amount'] = ScheduleOrderHelper::formatCurrency($row->amount, $config, $event->currency_symbol);
+        $replaces['amount'] = ScheduleOrderHelper::formatCurrency(
+                $row->amount, $config, $event->currency_symbol);
         //Add support for location tag
         $sql = 'SELECT a.* FROM #__eb_locations AS a '
                 . ' INNER JOIN #__eb_events AS b '
@@ -692,9 +700,10 @@ class ScheduleOrderHelper
             }
         }
         if ($event->attachment) {
-            $mailer->sendMail($fromEmail, $fromName, $row->email, $subject,
+            $mailer
+                    ->sendMail($fromEmail, $fromName, $row->email, $subject,
                             $body, 1, $ccEmails, null,
-                            JPATH_ROOT . '/media/' .COMPONENT_NAME . '/'
+                            JPATH_ROOT . '/media/' . COMPONENT_NAME . '/'
                                     . $event->attachment);
             $mailer->ClearAttachments();
         } else {
@@ -735,8 +744,10 @@ class ScheduleOrderHelper
      */
     public static function sendRegistrationApprovedEmail($row, $config)
     {
-        require_once JPATH_ROOT . '/components/' . COMPONENT_NAME . '/payments/os_payment.php';
-        require_once JPATH_ROOT . '/components/' . COMPONENT_NAME . '/payments/os_payments.php';
+        require_once JPATH_ROOT . '/components/' . COMPONENT_NAME
+                . '/payments/os_payment.php';
+        require_once JPATH_ROOT . '/components/' . COMPONENT_NAME
+                . '/payments/os_payments.php';
         $mailer = JFactory::getMailer();
         ScheduleOrderHelper::loadLanguage();
         $jconfig = new JConfig();
@@ -796,8 +807,8 @@ class ScheduleOrderHelper
         $replaces['transaction_id'] = $row->transaction_id;
         $replaces['comment'] = $row->comment;
         //$replaces['amount'] = number_format($row->amount, 2) ;
-        $replaces['amount'] = ScheduleOrderHelper::formatCurrency($row->amount,
-                $config, $event->currency_symbol);
+        $replaces['amount'] = ScheduleOrderHelper::formatCurrency(
+                $row->amount, $config, $event->currency_symbol);
         //Add support for location tag
         $sql = 'SELECT a.* FROM #__eb_locations AS a '
                 . ' INNER JOIN #__eb_events AS b '
@@ -991,12 +1002,24 @@ class ScheduleOrderHelper
     {
         $document = JFactory::getDocument();
         if ($loadJs) {
-            $document->addScript(JUri::root() . 'components/com_scheduleorder/assets/js/jquery.min.js');
-            $document->addScript(JUri::root() . 'components/com_scheduleorder/assets/js/jquery-noconflict.js');
-            $document->addScript(JUri::root() . 'components/com_scheduleorder/assets/js/bootstrap.min.js');
+            $document
+                    ->addScript(
+                            JUri::root()
+                                    . 'components/com_scheduleorder/assets/js/jquery.min.js');
+            $document
+                    ->addScript(
+                            JUri::root()
+                                    . 'components/com_scheduleorder/assets/js/jquery-noconflict.js');
+            $document
+                    ->addScript(
+                            JUri::root()
+                                    . 'components/com_scheduleorder/assets/js/bootstrap.min.js');
         }
 
-        $document->addStyleSheet(JUri::root() . 'components/com_scheduleorder/assets/css/bootstrap.min.css');
+        $document
+                ->addStyleSheet(
+                        JUri::root()
+                                . 'components/com_scheduleorder/assets/css/bootstrap.min.css');
     }
     /**
      * Get version number of GD version installed
@@ -1282,7 +1305,9 @@ class ScheduleOrderHelper
     {
         $user = JFactory::getUser();
 
-        return $user->authorise('scheduleorder .view_registrants_list', COMPONENT_NAME);
+        return $user
+                ->authorise('scheduleorder .view_registrants_list',
+                        COMPONENT_NAME);
     }
     /**
      * 
@@ -1301,7 +1326,9 @@ class ScheduleOrderHelper
                 . $registrantId;
         $db->setQuery($sql);
         $rowRegistrant = $db->loadObject();
-        if ($user->authorise('scheduleorder .registrants_management', COMPONENT_NAME)
+        if ($user
+                ->authorise('scheduleorder .registrants_management',
+                        COMPONENT_NAME)
                 || ($user->get('id') == $rowRegistrant->user_id)
                 || ($user->get('email') == $rowRegistrant->email)) {
             $canAccess = true;
@@ -1338,9 +1365,14 @@ class ScheduleOrderHelper
             $db->setQuery($sql);
             $createdBy = (int) $db->loadResult();
             return (($createdBy > 0 && $createdBy == $user->id)
-                    || $user->authorise('scheduleorder .registrants_management', COMPONENT_NAME));
+                    || $user
+                            ->authorise(
+                                    'scheduleorder .registrants_management',
+                                    COMPONENT_NAME));
         } else {
-            return $user->authorise('scheduleorder .registrants_management', COMPONENT_NAME);
+            return $user
+                    ->authorise('scheduleorder .registrants_management',
+                            COMPONENT_NAME);
         }
     }
     /**
@@ -1434,7 +1466,8 @@ class ScheduleOrderHelper
     public static function checkAddEvent()
     {
         $user = JFactory::getUser();
-        return ($user->id > 0 && $user->authorise('scheduleorder .addevent', COMPONENT_NAME));
+        return ($user->id > 0
+                && $user->authorise('scheduleorder .addevent', COMPONENT_NAME));
     }
     /**
      * Create a user account	 
@@ -1485,16 +1518,16 @@ class ScheduleOrderHelper
             while ($count < $numberOccurencies) {
                 $i++;
                 $count++;
-                $nextEventDate = $startTime + ($i - 1) * $dailyFrequency * 24
-                                * 3600;
+                $nextEventDate = $startTime
+                        + ($i - 1) * $dailyFrequency * 24 * 3600;
                 $eventDates[] = strftime('%Y-%m-%d %H:%M:%S', $nextEventDate);
             }
         } else {
             $i = 1;
             while (true) {
                 $i++;
-                $nextEventDate = $startTime + ($i - 1) * 24 * $dailyFrequency
-                                * 3600;
+                $nextEventDate = $startTime
+                        + ($i - 1) * 24 * $dailyFrequency * 3600;
                 if ($nextEventDate <= $endTime) {
                     $eventDates[] = strftime('%Y-%m-%d %H:%M:%S',
                             $nextEventDate);
@@ -1626,7 +1659,8 @@ class ScheduleOrderHelper
     }
     public static function getDeliciousButton($title, $link)
     {
-        $img_url = "components/" . COMPONENT_NAME . "/assets/images/socials/delicious.png";
+        $img_url = "components/" . COMPONENT_NAME
+                . "/assets/images/socials/delicious.png";
         return '<a href="http://del.icio.us/post?url=' . rawurlencode($link)
                 . '&amp;title=' . rawurlencode($title) . '" title="Submit '
                 . $title . ' in Delicious" target="blank" >
@@ -1636,7 +1670,8 @@ class ScheduleOrderHelper
     }
     public static function getDiggButton($title, $link)
     {
-        $img_url = "components/" . COMPONENT_NAME . "/assets/images/socials/digg.png";
+        $img_url = "components/" . COMPONENT_NAME
+                . "/assets/images/socials/digg.png";
         return '<a href="http://digg.com/submit?url=' . rawurlencode($link)
                 . '&amp;title=' . rawurlencode($title) . '" title="Submit '
                 . $title . ' in Digg" target="blank" >
@@ -1646,7 +1681,8 @@ class ScheduleOrderHelper
     }
     public static function getFacebookButton($title, $link)
     {
-        $img_url = "components/" . COMPONENT_NAME . "/assets/images/socials/facebook.png";
+        $img_url = "components/" . COMPONENT_NAME
+                . "/assets/images/socials/facebook.png";
         return '<a href="http://www.facebook.com/sharer.php?u='
                 . rawurlencode($link) . '&amp;t=' . rawurlencode($title)
                 . '" title="Submit ' . $title
@@ -1657,7 +1693,8 @@ class ScheduleOrderHelper
     }
     public static function getGoogleButton($title, $link)
     {
-        $img_url = "components/" . COMPONENT_NAME . "/assets/images/socials/google.png";
+        $img_url = "components/" . COMPONENT_NAME
+                . "/assets/images/socials/google.png";
         return '<a href="http://www.google.com/bookmarks/mark?op=edit&bkmk='
                 . rawurlencode($link) . '" title="Submit ' . $title
                 . ' in Google Bookmarks" target="blank" >
@@ -1667,7 +1704,8 @@ class ScheduleOrderHelper
     }
     public static function getStumbleuponButton($title, $link)
     {
-        $img_url = "components/" . COMPONENT_NAME . "/assets/images/socials/stumbleupon.png";
+        $img_url = "components/" . COMPONENT_NAME
+                . "/assets/images/socials/stumbleupon.png";
         return '<a href="http://www.stumbleupon.com/submit?url='
                 . rawurlencode($link) . '&amp;title=' . rawurlencode($title)
                 . '" title="Submit ' . $title
@@ -1678,7 +1716,8 @@ class ScheduleOrderHelper
     }
     public static function getTechnoratiButton($title, $link)
     {
-        $img_url = "components/" . COMPONENT_NAME . "/assets/images/socials/technorati.png";
+        $img_url = "components/" . COMPONENT_NAME
+                . "/assets/images/socials/technorati.png";
         return '<a href="http://technorati.com/faves?add='
                 . rawurlencode($link) . '" title="Submit ' . $title
                 . ' in Technorati" target="blank" >
@@ -1688,7 +1727,8 @@ class ScheduleOrderHelper
     }
     public static function getTwitterButton($title, $link)
     {
-        $img_url = "components/" . COMPONENT_NAME . "/assets/images/socials/twitter.png";
+        $img_url = "components/" . COMPONENT_NAME
+                . "/assets/images/socials/twitter.png";
         return '<a href="http://twitter.com/?status='
                 . rawurlencode($title . " " . $link) . '" title="Submit '
                 . $title . ' in Twitter" target="blank" >
@@ -1732,7 +1772,8 @@ class ScheduleOrderHelper
                 'index.php?option=' . COMPONENT_NAME . '&view=language',
                 $vName == 'language');
         JSubMenuHelper::addEntry(JText::_('Export Registrants'),
-                'index.php?option=' . COMPONENT_NAME . '&task=csv_export', false);
+                'index.php?option=' . COMPONENT_NAME . '&task=csv_export',
+                false);
         JSubMenuHelper::addEntry(JText::_('Waiting List'),
                 'index.php?option=' . COMPONENT_NAME . '&view=waitings',
                 $vName == 'waitings');

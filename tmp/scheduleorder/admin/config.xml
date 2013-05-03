@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-	<fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC" label="JCONFIG_PERMISSIONS_LABEL">
-		<field name="rules" 
-			type="rules" 
-			component="com_scheduleorder" 
-			class="inputbox"
-			filter="rules" 
-			validate="rules" 
-			label="JCONFIG_PERMISSIONS_LABEL" 
+	<fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC"
+		label="JCONFIG_PERMISSIONS_LABEL">
+		<field name="rules" type="rules" component="com_scheduleorder"
+			class="inputbox" filter="rules" validate="rules" label="JCONFIG_PERMISSIONS_LABEL"
 			section="component" />
 	</fieldset>
 </config>

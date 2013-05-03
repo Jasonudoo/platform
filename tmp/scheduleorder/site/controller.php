@@ -41,7 +41,7 @@ class ScheduleOrderController extends JController
         $document = JFactory::getDocument();
         $styleUrl = JURI::base(true) . '/components/com_scheduleorder/assets/css/style.css';
         $document->addStylesheet($styleUrl, 'text/css', null, null);
-        
+
         switch ($task) {
         case 'view_categories':
             JRequest::setVar('view', 'categories');
@@ -95,10 +95,6 @@ class ScheduleOrderController extends JController
             break;
         case 'registration_failure':
             JRequest::setVar('view', 'failure');
-            JRequest::setVar('layout', 'default');
-            break;
-        case 'view_calendar':
-            JRequest::setVar('view', 'calendar');
             JRequest::setVar('layout', 'default');
             break;
         case 'return':
@@ -179,19 +175,6 @@ class ScheduleOrderController extends JController
         case 'waitinglist_complete':
             JRequest::setVar('view', 'waitinglist');
             JRequest::setVar('layout', 'complete');
-            break;
-        #Location management
-        case 'show_locations':
-            JRequest::setVar('view', 'locationlist');
-            JRequest::setVar('layout', 'default');
-            break;
-        case 'edit_location':
-            JRequest::setVar('view', 'addlocation');
-            JRequest::setVar('layout', 'default');
-            break;
-        case 'add_location':
-            JRequest::setVar('view', 'addlocation');
-            JRequest::setVar('edit', false);
             break;
         default:
             $view = JRequest::getVar('view', '');
