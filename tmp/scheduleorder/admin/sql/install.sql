@@ -126,3 +126,7 @@ INSERT INTO `tbl_schorder_package` (`pid`, `name`, `description`, `ordering`, `c
 VALUES('100001', 'Vegetables', 'Vegetables Category', '1', '1', '0'),
 ('100002', 'Fruit', 'Fruit Category', '2', '1', '0'),
 ('100003', 'Milk', 'Milk Category', '3', '1', '0');
+
+delete from tbl_assets where name='com_scheduleorder';
+delete from tbl_extensions where element='com_scheduleorder';
+delete from tbl_menu where link = 'index.php?option=com_scheduleorder';
