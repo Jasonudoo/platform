@@ -636,8 +636,6 @@ class JInstallerComponent extends JAdapterInstance
 
 		// Set the extension's name
 		$name = strtolower(JFilterInput::getInstance()->clean((string) $this->manifest->name, 'cmd'));
-echo $name;
-die();
 		if (substr($name, 0, 4) == "com_")
 		{
 			$element = $name;
