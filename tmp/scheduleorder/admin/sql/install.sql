@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS `#__schorder_country`;
-CREATE TABLE IF NOT EXISTS `#__schorder_country` (
+DROP TABLE IF EXISTS `tbl_schorder_country`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_country` (
   `country_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'country unique id',
   `zone_id` int(11) NOT NULL DEFAULT '1' COMMENT 'zone id',
   `name` varchar(64) DEFAULT NULL COMMENT 'country full name',
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `#__schorder_country` (
   KEY `idx_country_name` (`name`)
 ) ENGINE=MyISAM COMMENT='Country Information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
-INSERT INTO `#__schorder_country` (`country_id`, `zone_id`, `name`, `country_3_code`, `country_2_code`, `published`) VALUES
+INSERT INTO `tbl_schorder_country` (`country_id`, `zone_id`, `name`, `country_3_code`, `country_2_code`, `published`) VALUES
 (1, 1, 'Afghanistan', 'AFG', 'AF', 1),
 (2, 1, 'Albania', 'ALB', 'AL', 1),
 (3, 1, 'Algeria', 'DZA', 'DZ', 1),
@@ -257,14 +257,14 @@ INSERT INTO `#__schorder_country` (`country_id`, `zone_id`, `name`, `country_3_c
 (244, 1, 'Canary Islands', 'XCA', 'XC', 1),
 (245, 1, 'Montenegro', 'MNE', 'ME', 1);
 
-DROP TABLE IF EXISTS `#__schorder_currency`;
-CREATE TABLE IF NOT EXISTS `#__schorder_currency` (
+DROP TABLE IF EXISTS `tbl_schorder_currency`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_currency` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'currency unique id',
   `currency_code` varchar(10) DEFAULT NULL COMMENT 'currency short code',
   `currency_name` varchar(255) DEFAULT NULL COMMENT 'currency full name',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM COMMENT='currency information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
-INSERT INTO `#__schorder_currency` (`id`, `currency_code`, `currency_name`) VALUES
+INSERT INTO `tbl_schorder_currency` (`id`, `currency_code`, `currency_name`) VALUES
 (1, 'CAD', 'Canadian Dollars'),
 (2, 'EUR', 'Euros'),
 (3, 'GBP', 'Pounds Sterling'),
@@ -289,8 +289,8 @@ INSERT INTO `#__schorder_currency` (`id`, `currency_code`, `currency_name`) VALU
 (22, 'TWD', 'Taiwan New Dollar'),
 (23, 'THB', 'Thai Baht');
 
-DROP TABLE IF EXISTS `#__schorder_states` ;
-CREATE TABLE IF NOT EXISTS `#__schorder_states` (
+DROP TABLE IF EXISTS `tbl_schorder_states` ;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_states` (
   `state_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'state unique id',
   `country_id` int(11) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'country unique id',
   `state_name` varchar(64) DEFAULT NULL COMMENT 'state name',
@@ -301,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `#__schorder_states` (
   UNIQUE KEY `state_2_code` (`country_id`,`state_2_code`),
   KEY `idx_country_id` (`country_id`)
 ) ENGINE=MyISAM COMMENT='state information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
-INSERT INTO `#__schorder_states` (`state_id`, `country_id`, `state_name`, `state_3_code`, `state_2_code`) VALUES
+INSERT INTO `tbl_schorder_states` (`state_id`, `country_id`, `state_name`, `state_3_code`, `state_2_code`) VALUES
 (1, 223, 'Alabama', 'ALA', 'AL'),
 (2, 223, 'Alaska', 'ALK', 'AK'),
 (3, 223, 'Arizona', 'ARZ', 'AZ'),
@@ -751,14 +751,14 @@ INSERT INTO `#__schorder_states` (`state_id`, `country_id`, `state_name`, `state
 (447, 101, 'Yazd', 'YAZ', 'YA'),
 (448, 101, 'Zanjan', 'ZAN', 'ZA');
 
-DROP TABLE IF EXISTS `#__schorder_timezone`;
-CREATE TABLE IF NOT EXISTS `#__schorder_timezone` (
+DROP TABLE IF EXISTS `tbl_schorder_timezone`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_timezone` (
   `Name` char(64) NOT NULL COMMENT 'Timezone name',
   `Time_zone_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Timezone unique id',
   PRIMARY KEY (`Time_zone_id`)
 ) ENGINE=MyISAM COMMENT='Time zone information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
-INSERT INTO `#__schorder_timezone` (`Name`, `Time_zone_id`) VALUES
+INSERT INTO `tbl_schorder_timezone` (`Name`, `Time_zone_id`) VALUES
 ('Africa/Abidjan', 1),
 ('Africa/Accra', 2),
 ('Africa/Addis_Ababa', 3),
@@ -1259,8 +1259,8 @@ INSERT INTO `#__schorder_timezone` (`Name`, `Time_zone_id`) VALUES
 ('US/Pacific-New', 572),
 ('US/Samoa', 573);
 
-DROP TABLE IF EXISTS `#__schorder_member`;
-CREATE TABLE IF NOT EXISTS `#__schorder_member` (
+DROP TABLE IF EXISTS `tbl_schorder_member`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_member` (
    `mid` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'member unique id',
    `name` varchar(255) NOT NULL COMMENT 'member login username',
    `password` varchar(100) NOT NULL COMMENT 'member password',
@@ -1285,8 +1285,8 @@ CREATE TABLE IF NOT EXISTS `#__schorder_member` (
 ) ENGINE=MyISAM COMMENT='member basic information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 
-DROP TABLE IF EXISTS `#__schorder_payment`;
-CREATE TABLE IF NOT EXISTS `#__schorder_payment` (
+DROP TABLE IF EXISTS `tbl_schorder_payment`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_payment` (
 	`payment_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 	`payment_name` varchar(255) NOT NULL DEFAULT '',
 	`payment_description` text NOT NULL,
@@ -1302,8 +1302,8 @@ CREATE TABLE IF NOT EXISTS `#__schorder_payment` (
 	UNIQUE KEY `IDX_payment_type` (`payment_type`)
 ) ENGINE=MyISAM COMMENT='payment information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
-DROP TABLE IF EXISTS `#__schorder_address`;
-CREATE TABLE IF NOT EXISTS `#__schorder_address` (
+DROP TABLE IF EXISTS `tbl_schorder_address`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_address` (
 	`address_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 	`address_user_id` int(11) unsigned NOT NULL DEFAULT '0',
 	`address_title` varchar(255) DEFAULT NULL,
@@ -1327,16 +1327,16 @@ CREATE TABLE IF NOT EXISTS `#__schorder_address` (
 	KEY `IDX_address_user_id` (`address_user_id`)
 ) ENGINE=MyISAM COMMENT='member address information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
-DROP TABLE IF EXISTS `#__schorder_config`;
-CREATE TABLE IF NOT EXISTS `#__schorder_config` (
+DROP TABLE IF EXISTS `tbl_schorder_config`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_config` (
 	`config_namekey` varchar(200) NOT NULL,
 	`config_value` text NOT NULL,
 	`config_default` text NOT NULL,
 	PRIMARY KEY (`config_namekey`)
 ) ENGINE=MyISAM COMMENT='configuration for schedule order' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
-DROP TABLE IF EXISTS `#__schorder_cart`;
-CREATE TABLE IF NOT EXISTS `#__schorder_cart` (
+DROP TABLE IF EXISTS `tbl_schorder_cart`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_cart` (
    `cart_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'cart id',
    `mem_id` int(11) UNSIGNED NOT NULL DEFAULT '0',
    `session_id` varchar(255) NOT NULL,
@@ -1353,8 +1353,8 @@ CREATE TABLE IF NOT EXISTS `#__schorder_cart` (
 ) ENGINE=MyISAM COMMENT='cart information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 
-DROP TABLE IF EXISTS `#__schorder_cart_product`;
-CREATE TABLE IF NOT EXISTS `#__schorder_cart_product` (
+DROP TABLE IF EXISTS `tbl_schorder_cart_product`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_cart_product` (
    `cart_product_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
    `cart_id` int(11) UNSIGNED NOT NULL DEFAULT '0',
    `product_id` int(11) UNSIGNED NOT NULL DEFAULT '0',
@@ -1362,8 +1362,8 @@ CREATE TABLE IF NOT EXISTS `#__schorder_cart_product` (
    KEY `IDX_cart_id` (`cart_id`)
 ) ENGINE=MyISAM COMMENT='the product in a cart' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
-DROP TABLE IF EXISTS `#__schorder_order`;
-CREATE TABLE IF NOT EXISTS `#__schorder_order` (
+DROP TABLE IF EXISTS `tbl_schorder_order`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_order` (
 	`order_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 	`order_billing_address_id` int(11) unsigned NOT NULL DEFAULT '0',
 	`order_shipping_address_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -1397,8 +1397,8 @@ CREATE TABLE IF NOT EXISTS `#__schorder_order` (
 ) ENGINE=MyISAM COMMENT='order information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 
-DROP TABLE IF EXISTS `#__schorder_order_product`;
-CREATE TABLE IF NOT EXISTS `#__schorder_order_product` (
+DROP TABLE IF EXISTS `tbl_schorder_order_product`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_order_product` (
 	`order_product_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 	`order_id` int(11) unsigned NOT NULL DEFAULT '0',
 	`product_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -1412,8 +1412,8 @@ CREATE TABLE IF NOT EXISTS `#__schorder_order_product` (
 	KEY `IDX_order_id` (`order_id`)
 ) ENGINE=MyISAM COMMENT='the product in an order' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
-DROP TABLE IF EXISTS `#__schorder_category`;
-CREATE TABLE IF NOT EXISTS `#__schorder_category` (
+DROP TABLE IF EXISTS `tbl_schorder_category`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_category` (
    `cid` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
    `parent` int(11) UNSIGNED DEFAULT 0,
    `name` varchar(255) DEFAULT NULL,
@@ -1428,8 +1428,8 @@ CREATE TABLE IF NOT EXISTS `#__schorder_category` (
 ) ENGINE=MyISAM COMMENT='the category information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 
-DROP TABLE IF EXISTS `#__schorder_product`;
-CREATE TABLE IF NOT EXISTS `#__schorder_product` (
+DROP TABLE IF EXISTS `tbl_schorder_product`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_product` (
    `product_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
    `product_name` varchar(255) NOT NULL,
    `product_alias` varchar(255) NOT NULL DEFAULT '',
@@ -1471,8 +1471,8 @@ CREATE TABLE IF NOT EXISTS `#__schorder_product` (
 ) ENGINE=MyISAM COMMENT='the product information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 
-DROP TABLE IF EXISTS `#__schorder_product_image`;
-CREATE TABLE IF NOT EXISTS `#__schorder_product_image` (
+DROP TABLE IF EXISTS `tbl_schorder_product_image`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_product_image` (
    `image_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
    `product_id` int(11) unsigned NOT NULL DEFAULT 0,
    `image_name` varchar(255) NOT NULL,
@@ -1490,8 +1490,8 @@ CREATE TABLE IF NOT EXISTS `#__schorder_product_image` (
 ) ENGINE=MyISAM COMMENT='the product image information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 
-DROP TABLE IF EXISTS `#__schorder_product_category`;
-CREATE TABLE IF NOT EXISTS `#__schorder_product_category` (
+DROP TABLE IF EXISTS `tbl_schorder_product_category`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_product_category` (
 	`product_category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 	`cid` int(11) unsigned NOT NULL,
 	`product_id` int(11) unsigned NOT NULL,
@@ -1501,8 +1501,8 @@ CREATE TABLE IF NOT EXISTS `#__schorder_product_category` (
 	KEY `IDX_product_id` (`product_id`)
 ) ENGINE=MyISAM COMMENT='the category and product information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
-DROP TABLE IF EXISTS `#__schorder_shipping`;
-CREATE TABLE IF NOT EXISTS `#__schorder_shipping` (
+DROP TABLE IF EXISTS `tbl_schorder_shipping`;
+CREATE TABLE IF NOT EXISTS `tbl_schorder_shipping` (
 	`shipping_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`shipping_type` varchar(255) NOT NULL DEFAULT 'manual',
 	`shipping_zone_namekey` varchar(255) NOT NULL,
@@ -1533,7 +1533,7 @@ DROP TRIGGER IF EXISTS img_created_datetime;
 DROP TRIGGER IF EXISTS img_updated_datetime;
 
 DELIMITER //
-CREATE TRIGGER member_register_datetime BEFORE INSERT ON `#__schorder_member`
+CREATE TRIGGER member_register_datetime BEFORE INSERT ON `tbl_schorder_member`
    FOR EACH ROW
    BEGIN
 	  if new.register_date is null then
@@ -1542,7 +1542,7 @@ CREATE TRIGGER member_register_datetime BEFORE INSERT ON `#__schorder_member`
    END;//
 
 DELIMITER //
-CREATE TRIGGER member_visit_datetime BEFORE UPDATE ON `#__schorder_member`
+CREATE TRIGGER member_visit_datetime BEFORE UPDATE ON `tbl_schorder_member`
    FOR EACH ROW
    BEGIN
 	  if new.lastvisit_date is null then
@@ -1551,7 +1551,7 @@ CREATE TRIGGER member_visit_datetime BEFORE UPDATE ON `#__schorder_member`
    END;//
 
 DELIMITER //
-CREATE TRIGGER prod_created_datetime BEFORE INSERT ON `#__schorder_product`
+CREATE TRIGGER prod_created_datetime BEFORE INSERT ON `tbl_schorder_product`
    FOR EACH ROW 
    BEGIN
       if new.created_on is null then
@@ -1560,7 +1560,7 @@ CREATE TRIGGER prod_created_datetime BEFORE INSERT ON `#__schorder_product`
    END;//
 
 DELIMITER //
-CREATE TRIGGER prod_updated_datetime BEFORE UPDATE ON `#__schorder_product`
+CREATE TRIGGER prod_updated_datetime BEFORE UPDATE ON `tbl_schorder_product`
    FOR EACH ROW 
    BEGIN
       if new.modified_on is null then
@@ -1569,7 +1569,7 @@ CREATE TRIGGER prod_updated_datetime BEFORE UPDATE ON `#__schorder_product`
    END;//
 
 DELIMITER //
-CREATE TRIGGER cg_created_datetime BEFORE INSERT ON `#__schorder_category`
+CREATE TRIGGER cg_created_datetime BEFORE INSERT ON `tbl_schorder_category`
    FOR EACH ROW 
    BEGIN
       if new.created_on is null then
@@ -1578,7 +1578,7 @@ CREATE TRIGGER cg_created_datetime BEFORE INSERT ON `#__schorder_category`
    END;//
 
 DELIMITER //
-CREATE TRIGGER cg_updated_datetime BEFORE UPDATE ON `#__schorder_category`
+CREATE TRIGGER cg_updated_datetime BEFORE UPDATE ON `tbl_schorder_category`
    FOR EACH ROW 
    BEGIN
       if new.modified_on is null then
@@ -1587,7 +1587,7 @@ CREATE TRIGGER cg_updated_datetime BEFORE UPDATE ON `#__schorder_category`
    END;//
 
 DELIMITER //
-CREATE TRIGGER order_created_datetime BEFORE INSERT ON `#__schorder_order`
+CREATE TRIGGER order_created_datetime BEFORE INSERT ON `tbl_schorder_order`
    FOR EACH ROW
    BEGIN
 	  if new.created_on is null then
@@ -1596,7 +1596,7 @@ CREATE TRIGGER order_created_datetime BEFORE INSERT ON `#__schorder_order`
    END;//
 
 DELIMITER //
-CREATE TRIGGER order_modified_datetime BEFORE UPDATE ON `#__schorder_order`
+CREATE TRIGGER order_modified_datetime BEFORE UPDATE ON `tbl_schorder_order`
    FOR EACH ROW
    BEGIN
 	  if new.modified_on is null then
@@ -1605,7 +1605,7 @@ CREATE TRIGGER order_modified_datetime BEFORE UPDATE ON `#__schorder_order`
    END;//
 
 DELIMITER //
-CREATE TRIGGER cart_created_datetime BEFORE INSERT ON `#__schorder_cart`
+CREATE TRIGGER cart_created_datetime BEFORE INSERT ON `tbl_schorder_cart`
    FOR EACH ROW 
    BEGIN
       if new.created_on is null then
@@ -1615,7 +1615,7 @@ CREATE TRIGGER cart_created_datetime BEFORE INSERT ON `#__schorder_cart`
 
 
 DELIMITER //
-CREATE TRIGGER cart_updated_datetime BEFORE UPDATE ON `#__schorder_cart`
+CREATE TRIGGER cart_updated_datetime BEFORE UPDATE ON `tbl_schorder_cart`
    FOR EACH ROW 
    BEGIN
       if new.modified_on is null then
@@ -1624,7 +1624,7 @@ CREATE TRIGGER cart_updated_datetime BEFORE UPDATE ON `#__schorder_cart`
    END;//
 
 DELIMITER //
-CREATE TRIGGER img_created_datetime BEFORE INSERT ON `#__schorder_product_image`
+CREATE TRIGGER img_created_datetime BEFORE INSERT ON `tbl_schorder_product_image`
    FOR EACH ROW 
    BEGIN
       if new.created_on is null then
@@ -1633,7 +1633,7 @@ CREATE TRIGGER img_created_datetime BEFORE INSERT ON `#__schorder_product_image`
    END;//
 
 DELIMITER //
-CREATE TRIGGER img_updated_datetime BEFORE UPDATE ON `#__schorder_product_image`
+CREATE TRIGGER img_updated_datetime BEFORE UPDATE ON `tbl_schorder_product_image`
    FOR EACH ROW 
    BEGIN
       if new.modified_on is null then
@@ -1641,7 +1641,7 @@ CREATE TRIGGER img_updated_datetime BEFORE UPDATE ON `#__schorder_product_image`
       end if;
    END;//
 
-INSERT INTO `#__schorder_category` (`cid`, `parent`, `name`, `description`, `ordering`, `created_by`, `published`)
+INSERT INTO `tbl_schorder_category` (`cid`, `parent`, `name`, `description`, `ordering`, `created_by`, `published`)
 VALUES('100001', '0', 'Vegetables', 'Vegetables Category', '1', '1', '0'),
 ('100002', '0', 'Fruit', 'Fruit Category', '2', '1', '0'),
 ('100003', '0', 'Milk', 'Milk Category', '3', '1', '0');
