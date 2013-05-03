@@ -8,7 +8,7 @@
 	<license>GNU General Public License version 2 or later.</license>
 	<authorEmail>jason@netwebx.com</authorEmail>
 	<authorUrl>www.netwebx.com</authorUrl>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<description>COM_SCHEDULEORDER_XML_DESCRIPTION</description>
 	<scriptfile>install.scheduleorder.php</scriptfile>
 	<install>
