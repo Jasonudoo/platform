@@ -1413,13 +1413,14 @@ CREATE TABLE IF NOT EXISTS `#__schorder_order_product` (
 ) ENGINE=MyISAM COMMENT='the product in an order' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
 DROP TABLE IF EXISTS `#__schorder_category`;
-CREATE TABLE IF NOT EXISTS `#__schorder_category` (
-   `cid` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-   `parent` int(11) UNSIGNED DEFAULT 0,
+DROP TABLE IF EXISTS `#__schorder_package`;
+CREATE TABLE IF NOT EXISTS `#__schorder_package` (
+   `pid` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
    `name` varchar(255) DEFAULT NULL,
    `description` TEXT,
    `ordering` int(11) UNSIGNED DEFAULT 1,
    `published` tinyint(3) UNSIGNED DEFAULT 0,
+   `total_price` DECIMAL(17,5) NOT NULL DEFAULT '0.0000',
    `created_by` int(11) UNSIGNED NOT NULL,
    `modified_by` int(11) UNSIGNED DEFAULT NULL,
    `created_on` datetime DEFAULT NULL,
@@ -1489,14 +1490,14 @@ CREATE TABLE IF NOT EXISTS `#__schorder_product_image` (
    KEY `IDX_product_id` (`product_id`)
 ) ENGINE=MyISAM COMMENT='the product image information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
 
-
 DROP TABLE IF EXISTS `#__schorder_product_category`;
-CREATE TABLE IF NOT EXISTS `#__schorder_product_category` (
-	`product_category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `#__schorder_product_package`;
+CREATE TABLE IF NOT EXISTS `#__schorder_product_package` (
+	`product_package_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 	`cid` int(11) unsigned NOT NULL,
 	`product_id` int(11) unsigned NOT NULL,
 	`ordering` int(11) unsigned NOT NULL DEFAULT '0',
-	PRIMARY KEY (`product_category_id`),
+	PRIMARY KEY (`product_package_id`),
 	UNIQUE KEY `IDX_category_id` (`cid`,`product_id`),
 	KEY `IDX_product_id` (`product_id`)
 ) ENGINE=MyISAM COMMENT='the category and product information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
