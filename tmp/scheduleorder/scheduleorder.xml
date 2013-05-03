@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- $Id$ -->
 <extension type="component" version="2.5.0" method="upgrade">
 	<name>com_scheduleorder</name>
 	<author>Jason Coder</author>
@@ -32,15 +31,13 @@
 		<folder>js</folder>
 		<filename>index.html</filename>
 	</media>
-	<!--
 	<languages>
 		<language tag="en-GB">site/language/en-GB/en-GB.com_scheduleorder.ini</language>
 	</languages>
-	-->
 	<files folder="site">
 		<filename>index.html</filename>
 		<filename>scheduleorder.php</filename>
-		<filename>controllder.php</filename>
+		<filename>controller.php</filename>
 		<folder>models</folder>
 		<folder>helper</folder>
 		<folder>views</folder>
