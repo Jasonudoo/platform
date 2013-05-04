@@ -54,11 +54,9 @@ class ScheduleorderTable extends JTable
     public function check()
     {
         // Check for valid name.
-        if (trim($this->title) === '') {
-            $this
-                    ->setError(
-                            JText::_(
-                                    'COM_scheduleorder_ERROR_#__so_order_member_TITLE'));
+        if (trim($this->title) === '') 
+        {
+            $this->setError(JText::_('COM_scheduleorder_ERROR_#__so_order_member_TITLE'));
             return false;
         }
 
@@ -79,7 +77,8 @@ class ScheduleorderTable extends JTable
         $date = JFactory::getDate()->toMySQL();
         $userId = JFactory::getUser()->get('id');
 
-        if (empty($this->id)) {
+        if (empty($this->id)) 
+        {
             // New record.
             $this->created_time = $date;
             $this->created_user_id = $userId;
