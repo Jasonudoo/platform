@@ -1,1 +1,76 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<extension type="component" version="2.5.0" method="upgrade">
+	<name>com_scheduleorder</name>
+	<author>Jason Coder</author>
+	<creationDate>2013-04-27</creationDate>
+	<copyright>Copyright NetWebX.COM. All rights reserved.	</copyright>
+	<license>GNU General Public License version 2 or later.</license>
+	<authorEmail>jason@netwebx.com</authorEmail>
+	<authorUrl>www.netwebx.com</authorUrl>
+	<version>1.0.4</version>
+	<description>COM_SCHEDULEORDER_XML_DESCRIPTION</description>
+	<scriptfile>install.scheduleorder.php</scriptfile>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.scheduleorder.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.scheduleorder.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	<media destination="com_scheduleorder" folder="site/media">
+		<folder>images</folder>
+		<folder>css</folder>
+		<folder>js</folder>
+		<filename>index.html</filename>
+	</media>
+	<languages>
+		<language tag="en-GB">site/language/en-GB/en-GB.com_scheduleorder.ini</language>
+	</languages>
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>scheduleorder.php</filename>
+		<filename>controller.php</filename>
+		<folder>models</folder>
+		<folder>helper</folder>
+		<folder>views</folder>
+		<folder>assets</folder>
+		<folder>language</folder>
+	</files>
+	<administration>
+		<files folder="admin">
+			<filename>index.html</filename>
+			<filename>scheduleorder.php</filename>
+			<filename>controller.php</filename>
+			<filename>config.xml</filename>
+			<filename>access.xml</filename>
+			<folder>assets</folder>
+			<folder>models</folder>
+			<folder>views</folder>
+			<folder>tables</folder>
+			<folder>elements</folder>
+			<folder>sql</folder>
+		</files>
+		<menu>Schedule Order</menu>
+		<submenu>
+			<menu link="option=com_scheduleorder&amp;view=category">Category</menu>
+			<menu link="option=com_scheduleorder&amp;view=product">Products</menu>
+			<menu link="option=com_scheduleorder&amp;view=member">Member</menu>
+			<menu link="option=com_scheduleorder&amp;view=order">Order</menu>
+			<menu link="option=com_scheduleorder&amp;view=cart">Schedule Cart</menu>
+			<menu link="option=com_scheduleorder&amp;view=config">Configuration</menu>
+		</submenu>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_scheduleorder.sys.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_scheduleorder.ini</language>
+		</languages>
+	</administration>
+</extension>
