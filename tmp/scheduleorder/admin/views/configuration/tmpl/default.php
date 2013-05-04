@@ -10,30 +10,25 @@
 // no direct access
 defined( '_JEXEC' ) or die('Restricted Access') ;
 
-JToolBarHelper::title(   JText::_( 'EB_CONFIGURATION' ), 'generic.png' );
+JToolBarHelper::title(   JText::_( 'SCH_CONFIGURATION' ), 'generic.png' );
 JToolBarHelper::save('save_configuration');
 JToolBarHelper::cancel();
 JToolBarHelper::preferences('com_scheduleorder');
 $editor = JFactory::getEditor() ;
 ?>
-<form action="index.php?option=com_eventbooking&view=configuration" method="post" name="adminForm" id="adminForm">
+<form action="index.php?option=com_scheduleorder&view=configuration" method="post" name="adminForm" id="adminForm">
 	<div class="row-fluid">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#general-page" data-toggle="tab"><?php echo JText::_('EB_GENERAL');?></a></li>
-			<li><a href="#message-page" data-toggle="tab"><?php echo JText::_('EB_MESSAGES');?></a></li>
-			<li><a href="#theme-page" data-toggle="tab"><?php echo JText::_('EB_THEMES');?></a></li>
-			<li><a href="#payment-page" data-toggle="tab"><?php echo JText::_('EB_BILLING_FIELDS');?></a></li>
-			<li><a href="#group-member-page" data-toggle="tab"><?php echo JText::_('EB_GROUP_MEMBER_FIELDS');?></a></li>
-			<li><a href="#waitinglist-page" data-toggle="tab"><?php echo JText::_('EB_WAITINGLIST_FIELDS');?></a></li>
+			<li class="active"><a href="#general-page" data-toggle="tab"><?php echo JText::_('SCH_GENERAL');?></a></li>
 			<?php
 				if ($this->config->cb_integration > 0) {
 				?>
-					<li><a href="#field-mapping-page" data-toggle="tab"><?php echo JText::_('EB_FIELD_MAPPING');?></a></li>
+					<li><a href="#field-mapping-page" data-toggle="tab"><?php echo JText::_('SCH_FIELD_MAPPING');?></a></li>
 				<?php
 				}
 				if (JFile::exists(JPATH_ROOT.'/components/com_sh404sef/sh404sef.php')) {
 				?>
-					<li><a href="#sef-setting-page" data-toggle="tab"><?php echo JText::_('EB_SEF_SETTING');?></a></li>
+					<li><a href="#sef-setting-page" data-toggle="tab"><?php echo JText::_('SCH_SEF_SETTING');?></a></li>
 				<?php
 				}
 			?>
@@ -46,13 +41,13 @@ $editor = JFactory::getEditor() ;
 						?>
 						<tr>
 							<td  class="key" style="width:18%">
-								<?php echo JText::_('EB_LANGUAGE'); ?>
+								<?php echo JText::_('SCH_LANGUAGE'); ?>
 							</td>
 							<td width="30%">
 								<?php echo $this->lists['language']; ?>
 							</td>
 							<td>
-								<?php echo JText::_('EB_LANGUAGE_EXPLAIN'); ?>
+								<?php echo JText::_('SCH_LANGUAGE_EXPLAIN'); ?>
 							</td>
 						</tr>
 						<?php
@@ -60,7 +55,7 @@ $editor = JFactory::getEditor() ;
 					?>
 					<tr>
 						<td  class="key" style="width:18%">
-							<?php echo JText::_('EB_INTEGRATION'); ?>
+							<?php echo JText::_('SCH_INTEGRATION'); ?>
 						</td>
 						<td width="30%">
 							<?php echo $this->lists['cb_integration']; ?>
@@ -71,18 +66,18 @@ $editor = JFactory::getEditor() ;
 					</tr>
 		            <tr>
 		        		<td  class="key">
-		        			<?php echo JText::_('EB_USER_REGISTRATION_INTEGRATION'); ?>
+		        			<?php echo JText::_('SCH_USER_REGISTRATION_INTEGRATION'); ?>
 		        		</td>
 		        		<td>
 		        			<?php echo $this->lists['user_registration']; ?>
 		        		</td>
 		        		<td>
-		        			<?php echo JText::_('EB_REGISTRATION_INTEGRATION_EXPLAIN'); ?>
+		        			<?php echo JText::_('SCH_REGISTRATION_INTEGRATION_EXPLAIN'); ?>
 		        		</td>
 		        	</tr>
 		        	<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_CALENDAR_START_DATE'); ?>
+							<?php echo JText::_('SCH_CALENDAR_START_DATE'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['calendar_start_date']; ?>
@@ -93,128 +88,128 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_SIMPLY_REGISTRATION_PROCESS'); ?>
+							<?php echo JText::_('SCH_SIMPLY_REGISTRATION_PROCESS'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['simply_registration_process']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_SIMPLY_REGISTRATION_PROCESS_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_SIMPLY_REGISTRATION_PROCESS_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_ACTIVATE_DEPOSIT_FEATURE'); ?>
+							<?php echo JText::_('SCH_ACTIVATE_DEPOSIT_FEATURE'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['activate_deposit_feature']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_ACTIVATE_DEPOSIT_FEATURE_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_ACTIVATE_DEPOSIT_FEATURE_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_ACTIVATE_WAITINGLIST_FEATURE'); ?>
+							<?php echo JText::_('SCH_ACTIVATE_WAITINGLIST_FEATURE'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['activate_waitinglist_feature']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_ACTIVATE_WAITINGLIST_FEATURE_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_ACTIVATE_WAITINGLIST_FEATURE_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_EVENT_CUSTOM_FIELD'); ?>
+							<?php echo JText::_('SCH_EVENT_CUSTOM_FIELD'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['event_custom_field']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_EVENT_CUSTOM_FIELD_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_EVENT_CUSTOM_FIELD_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_MULTIPLE_BOOKING'); ?>
+							<?php echo JText::_('SCH_MULTIPLE_BOOKING'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['multiple_booking']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_MULTIPLE_BOOKING_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_MULTIPLE_BOOKING_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_PREVENT_DUPLICATE'); ?>
+							<?php echo JText::_('SCH_PREVENT_DUPLICATE'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['prevent_duplicate_registration']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_PREVENT_DUPLICATE_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_PREVENT_DUPLICATE_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_STATE_DROPDOWN'); ?>
+							<?php echo JText::_('SCH_STATE_DROPDOWN'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['display_state_dropdown']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_STATE_DROPDOWN_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_STATE_DROPDOWN_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_ENABLE_CAPTCHA'); ?>
+							<?php echo JText::_('SCH_ENABLE_CAPTCHA'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['enable_captcha']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_CAPTCHA_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_CAPTCHA_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_BYPASS_CAPTCHA_FOR_REGISTERED_USER'); ?>
+							<?php echo JText::_('SCH_BYPASS_CAPTCHA_FOR_REGISTERED_USER'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['bypass_captcha_for_registered_user']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_BYPASS_CAPTCHA_FOR_REGISTERED_USER_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_BYPASS_CAPTCHA_FOR_REGISTERED_USER_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_ENABLE_COUPON'); ?>
+							<?php echo JText::_('SCH_ENABLE_COUPON'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['enable_coupon']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_COUNPON_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_COUNPON_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 		        		<td  class="key">
-		        			<?php echo JText::_('EB_SHOW_PENDING_REGISTRANTS'); ?>
+		        			<?php echo JText::_('SCH_SHOW_PENDING_REGISTRANTS'); ?>
 		        		</td>
 		        		<td>
 		        			<?php echo $this->lists['show_pending_registrants']; ?>
 		        		</td>
 		        		<td>
-		        			<?php echo JText::_('EB_SHOW_PENDING_REGISTRANTS_EXPLAIN'); ?>
+		        			<?php echo JText::_('SCH_SHOW_PENDING_REGISTRANTS_EXPLAIN'); ?>
 		        		</td>
 		        	</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_ENABLE_TAX'); ?>
+							<?php echo JText::_('SCH_ENABLE_TAX'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['enable_tax']; ?>
@@ -225,7 +220,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_TAX_RATE'); ?>
+							<?php echo JText::_('SCH_TAX_RATE'); ?>
 						</td>
 						<td>
 							<input type="text" name="tax_rate" class="inputbox" value="<?php echo $this->config->tax_rate ; ?>" />
@@ -236,195 +231,195 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_COLLECT_MEMBER_INFORMATION'); ?>
+							<?php echo JText::_('SCH_COLLECT_MEMBER_INFORMATION'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['collect_member_information']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_COLLECT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_COLLECT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_SEND_CONFIRMATION_EMAIL_TO_GROUP_MEMBERS'); ?>
+							<?php echo JText::_('SCH_SEND_CONFIRMATION_EMAIL_TO_GROUP_MEMBERS'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['send_email_to_group_members']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_SEND_CONFIRMATION_EMAIL_TO_GROUP_MEMBERS_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_SEND_CONFIRMATION_EMAIL_TO_GROUP_MEMBERS_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_INCLUDE_GROUP_BILLING_IN_CSV_EXPORT'); ?>
+							<?php echo JText::_('SCH_INCLUDE_GROUP_BILLING_IN_CSV_EXPORT'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['include_group_billing_in_csv_export']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_INCLUDE_GROUP_BILLING_IN_CSV_EXPORT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_INCLUDE_GROUP_BILLING_IN_CSV_EXPORT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_INCLUDE_GROUP_BILLING_IN_REGISTRANTS_MANAGEMENT')?>
+							<?php echo JText::_('SCH_INCLUDE_GROUP_BILLING_IN_REGISTRANTS_MANAGEMENT')?>
 						</td>
 						<td>
 							<?php echo $this->lists['include_group_billing_in_registrants']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_INCLUDE_GROUP_BILLING_IN_REGISTRANTS_MANAGEMENT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_INCLUDE_GROUP_BILLING_IN_REGISTRANTS_MANAGEMENT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_INCLUDE_GROUP_MEMBERS_IN_CSV_EXPORT'); ?>
+							<?php echo JText::_('SCH_INCLUDE_GROUP_MEMBERS_IN_CSV_EXPORT'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['include_group_members_in_csv_export']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_INCLUDE_GROUP_MEMBERS_IN_CSV_EXPORT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_INCLUDE_GROUP_MEMBERS_IN_CSV_EXPORT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_INCLUDE_GROUP_MEMBERS_IN_REGISTRANTS_MANAGEMENT')?>
+							<?php echo JText::_('SCH_INCLUDE_GROUP_MEMBERS_IN_REGISTRANTS_MANAGEMENT')?>
 						</td>
 						<td>
 							<?php echo $this->lists['include_group_members_in_registrants']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_INCLUDE_GROUP_MEMBERS_IN_REGISTRANTS_MANAGEMENT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_INCLUDE_GROUP_MEMBERS_IN_REGISTRANTS_MANAGEMENT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_ZOOM_LEVEL'); ?>
+							<?php echo JText::_('SCH_ZOOM_LEVEL'); ?>
 						</td>
 						<td>
 							<?php echo JHTML::_('select.integerlist', 1, 14, 1, 'zoom_level', 'class="inputbox"', $this->config->zoom_level); ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_ZOOM_LEVEL_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_ZOOM_LEVEL_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_MAP_WIDTH'); ?>
+							<?php echo JText::_('SCH_MAP_WIDTH'); ?>
 						</td>
 						<td>
 							<input type="text" name="map_width" class="inputbox" value="<?php echo $this->config->map_width ; ?>" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_MAP_WIDTH_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_MAP_WIDTH_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_MAP_HEIGHT'); ?>
+							<?php echo JText::_('SCH_MAP_HEIGHT'); ?>
 						</td>
 						<td>
 							<input type="text" name="map_height" class="inputbox" value="<?php echo $this->config->map_height ; ?>" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_MAP_HEIGHT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_MAP_HEIGHT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_THUMB_WIDTH'); ?>
+							<?php echo JText::_('SCH_THUMB_WIDTH'); ?>
 						</td>
 						<td>
 							<input type="text" name="thumb_width" class="inputbox" value="<?php echo $this->config->thumb_width ; ?>" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_THUMB_WIDTH_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_THUMB_WIDTH_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_THUMB_HEIGHT'); ?>
+							<?php echo JText::_('SCH_THUMB_HEIGHT'); ?>
 						</td>
 						<td>
 							<input type="text" name="thumb_height" class="inputbox" value="<?php echo $this->config->thumb_height ; ?>" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_THUMB_HEIGHT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_THUMB_HEIGHT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_ACTIVATE_RECURRING_EVENT'); ?>
+							<?php echo JText::_('SCH_ACTIVATE_RECURRING_EVENT'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['activate_recurring_event']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_ACTIVATE_RECURRING_EVENT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_ACTIVATE_RECURRING_EVENT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_ACTIVATE_HTTPS'); ?>
+							<?php echo JText::_('SCH_ACTIVATE_HTTPS'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['use_https']; ?>
 						</td>
 						<td>
-							<?php echo  JText::_('EB_ACTIVATE_HTTPS_EXPLAIN'); ?>
+							<?php echo  JText::_('SCH_ACTIVATE_HTTPS_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_HIDE_PAST_EVENTS'); ?>
+							<?php echo JText::_('SCH_HIDE_PAST_EVENTS'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['hide_past_events']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_HIDE_PAST_EVENTS_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_HIDE_PAST_EVENTS_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_FIX_PROCESS_BUTTON_NOT_WORKING'); ?>
+							<?php echo JText::_('SCH_FIX_PROCESS_BUTTON_NOT_WORKING'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['fix_next_button']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_FIX_PROCESS_BUTTON_NOT_WORKING_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_FIX_PROCESS_BUTTON_NOT_WORKING_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_FIX_BREADCRUMBS'); ?>
+							<?php echo JText::_('SCH_FIX_BREADCRUMBS'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['fix_breadcrumbs']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_FIX_BREADCRUMBS_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_FIX_BREADCRUMBS_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_FIX_TERM_AND_CONDITION_POPUP'); ?>
+							<?php echo JText::_('SCH_FIX_TERM_AND_CONDITION_POPUP'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['fix_term_and_condition_popup']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_FIX_TERM_AND_CONDITION_POPUP_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_FIX_TERM_AND_CONDITION_POPUP_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_SHOW_TERM_AND_CONDITION') ?>
+							<?php echo JText::_('SCH_SHOW_TERM_AND_CONDITION') ?>
 						</td>
 						<td>
 							<?php
@@ -432,23 +427,23 @@ $editor = JFactory::getEditor() ;
 							?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_SHOW_TERM_AND_CONDITION_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_SHOW_TERM_AND_CONDITION_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_TERM_AND_CONDITION_BY_EVENT') ; ?>
+							<?php echo JText::_('SCH_TERM_AND_CONDITION_BY_EVENT') ; ?>
 						</td>
 						<td>
 							<?php echo $this->lists['term_condition_by_event']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_TERM_AND_CONDITION_BY_EVENT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_TERM_AND_CONDITION_BY_EVENT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_DEFAULT_TERM_AND_CONDITION') ; ?>
+							<?php echo JText::_('SCH_DEFAULT_TERM_AND_CONDITION') ; ?>
 						</td>
 						<td>
 							<?php echo $this->lists['article_id']; ?>
@@ -459,53 +454,53 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_ATTACHMENT_FILE_TYPES') ; ?>
+							<?php echo JText::_('SCH_ATTACHMENT_FILE_TYPES') ; ?>
 						</td>
 						<td>
 							<input type="text" name="attachment_file_types" class="inputbox" value="<?php echo strlen($this->config->attachment_file_types) ? $this->config->attachment_file_types : 'bmp|gif|jpg|png|swf|zip|doc|pdf|xls'; ?>" size="60" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_ATTACHMENT_FILE_TYPES_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_ATTACHMENT_FILE_TYPES_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_DATE_FORMAT') ; ?>
+							<?php echo JText::_('SCH_DATE_FORMAT') ; ?>
 						</td>
 						<td>
 							<input type="text" name="date_format" class="inputbox" value="<?php echo $this->config->date_format; ?>" size="20" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_DATE_FORMAT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_DATE_FORMAT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_EVENT_DATE_FORMAT') ; ?>
+							<?php echo JText::_('SCH_EVENT_DATE_FORMAT') ; ?>
 						</td>
 						<td>
 							<input type="text" name="event_date_format" class="inputbox" value="<?php echo $this->config->event_date_format; ?>" size="40" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_EVENT_DATE_FORMAT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_EVENT_DATE_FORMAT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_TIME_FORMAT') ; ?>
+							<?php echo JText::_('SCH_TIME_FORMAT') ; ?>
 						</td>
 						<td>
 							<input type="text" name="event_time_format" class="inputbox" value="<?php echo $this->config->event_time_format ? $this->config->event_time_format : '%I%P'; ?>" size="40" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_TIME_FORMAT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_TIME_FORMAT_EXPLAIN'); ?>
 						</td>
 					</tr>
 								
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_CURRENCY_SYMBOL'); ?>
+							<?php echo JText::_('SCH_CURRENCY_SYMBOL'); ?>
 						</td>
 						<td>
 							<input type="text" name="currency_symbol" class="inputbox" value="<?php echo $this->config->currency_symbol; ?>" size="10" />
@@ -517,43 +512,43 @@ $editor = JFactory::getEditor() ;
 					
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_DECIMALS'); ?>
+							<?php echo JText::_('SCH_DECIMALS'); ?>
 						</td>
 						<td>
 							<input type="text" name="decimals" class="inputbox" value="<?php echo isset($this->config->decimals) ? $this->config->decimals : 2; ?>" size="10" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_DECIMALS_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_DECIMALS_EXPLAIN'); ?>
 						</td>
 					</tr>
 					
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_DECIMAL_POINT'); ?>
+							<?php echo JText::_('SCH_DECIMAL_POINT'); ?>
 						</td>
 						<td>
 							<input type="text" name="dec_point" class="inputbox" value="<?php echo isset($this->config->dec_point) ? $this->config->dec_point : '.'; ?>" size="10" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_DECIMAL_POINT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_DECIMAL_POINT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_THOUNSANDS_SEP'); ?>
+							<?php echo JText::_('SCH_THOUNSANDS_SEP'); ?>
 						</td>
 						<td>
 							<input type="text" name="thousands_sep" class="inputbox" value="<?php echo isset($this->config->thousands_sep) ? $this->config->thousands_sep : ','; ?>" size="10" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_THOUNSANDS_SEP_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_THOUNSANDS_SEP_EXPLAIN'); ?>
 						</td>
 					</tr>
 					
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_CURRENCY_POSITION'); ?>
+							<?php echo JText::_('SCH_CURRENCY_POSITION'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['currency_position']; ?>
@@ -565,7 +560,7 @@ $editor = JFactory::getEditor() ;
 								
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_DEFAULT_COUNTRY'); ?>
+							<?php echo JText::_('SCH_DEFAULT_COUNTRY'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['country_list']; ?>
@@ -576,7 +571,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_CSV_DELIMITTER'); ?>
+							<?php echo JText::_('SCH_CSV_DELIMITTER'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['csv_delimiter']; ?>
@@ -587,13 +582,13 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_LOAD_BOOTSTRAP_CSS_IN_FRONTEND'); ?>
+							<?php echo JText::_('SCH_LOAD_BOOTSTRAP_CSS_IN_FRONTEND'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['load_bootstrap_css_in_frontend']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_LOAD_BOOTSTRAP_CSS_IN_FRONTEND_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_LOAD_BOOTSTRAP_CSS_IN_FRONTEND_EXPLAIN'); ?>
 						</td>
 					</tr>
 				</table>
@@ -602,228 +597,228 @@ $editor = JFactory::getEditor() ;
 				<table class="admintable">
 					<tr>
 						<td class="key" style="width: 18%;">
-							<?php echo JText::_('EB_FROM_NAME'); ?> <br />
+							<?php echo JText::_('SCH_FROM_NAME'); ?> <br />
 						</td>
 						<td>
 							<input type="text" name="from_name" class="inputbox" value="<?php echo $this->config->from_name; ?>" size="50" />
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_FROM_NAME_EXPLAIN'); ?></strong>
+							<strong><?php echo JText::_('SCH_FROM_NAME_EXPLAIN'); ?></strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_FROM_EMAIL'); ?> <br />
+							<?php echo JText::_('SCH_FROM_EMAIL'); ?> <br />
 						</td>
 						<td>
 							<input type="text" name="from_email" class="inputbox" value="<?php echo $this->config->from_email; ?>" size="50" />
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_FROM_EMAIL_EXPLAIN'); ?></strong>
+							<strong><?php echo JText::_('SCH_FROM_EMAIL_EXPLAIN'); ?></strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_NOTIFICATION_EMAILS'); ?> <br />
+							<?php echo JText::_('SCH_NOTIFICATION_EMAILS'); ?> <br />
 						</td>
 						<td>
 							<input type="text" name="notification_emails" class="inputbox" value="<?php echo $this->config->notification_emails; ?>" size="50" />
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_NOTIFICATION_EMAILS_EXPLAIN'); ?></strong>
+							<strong><?php echo JText::_('SCH_NOTIFICATION_EMAILS_EXPLAIN'); ?></strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_ADMIN_EMAIL_SUBJECT'); ?>
+							<?php echo JText::_('SCH_ADMIN_EMAIL_SUBJECT'); ?>
 						</td>
 						<td>
 							<input type="text" name="admin_email_subject" class="inputbox" value="<?php echo $this->config->admin_email_subject; ?>" size="80" />
 						</td>
 						<td width="35%">
-							<strong><?php echo JText::_('EB_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_ADMIN_EMAIL_BODY'); ?>
+							<?php echo JText::_('SCH_ADMIN_EMAIL_BODY'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'admin_email_body',  $this->config->admin_email_body , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_AVAILABLE_TAGS'); ?> :[REGISTRATION_DETAIL], [EVENT_TITLE], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAGS'); ?> :[REGISTRATION_DETAIL], [EVENT_TITLE], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_USER_EMAIL_SUBJECT'); ?>
+							<?php echo JText::_('SCH_USER_EMAIL_SUBJECT'); ?>
 						</td>
 						<td>
 							<input type="text" name="user_email_subject" class="inputbox" value="<?php echo $this->config->user_email_subject; ?>" size="50" />
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_USER_EMAIL_BODY'); ?>
+							<?php echo JText::_('SCH_USER_EMAIL_BODY'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'user_email_body',  $this->config->user_email_body , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_AVAILABLE_TAGS'); ?> :[REGISTRATION_DETAIL], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAGS'); ?> :[REGISTRATION_DETAIL], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_USER_EMAIL_BODY_OFFLINE'); ?>
+							<?php echo JText::_('SCH_USER_EMAIL_BODY_OFFLINE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'user_email_body_offline',  $this->config->user_email_body_offline , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_AVAILABLE_TAGS'); ?> :[REGISTRATION_DETAIL], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAGS'); ?> :[REGISTRATION_DETAIL], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_REGISTRATION_FORM_MESSAGE'); ?>
+							<?php echo JText::_('SCH_REGISTRATION_FORM_MESSAGE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'registration_form_message',  $this->config->registration_form_message , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_REGISTRATION_FORM_MESSAGE_EXPLAIN'); ?> <?php echo JText::_('EB_AVAILABLE_TAGS'); ?>: [EVENT_TITLE]</strong>
+							<strong><?php echo JText::_('SCH_REGISTRATION_FORM_MESSAGE_EXPLAIN'); ?> <?php echo JText::_('SCH_AVAILABLE_TAGS'); ?>: [EVENT_TITLE]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_REGISTRATION_FORM_MESSAGE_GROUP'); ?>
+							<?php echo JText::_('SCH_REGISTRATION_FORM_MESSAGE_GROUP'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'registration_form_message_group',  $this->config->registration_form_message_group , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_REGISTRATION_FORM_MESSAGE_GROUP_EXPLAIN'); ?> <?php echo JText::_('EB_AVAILABLE_TAGS'); ?>: [EVENT_TITLE]</strong>
+							<strong><?php echo JText::_('SCH_REGISTRATION_FORM_MESSAGE_GROUP_EXPLAIN'); ?> <?php echo JText::_('SCH_AVAILABLE_TAGS'); ?>: [EVENT_TITLE]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_NUMBER_OF_MEMBERS_FORM_MESSAGE'); ?>
+							<?php echo JText::_('SCH_NUMBER_OF_MEMBERS_FORM_MESSAGE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'number_members_form_message',  $this->config->number_members_form_message , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_NUMBER_OF_MEMBERS_FORM_MESSAGE_EXPLAIN'); ?></strong>
+							<strong><?php echo JText::_('SCH_NUMBER_OF_MEMBERS_FORM_MESSAGE_EXPLAIN'); ?></strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_MEMBER_INFORMATION_FORM_MESSAGE'); ?>
+							<?php echo JText::_('SCH_MEMBER_INFORMATION_FORM_MESSAGE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'member_information_form_message',  $this->config->member_information_form_message , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_MEMBER_INFORMATION_FORM_MESSAGE_EXPLAIN'); ?></strong>
+							<strong><?php echo JText::_('SCH_MEMBER_INFORMATION_FORM_MESSAGE_EXPLAIN'); ?></strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_CONFIRMATION_MESSAGE'); ?>
+							<?php echo JText::_('SCH_CONFIRMATION_MESSAGE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'confirmation_message',  $this->config->confirmation_message , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_CONFIRMATION_MESSAGE_EXPLAIN'); ?>. <?php echo JText::_('EB_AVAILABLE_TAGS'); ?>: [EVENT_TITLE], [AMOUNT]</strong>
+							<strong><?php echo JText::_('SCH_CONFIRMATION_MESSAGE_EXPLAIN'); ?>. <?php echo JText::_('SCH_AVAILABLE_TAGS'); ?>: [EVENT_TITLE], [AMOUNT]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_THANK_YOU_MESSAGE'); ?>
+							<?php echo JText::_('SCH_THANK_YOU_MESSAGE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'thanks_message',  $this->config->thanks_message , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_THANK_YOU_MESSAGE_EXPLAIN'); ?></strong>
+							<strong><?php echo JText::_('SCH_THANK_YOU_MESSAGE_EXPLAIN'); ?></strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_THANK_YOU_MESSAGE_OFFLINE'); ?>
+							<?php echo JText::_('SCH_THANK_YOU_MESSAGE_OFFLINE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'thanks_message_offline',  $this->config->thanks_message_offline , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_THANK_YOU_MESSAGE_OFFLINE_EXPLAIN'); ?></strong>
+							<strong><?php echo JText::_('SCH_THANK_YOU_MESSAGE_OFFLINE_EXPLAIN'); ?></strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_CANCEL_MESSAGE'); ?>
+							<?php echo JText::_('SCH_CANCEL_MESSAGE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'cancel_message',  $this->config->cancel_message , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_CANCEL_MESSAGE_EXPLAIN') ; ?></strong>
+							<strong><?php echo JText::_('SCH_CANCEL_MESSAGE_EXPLAIN') ; ?></strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_REGISTRATION_CANCEL_MESSAGE_FREE'); ?>
+							<?php echo JText::_('SCH_REGISTRATION_CANCEL_MESSAGE_FREE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'registration_cancel_message_free',  $this->config->registration_cancel_message_free , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_REGISTRATION_CANCEL_MESSAGE_FREE_EXPLAIN'); ?></strong>
+							<strong><?php echo JText::_('SCH_REGISTRATION_CANCEL_MESSAGE_FREE_EXPLAIN'); ?></strong>
 						</td>
 					</tr>
 					
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_REGISTRATION_CANCEL_MESSAGE_PAID'); ?>
+							<?php echo JText::_('SCH_REGISTRATION_CANCEL_MESSAGE_PAID'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'registration_cancel_message_paid',  $this->config->registration_cancel_message_paid, '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_REGISTRATION_CANCEL_MESSAGE_PAID_EXPLAIN'); ?></strong>
+							<strong><?php echo JText::_('SCH_REGISTRATION_CANCEL_MESSAGE_PAID_EXPLAIN'); ?></strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_INVITATION_FORM_MESSAGE'); ?>
+							<?php echo JText::_('SCH_INVITATION_FORM_MESSAGE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'invitation_form_message',  $this->config->invitation_form_message, '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_INVITATION_FORM_MESSAGE_EXPLAIN'); ?></strong>
+							<strong><?php echo JText::_('SCH_INVITATION_FORM_MESSAGE_EXPLAIN'); ?></strong>
 						</td>
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_INVITATION_EMAIL_SUBJECT'); ?>
+							<?php echo JText::_('SCH_INVITATION_EMAIL_SUBJECT'); ?>
 						</td>
 						<td>
 							<input type="text" name="invitation_email_subject" class="inputbox" value="<?php echo $this->config->invitation_email_subject; ?>" size="50" />
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_INVITATION_EMAIL_BODY'); ?>
+							<?php echo JText::_('SCH_INVITATION_EMAIL_BODY'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'invitation_email_body',  $this->config->invitation_email_body , '100%', '250', '75', '8' ) ;?>
@@ -834,148 +829,148 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_INVITATION_COMPLETE_MESSAGE'); ?>
+							<?php echo JText::_('SCH_INVITATION_COMPLETE_MESSAGE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'invitation_complete',  $this->config->invitation_complete , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_INVITATION_COMPLETE_MESSAGE_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_INVITATION_COMPLETE_MESSAGE_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_REMINDER_EMAIL_SUBJECT'); ?>
+							<?php echo JText::_('SCH_REMINDER_EMAIL_SUBJECT'); ?>
 						</td>
 						<td>
 							<input type="text" name="reminder_email_subject" class="inputbox" value="<?php echo $this->config->reminder_email_subject; ?>" size="50" />
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_REMINDER_EMAIL_BODY'); ?>
+							<?php echo JText::_('SCH_REMINDER_EMAIL_BODY'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'reminder_email_body',  $this->config->reminder_email_body , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_AVAILABLE_TAG'); ?> :[REGISTRATION_DETAIL], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAG'); ?> :[REGISTRATION_DETAIL], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_CANCEL_NOTIFICATION_EMAIL_SUBJECT'); ?>
+							<?php echo JText::_('SCH_CANCEL_NOTIFICATION_EMAIL_SUBJECT'); ?>
 						</td>
 						<td>
 							<input type="text" name="registration_cancel_email_subject" class="inputbox" value="<?php echo $this->config->registration_cancel_email_subject; ?>" size="50" />
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_CANCEL_NOTIFICATION_EMAIL_BODY'); ?>
+							<?php echo JText::_('SCH_CANCEL_NOTIFICATION_EMAIL_BODY'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'registration_cancel_email_body',  $this->config->registration_cancel_email_body , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_AVAILABLE_TAGS'); ?> :[REGISTRATION_DETAIL], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAGS'); ?> :[REGISTRATION_DETAIL], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
 						</td>
 					</tr>
 					
 					<tr>
 						<td  class="key">
-							<?php echo JText::_('EB_REGISTRATION_APPROVED_EMAIL_SUBJECT'); ?>
+							<?php echo JText::_('SCH_REGISTRATION_APPROVED_EMAIL_SUBJECT'); ?>
 						</td>
 						<td>
 							<input type="text" name="registration_approved_email_subject" class="inputbox" value="<?php echo $this->config->registration_approved_email_subject; ?>" size="50" />
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAGS'); ?> : [EVENT_TITLE]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_REGISTRATION_APPROVED_EMAIL_BODY'); ?>
+							<?php echo JText::_('SCH_REGISTRATION_APPROVED_EMAIL_BODY'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'registration_approved_email_body',  $this->config->registration_approved_email_body , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_AVAILABLE_TAGS'); ?> :[REGISTRATION_DETAIL], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
+							<strong><?php echo JText::_('SCH_AVAILABLE_TAGS'); ?> :[REGISTRATION_DETAIL], [FIRST_NAME], [LAST_NAME], [ORGANIZATION], [ADDRESS], [ADDRESS2], [CITY], [STATE], [CITY], [ZIP], [COUNTRY], [PHONE], [FAX], [EMAIL], [COMMENT], [AMOUNT]</strong>
 						</td>
 					</tr>
 								
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_WAITINGLIST_FORM_MESSAGE'); ?>
+							<?php echo JText::_('SCH_WAITINGLIST_FORM_MESSAGE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'waitinglist_form_message',  $this->config->waitinglist_form_message , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_WAITINGLIST_FORM_MESSAGE_EXPLAIN'); ?> <?php echo JText::_('EB_AVAILABLE_TAGS'); ?>: [EVENT_TITLE]</strong>
+							<strong><?php echo JText::_('SCH_WAITINGLIST_FORM_MESSAGE_EXPLAIN'); ?> <?php echo JText::_('SCH_AVAILABLE_TAGS'); ?>: [EVENT_TITLE]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_WAITINGLIST_COMPLETE_MESSAGE'); ?>
+							<?php echo JText::_('SCH_WAITINGLIST_COMPLETE_MESSAGE'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'waitinglist_complete_message',  $this->config->waitinglist_complete_message , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_WAITINGLIST_COMPLETE_MESSAGE_EXPLAIN'); ?> <?php echo JText::_('EB_AVAILABLE_TAGS'); ?>: [EVENT_TITLE], [FIRST_NAME], [LAST_NAME]</strong>
+							<strong><?php echo JText::_('SCH_WAITINGLIST_COMPLETE_MESSAGE_EXPLAIN'); ?> <?php echo JText::_('SCH_AVAILABLE_TAGS'); ?>: [EVENT_TITLE], [FIRST_NAME], [LAST_NAME]</strong>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_WAITINGLIST_CONFIRMATION_SUBJECT');  ?>
+							<?php echo JText::_('SCH_WAITINGLIST_CONFIRMATION_SUBJECT');  ?>
 						</td>
 						<td>
 							<input type="text" name="watinglist_confirmation_subject" class="inputbox" size="70" value="<?php echo $this->config->watinglist_confirmation_subject ; ?>" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_WAITINGLIST_CONFIRMATION_SUBJECT_EXPLAIN');  ?>
+							<?php echo JText::_('SCH_WAITINGLIST_CONFIRMATION_SUBJECT_EXPLAIN');  ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_WAITINGLIST_CONFIRMATION_BODY'); ?>
+							<?php echo JText::_('SCH_WAITINGLIST_CONFIRMATION_BODY'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'watinglist_confirmation_body',  $this->config->watinglist_confirmation_body , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_WAITINGLIST_COMPLETE_MESSAGE_EXPLAIN'); ?> <?php echo JText::_('EB_AVAILABLE_TAGS'); ?>: [EVENT_TITLE], [FIRST_NAME], [LAST_NAME]</strong>
+							<strong><?php echo JText::_('SCH_WAITINGLIST_COMPLETE_MESSAGE_EXPLAIN'); ?> <?php echo JText::_('SCH_AVAILABLE_TAGS'); ?>: [EVENT_TITLE], [FIRST_NAME], [LAST_NAME]</strong>
 						</td>
 					</tr>
 					
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_WAITINGLIST_NOTIFICATION_SUBJECT');  ?>
+							<?php echo JText::_('SCH_WAITINGLIST_NOTIFICATION_SUBJECT');  ?>
 						</td>
 						<td>
 							<input type="text" name="watinglist_notification_subject" class="inputbox" size="70" value="<?php echo $this->config->watinglist_notification_subject ; ?>" />
 						</td>
 						<td>
-							<?php echo JText::_('EB_WAITINGLIST_NOTIFICATION_SUBJECT_EXPLAIN');  ?>
+							<?php echo JText::_('SCH_WAITINGLIST_NOTIFICATION_SUBJECT_EXPLAIN');  ?>
 						</td>
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_WAITINGLIST_NOTIFICATION_BODY'); ?>
+							<?php echo JText::_('SCH_WAITINGLIST_NOTIFICATION_BODY'); ?>
 						</td>
 						<td>
 							<?php echo $editor->display( 'watinglist_notification_body',  $this->config->watinglist_notification_body , '100%', '250', '75', '8' ) ;?>
 						</td>
 						<td>
-							<strong><?php echo JText::_('EB_WAITINGLIST_NOTIFICATION_BODY_EXPLAIN'); ?> <?php echo JText::_('EB_AVAILABLE_TAGS'); ?>: [EVENT_TITLE], [FIRST_NAME], [LAST_NAME]</strong>
+							<strong><?php echo JText::_('SCH_WAITINGLIST_NOTIFICATION_BODY_EXPLAIN'); ?> <?php echo JText::_('SCH_AVAILABLE_TAGS'); ?>: [EVENT_TITLE], [FIRST_NAME], [LAST_NAME]</strong>
 						</td>
 					</tr>
 				</table>
@@ -984,7 +979,7 @@ $editor = JFactory::getEditor() ;
 				<table class="admintable" width="100%">
 					<tr>
 						<td class="key" style="width:18%;">
-							<?php echo JText::_('EB_CALENDAR_THEME'); ?>
+							<?php echo JText::_('SCH_CALENDAR_THEME'); ?>
 						</td>
 						<td width="30%">
 							<?php echo $this->lists['calendar_theme']; ?>
@@ -995,7 +990,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" style="width:18%;">
-							<?php echo JText::_('EB_FRONTEND_SUBMIT_EVENT_FORM_LAYOUT'); ?>
+							<?php echo JText::_('SCH_FRONTEND_SUBMIT_EVENT_FORM_LAYOUT'); ?>
 						</td>
 						<td width="30%">
 							<?php echo $this->lists['submit_event_form_layout']; ?>
@@ -1006,7 +1001,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_SHOW_MULTIPLE_DAYS_EVENT_IN_CALENDAR'); ?>
+							<?php echo JText::_('SCH_SHOW_MULTIPLE_DAYS_EVENT_IN_CALENDAR'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_multiple_days_event_in_calendar']; ?>
@@ -1017,18 +1012,18 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_SHOW_EVENT_TIME'); ?>
+							<?php echo JText::_('SCH_SHOW_EVENT_TIME'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_event_time']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_SHOW_EVENT_TIME_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_SHOW_EVENT_TIME_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_EMPTY_CATEGORIES'); ?>
+							<?php echo JText::_('SCH_SHOW_EMPTY_CATEGORIES'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_empty_cat']; ?>
@@ -1039,7 +1034,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_NUMBER_EVENTS'); ?>
+							<?php echo JText::_('SCH_SHOW_NUMBER_EVENTS'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_number_events']; ?>
@@ -1050,7 +1045,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_CATEGORIES_PER_PAGE'); ?>
+							<?php echo JText::_('SCH_CATEGORIES_PER_PAGE'); ?>
 						</td>
 						<td>
 							<input type="text" name="number_categories" class="inputbox" value="<?php echo $this->config->number_categories; ?>" size="10" />
@@ -1061,7 +1056,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_EVENTS_PER_PAGE'); ?>
+							<?php echo JText::_('SCH_EVENTS_PER_PAGE'); ?>
 						</td>
 						<td>
 							<input type="text" name="number_events" class="inputbox" value="<?php echo $this->config->number_events; ?>" size="10" />
@@ -1072,7 +1067,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key">
-							<?php echo JText::_('EB_EVENT_ORDER_BY'); ?>
+							<?php echo JText::_('SCH_EVENT_ORDER_BY'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['order_events'] ; ?>
@@ -1080,7 +1075,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_EVENT_CAPACITY'); ?>
+							<?php echo JText::_('SCH_SHOW_EVENT_CAPACITY'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_capacity']; ?>
@@ -1091,7 +1086,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_NUMBER_REGISTERED_USERS'); ?>
+							<?php echo JText::_('SCH_SHOW_NUMBER_REGISTERED_USERS'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_registered']; ?>
@@ -1102,7 +1097,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_AVAILABLE_PLACES'); ?>
+							<?php echo JText::_('SCH_SHOW_AVAILABLE_PLACES'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_available_place']; ?>
@@ -1113,7 +1108,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_LIST_OF_REGISTRANTS'); ?>
+							<?php echo JText::_('SCH_SHOW_LIST_OF_REGISTRANTS'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_list_of_registrants']; ?>
@@ -1124,7 +1119,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_LOCATION_IN_CATEGORY_VIEW'); ?>
+							<?php echo JText::_('SCH_SHOW_LOCATION_IN_CATEGORY_VIEW'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_location_in_category_view']; ?>
@@ -1135,7 +1130,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_LOCATION_IN_EMAIL'); ?>
+							<?php echo JText::_('SCH_SHOW_LOCATION_IN_EMAIL'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_event_location_in_email']; ?>
@@ -1146,7 +1141,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_EVENT_CUSTOM_FIELDS_IN_CATEGORY_VIEW'); ?>
+							<?php echo JText::_('SCH_SHOW_EVENT_CUSTOM_FIELDS_IN_CATEGORY_VIEW'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_event_custom_field_in_category_layout']; ?>
@@ -1157,7 +1152,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_PROCESS_CONTENT_PLUGIN'); ?>
+							<?php echo JText::_('SCH_PROCESS_CONTENT_PLUGIN'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['process_plugin']; ?>
@@ -1168,7 +1163,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_CATEGORY_DESCRIPTION_IN_CALENDAR_LAYOUT'); ?>
+							<?php echo JText::_('SCH_SHOW_CATEGORY_DESCRIPTION_IN_CALENDAR_LAYOUT'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_cat_decription_in_calendar_layout']; ?>
@@ -1179,7 +1174,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_CATEGORY_DESCRIPTION_IN_TABLE_LAYOUT'); ?>
+							<?php echo JText::_('SCH_SHOW_CATEGORY_DESCRIPTION_IN_TABLE_LAYOUT'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_cat_decription_in_table_layout']; ?>
@@ -1190,7 +1185,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_EVENT_IMAGE_IN_TABLE_LAYOUT'); ?>
+							<?php echo JText::_('SCH_SHOW_EVENT_IMAGE_IN_TABLE_LAYOUT'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_image_in_table_layout']; ?>
@@ -1201,7 +1196,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_PRICE_IN_TABLE_LAYOUT'); ?>
+							<?php echo JText::_('SCH_SHOW_PRICE_IN_TABLE_LAYOUT'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_price_in_table_layout']; ?>
@@ -1212,84 +1207,84 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_DISPLAY_MESSAGE_FOR_FULL_EVENT'); ?>
+							<?php echo JText::_('SCH_DISPLAY_MESSAGE_FOR_FULL_EVENT'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['display_message_for_full_event']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_DISPLAY_MESSAGE_FOR_FULL_EVENT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_DISPLAY_MESSAGE_FOR_FULL_EVENT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_PRICE_FOR_FREE_EVENT'); ?>
+							<?php echo JText::_('SCH_SHOW_PRICE_FOR_FREE_EVENT'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_price_for_free_event']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_SHOW_PRICE_FOR_FREE_EVENT_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_SHOW_PRICE_FOR_FREE_EVENT_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_DISCOUNTED_PRICE'); ?>
+							<?php echo JText::_('SCH_SHOW_DISCOUNTED_PRICE'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_discounted_price']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_SHOW_DISCOUNTED_PRICE_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_SHOW_DISCOUNTED_PRICE_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_EVENT_DATE'); ?>
+							<?php echo JText::_('SCH_SHOW_EVENT_DATE'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_event_date']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_SHOW_EVENT_DATE_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_SHOW_EVENT_DATE_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_FACEBOOK_LIKE_BUTTON'); ?>
+							<?php echo JText::_('SCH_SHOW_FACEBOOK_LIKE_BUTTON'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_fb_like_button']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_SHOW_FACEBOOKING_LIKE_BUTTON_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_SHOW_FACEBOOKING_LIKE_BUTTON_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_SOCIAL_BOOKMARK'); ?>
+							<?php echo JText::_('SCH_SHOW_SOCIAL_BOOKMARK'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_social_bookmark']; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_SHOW_SOCIAL_BOOKMARK_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_SHOW_SOCIAL_BOOKMARK_EXPLAIN'); ?>
 						</td>
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_INVITE_FRIEND'); ?>
+							<?php echo JText::_('SCH_SHOW_INVITE_FRIEND'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_invite_friend'] ; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_SHOW_INVITE_FRIEND_EXPLAIN') ; ?>
+							<?php echo JText::_('SCH_SHOW_INVITE_FRIEND_EXPLAIN') ; ?>
 						</td>
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_ACTIVATE_WEEKLY_CALENDAR_VIEW'); ?>
+							<?php echo JText::_('SCH_ACTIVATE_WEEKLY_CALENDAR_VIEW'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['activate_weekly_calendar_view'] ; ?>
@@ -1300,7 +1295,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_ACTIVATE_DAILY_CALENDAR_VIEW'); ?>
+							<?php echo JText::_('SCH_ACTIVATE_DAILY_CALENDAR_VIEW'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['activate_daily_calendar_view'] ; ?>
@@ -1311,13 +1306,13 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td width="30%" class="key">
-							<?php echo JText::_('EB_SHOW_COUPON_CODE'); ?>
+							<?php echo JText::_('SCH_SHOW_COUPON_CODE'); ?>
 						</td>
 						<td>
 							<?php echo $this->lists['show_coupon_code_in_registrant_list'] ; ?>
 						</td>
 						<td>
-							<?php echo JText::_('EB_SHOW_COUPON_CODE_EXPLAIN'); ?>
+							<?php echo JText::_('SCH_SHOW_COUPON_CODE_EXPLAIN'); ?>
 						</td>
 					</tr>
 				</table>
@@ -1326,17 +1321,17 @@ $editor = JFactory::getEditor() ;
 				<table class="admintable">
 					<tr>
 						<td colspan="3">
-							<p><?php echo JText::_('EB_CHOOSE_BILLING_FIELDS'); ?></p>
+							<p><?php echo JText::_('SCH_CHOOSE_BILLING_FIELDS'); ?></p>
 						</td>
 					</tr>
 					<tr>
-						<td width="30%" class="key"><strong><?php echo JText::_('EB_FIELD'); ?></strong></td>
-						<td class="key" style="text-align: center;"><strong><?php echo JText::_('EB_SHOW'); ?></strong></td>
-						<td class="key" style="text-align: center;"><strong><?php echo JText::_('EB_REQUIRE'); ?></strong></td>
+						<td width="30%" class="key"><strong><?php echo JText::_('SCH_FIELD'); ?></strong></td>
+						<td class="key" style="text-align: center;"><strong><?php echo JText::_('SCH_SHOW'); ?></strong></td>
+						<td class="key" style="text-align: center;"><strong><?php echo JText::_('SCH_REQUIRE'); ?></strong></td>
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_LAST_NAME'); ?>
+							<?php echo JText::_('SCH_LAST_NAME'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['s_lastname'];  ?>
@@ -1347,7 +1342,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ORGANIZATION'); ?>
+							<?php echo JText::_('SCH_ORGANIZATION'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['s_organization'];  ?>
@@ -1358,7 +1353,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ADDRESS'); ?>
+							<?php echo JText::_('SCH_ADDRESS'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['s_address'];  ?>
@@ -1369,7 +1364,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ADDRESS2'); ?>
+							<?php echo JText::_('SCH_ADDRESS2'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['s_address2'];  ?>
@@ -1380,7 +1375,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_CITY'); ?>
+							<?php echo JText::_('SCH_CITY'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['s_city'];  ?>
@@ -1391,7 +1386,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_STATE'); ?>
+							<?php echo JText::_('SCH_STATE'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['s_state'];  ?>
@@ -1402,7 +1397,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ZIP'); ?>
+							<?php echo JText::_('SCH_ZIP'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['s_zip'];  ?>
@@ -1413,7 +1408,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_COUNTRY'); ?>
+							<?php echo JText::_('SCH_COUNTRY'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['s_country'];  ?>
@@ -1424,7 +1419,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_PHONE'); ?>
+							<?php echo JText::_('SCH_PHONE'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['s_phone'];  ?>
@@ -1435,7 +1430,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_FAX'); ?>
+							<?php echo JText::_('SCH_FAX'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['s_fax'];  ?>
@@ -1446,7 +1441,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_COMMENT'); ?>
+							<?php echo JText::_('SCH_COMMENT'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['s_comment'];  ?>
@@ -1461,17 +1456,17 @@ $editor = JFactory::getEditor() ;
 				<table class="admintable">
 					<tr>
 						<td colspan="3">
-							<p><?php echo JText::_('EB_GROUP_MEMBER_FIELD_SETTING'); ?></p>
+							<p><?php echo JText::_('SCH_GROUP_MEMBER_FIELD_SETTING'); ?></p>
 						</td>
 					</tr>
 					<tr>
-						<td width="30%" class="key"><strong><?php echo JText::_('EB_FIELD'); ?></strong></td>
-						<td class="key" style="text-align: center;"><strong><?php echo JText::_('EB_SHOW'); ?></strong></td>
-						<td class="key" style="text-align: center;"><strong><?php echo JText::_('EB_REQUIRE'); ?></strong></td>
+						<td width="30%" class="key"><strong><?php echo JText::_('SCH_FIELD'); ?></strong></td>
+						<td class="key" style="text-align: center;"><strong><?php echo JText::_('SCH_SHOW'); ?></strong></td>
+						<td class="key" style="text-align: center;"><strong><?php echo JText::_('SCH_REQUIRE'); ?></strong></td>
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_LAST_NAME'); ?>
+							<?php echo JText::_('SCH_LAST_NAME'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_lastname'];  ?>
@@ -1482,7 +1477,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ORGANIZATION'); ?>
+							<?php echo JText::_('SCH_ORGANIZATION'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_organization'];  ?>
@@ -1493,7 +1488,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ADDRESS'); ?>
+							<?php echo JText::_('SCH_ADDRESS'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_address'];  ?>
@@ -1504,7 +1499,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ADDRESS2'); ?>
+							<?php echo JText::_('SCH_ADDRESS2'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_address2'];  ?>
@@ -1515,7 +1510,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_CITY'); ?>
+							<?php echo JText::_('SCH_CITY'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_city'];  ?>
@@ -1526,7 +1521,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_STATE'); ?>
+							<?php echo JText::_('SCH_STATE'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_state'];  ?>
@@ -1537,7 +1532,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ZIP'); ?>
+							<?php echo JText::_('SCH_ZIP'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_zip'];  ?>
@@ -1548,7 +1543,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_COUNTRY'); ?>
+							<?php echo JText::_('SCH_COUNTRY'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_country'];  ?>
@@ -1559,7 +1554,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_PHONE'); ?>
+							<?php echo JText::_('SCH_PHONE'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_phone'];  ?>
@@ -1570,7 +1565,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_FAX'); ?>
+							<?php echo JText::_('SCH_FAX'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_fax'];  ?>
@@ -1581,7 +1576,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_EMAIL'); ?>
+							<?php echo JText::_('SCH_EMAIL'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_email'];  ?>
@@ -1592,7 +1587,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_COMMENT'); ?>
+							<?php echo JText::_('SCH_COMMENT'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['gs_comment'];  ?>
@@ -1607,17 +1602,17 @@ $editor = JFactory::getEditor() ;
 				<table class="admintable">
 					<tr>
 						<td colspan="3">
-							<p><?php echo JText::_('EB_WAITING_FIELD_SETTING'); ?></p>
+							<p><?php echo JText::_('SCH_WAITING_FIELD_SETTING'); ?></p>
 						</td>
 					</tr>
 					<tr>
-						<td width="30%" class="key"><strong><?php echo JText::_('EB_FIELD'); ?></strong></td>
-						<td class="key" style="text-align: center;"><strong><?php echo JText::_('EB_SHOW'); ?></strong></td>
-						<td class="key" style="text-align: center;"><strong><?php echo JText::_('EB_REQUIRE'); ?></strong></td>
+						<td width="30%" class="key"><strong><?php echo JText::_('SCH_FIELD'); ?></strong></td>
+						<td class="key" style="text-align: center;"><strong><?php echo JText::_('SCH_SHOW'); ?></strong></td>
+						<td class="key" style="text-align: center;"><strong><?php echo JText::_('SCH_REQUIRE'); ?></strong></td>
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_LAST_NAME'); ?>
+							<?php echo JText::_('SCH_LAST_NAME'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['swt_lastname'];  ?>
@@ -1628,7 +1623,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ORGANIZATION'); ?>
+							<?php echo JText::_('SCH_ORGANIZATION'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['swt_organization'];  ?>
@@ -1639,7 +1634,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ADDRESS'); ?>
+							<?php echo JText::_('SCH_ADDRESS'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['swt_address'];  ?>
@@ -1650,7 +1645,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ADDRESS2'); ?>
+							<?php echo JText::_('SCH_ADDRESS2'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['swt_address2'];  ?>
@@ -1661,7 +1656,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_CITY'); ?>
+							<?php echo JText::_('SCH_CITY'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['swt_city'];  ?>
@@ -1672,7 +1667,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_STATE'); ?>
+							<?php echo JText::_('SCH_STATE'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['swt_state'];  ?>
@@ -1683,7 +1678,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_ZIP'); ?>
+							<?php echo JText::_('SCH_ZIP'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['swt_zip'];  ?>
@@ -1694,7 +1689,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_COUNTRY'); ?>
+							<?php echo JText::_('SCH_COUNTRY'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['swt_country'];  ?>
@@ -1705,7 +1700,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_PHONE'); ?>
+							<?php echo JText::_('SCH_PHONE'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['swt_phone'];  ?>
@@ -1716,7 +1711,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_FAX'); ?>
+							<?php echo JText::_('SCH_FAX'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['swt_fax'];  ?>
@@ -1727,7 +1722,7 @@ $editor = JFactory::getEditor() ;
 					</tr>
 					<tr>
 						<td class="key" width="30%">
-							<?php echo JText::_('EB_COMMENT'); ?>
+							<?php echo JText::_('SCH_COMMENT'); ?>
 						</td>
 						<td align="center">
 							<?php echo  $this->lists['swt_comment'];  ?>
@@ -1745,12 +1740,12 @@ $editor = JFactory::getEditor() ;
 						<table class="admintable">
 			    			<tr>
 			    				<td colspan="2">
-			    					<p class="message"><strong><?php echo JText::_('EB_FIELD_MAPPING_EXPLAIN'); ?></strong></p>
+			    					<p class="message"><strong><?php echo JText::_('SCH_FIELD_MAPPING_EXPLAIN'); ?></strong></p>
 			    				</td>
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_FIRST_NAME'); ?>
+			    					<?php echo JText::_('SCH_FIRST_NAME'); ?>
 			    				</td>
 			    				<td>
 			    					<?php
@@ -1760,7 +1755,7 @@ $editor = JFactory::getEditor() ;
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_LAST_NAME'); ?>
+			    					<?php echo JText::_('SCH_LAST_NAME'); ?>
 			    				</td>
 			    				<td>
 			    					<?php echo $this->lists['m_lastname'] ?>
@@ -1768,7 +1763,7 @@ $editor = JFactory::getEditor() ;
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_ORGANIZATION'); ?>
+			    					<?php echo JText::_('SCH_ORGANIZATION'); ?>
 			    				</td>
 			    				<td>
 			    					<?php echo $this->lists['m_organization']; ?>
@@ -1776,7 +1771,7 @@ $editor = JFactory::getEditor() ;
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_ADDRESS'); ?>
+			    					<?php echo JText::_('SCH_ADDRESS'); ?>
 			    				</td>
 			    				<td>
 			    					<?php echo $this->lists['m_address'];?>
@@ -1784,7 +1779,7 @@ $editor = JFactory::getEditor() ;
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_ADDRESS2'); ?>
+			    					<?php echo JText::_('SCH_ADDRESS2'); ?>
 			    				</td>
 			    				<td>
 			    					<?php echo $this->lists['m_address2'] ; ?>
@@ -1792,7 +1787,7 @@ $editor = JFactory::getEditor() ;
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_CITY'); ?>
+			    					<?php echo JText::_('SCH_CITY'); ?>
 			    				</td>
 			    				<td>
 			    					<?php echo $this->lists['m_city'] ; ?>
@@ -1800,7 +1795,7 @@ $editor = JFactory::getEditor() ;
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_STATE'); ?>
+			    					<?php echo JText::_('SCH_STATE'); ?>
 			    				</td>
 			    				<td>
 			    					<?php echo $this->lists['m_state']; ?>
@@ -1808,7 +1803,7 @@ $editor = JFactory::getEditor() ;
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_ZIP'); ?>
+			    					<?php echo JText::_('SCH_ZIP'); ?>
 			    				</td>
 			    				<td>
 			    					<?php echo $this->lists['m_zip'] ; ?>
@@ -1816,7 +1811,7 @@ $editor = JFactory::getEditor() ;
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_COUNTRY'); ?>
+			    					<?php echo JText::_('SCH_COUNTRY'); ?>
 			    				</td>
 			    				<td>
 			    					<?php echo $this->lists['m_country'] ; ?>
@@ -1824,7 +1819,7 @@ $editor = JFactory::getEditor() ;
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_PHONE'); ?>
+			    					<?php echo JText::_('SCH_PHONE'); ?>
 			    				</td>
 			    				<td>
 			    					<?php echo $this->lists['m_phone'] ?>
@@ -1832,7 +1827,7 @@ $editor = JFactory::getEditor() ;
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_FAX'); ?>
+			    					<?php echo JText::_('SCH_FAX'); ?>
 			    				</td>
 			    				<td>
 			    					<?php echo $this->lists['m_fax'] ; ?>
@@ -1848,12 +1843,12 @@ $editor = JFactory::getEditor() ;
 						<table class="admintable">
 			    			<tr>
 			    				<td colspan="3">
-			    					<p class="message"><strong><?php echo JText::_('EB_SEF_SETTING_EXPLAIN'); ?></strong></p>
+			    					<p class="message"><strong><?php echo JText::_('SCH_SEF_SETTING_EXPLAIN'); ?></strong></p>
 			    				</td>
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_INSERT_MENU_TITLE'); ?>
+			    					<?php echo JText::_('SCH_INSERT_MENU_TITLE'); ?>
 			    				</td>
 			    				<td>
 			    					<?php
@@ -1861,12 +1856,12 @@ $editor = JFactory::getEditor() ;
 			    					?>
 			    				</td>
 			    				<td>
-			    					<?php echo JText::_('EB_INSERT_MENU_TITLE_EXPLAIN'); ?>
+			    					<?php echo JText::_('SCH_INSERT_MENU_TITLE_EXPLAIN'); ?>
 			    				</td>
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_INSERT_EVENT_ID'); ?>
+			    					<?php echo JText::_('SCH_INSERT_EVENT_ID'); ?>
 			    				</td>
 			    				<td>
 			    					<?php
@@ -1874,12 +1869,12 @@ $editor = JFactory::getEditor() ;
 			    					?>
 			    				</td>
 			    				<td>
-			    					<?php echo JText::_('EB_INSERT_EVENT_ID_EXPLAIN'); ?>
+			    					<?php echo JText::_('SCH_INSERT_EVENT_ID_EXPLAIN'); ?>
 			    				</td>
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_INSERT_EVENT_TITLE'); ?>
+			    					<?php echo JText::_('SCH_INSERT_EVENT_TITLE'); ?>
 			    				</td>
 			    				<td>
 			    					<?php
@@ -1887,12 +1882,12 @@ $editor = JFactory::getEditor() ;
 			    					?>
 			    				</td>
 			    				<td>
-			    					<?php echo JText::_('EB_INSERT_EVENT_TITLE_EXPLAIN'); ?>
+			    					<?php echo JText::_('SCH_INSERT_EVENT_TITLE_EXPLAIN'); ?>
 			    				</td>
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_INSERT_CATEGORY_ID'); ?>
+			    					<?php echo JText::_('SCH_INSERT_CATEGORY_ID'); ?>
 			    				</td>
 			    				<td>
 			    					<?php
@@ -1900,12 +1895,12 @@ $editor = JFactory::getEditor() ;
 			    					?>
 			    				</td>
 			    				<td>
-			    					<?php echo JText::_('EB_INSERT_CATEGORY_ID_EXPLAIN'); ?>
+			    					<?php echo JText::_('SCH_INSERT_CATEGORY_ID_EXPLAIN'); ?>
 			    				</td>
 			    			</tr>
 			    			<tr>
 			    				<td width="30%" class="key">
-			    					<?php echo JText::_('EB_INSERT_CATEGORY'); ?>
+			    					<?php echo JText::_('SCH_INSERT_CATEGORY'); ?>
 			    				</td>
 			    				<td>
 			    					<?php
@@ -1913,7 +1908,7 @@ $editor = JFactory::getEditor() ;
 			    					?>
 			    				</td>
 			    				<td>
-			    					<?php echo JText::_('EB_INSERT_CATEGORY_EXPLAIN'); ?>
+			    					<?php echo JText::_('SCH_INSERT_CATEGORY_EXPLAIN'); ?>
 			    				</td>
 			    			</tr>
 			    		</table>
