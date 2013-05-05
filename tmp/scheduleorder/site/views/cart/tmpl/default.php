@@ -50,13 +50,13 @@ for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
 	echo "<td width='50%'>" . $item->product_name . "</td>";
 	echo "<td width='20%'>" . $item->quantity * 1000 . " g </td>";
 	echo "<td width='20%'>" . $item->currency_symbol. number_format($item->price, 2, '.', '') .  "<br/>";
-	echo $item->currency_symbol . " " . $item->custom_value . "</td>";
+	echo $item->currency_symbol . $item->custom_value . "</td>";
 	echo "</tr>";
 }
 ?>
 				<tr>				
 					<td colspan="4" style="text-align: right;">
-						<input type="button" class="btn btn-primary" value="Update" onclick="updateCart();" />																										
+						<input type="button" class="btn btn-primary" value="Midify" onclick="updateCart();" />																										
 						<input type="button" class="btn btn-primary" value="Checkout" onclick="checkout();" />						
 					</td>								
 				</tr>	
@@ -70,7 +70,7 @@ for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
 			<?php echo $this->jsString ; ?>
 			function checkout() {
 				var form = document.adminForm ;
-				ret = checkQuantity() ;
+				//ret = checkQuantity() ;
 				if (ret) {						
 					form.task.value = 'checkout';
 					form.submit() ;
@@ -78,7 +78,7 @@ for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
 			}												
 			function updateCart() {
 				var form = document.adminForm ;
-				var ret = checkQuantity();
+				//var ret = checkQuantity();
 				if (ret) {
 					form.task.value = 'update_cart';
 					form.submit();
@@ -131,7 +131,7 @@ for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
 <?php	
 } else {
 ?>
-	<p class="message"><?php echo JText::_('EB_NO_EVENTS_IN_CART'); ?></p>
+	<p class="message">There is not product in the cart!</p>
 <?php	
 }
 ?>
