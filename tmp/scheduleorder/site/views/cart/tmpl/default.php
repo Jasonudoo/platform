@@ -70,62 +70,14 @@ for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
 			<?php echo $this->jsString ; ?>
 			function checkout() {
 				var form = document.adminForm ;
-				//ret = checkQuantity() ;
-				if (ret) {						
-					form.task.value = 'checkout';
-					form.submit() ;
-				}					
+				form.task.value = 'checkout';
+				form.submit() ;
 			}												
 			function updateCart() {
 				var form = document.adminForm ;
-				//var ret = checkQuantity();
-				if (ret) {
-					form.task.value = 'update_cart';
-					form.submit();
-				}										
+				form.task.value = 'update_cart';
+				form.submit();										
 			}
-			function checkQuantity() {
-				var form = document.adminForm ;
-				var eventId ;
-				var quantity ;
-				var enteredQuantity ;
-				var index ;
-				var availableQuantity ;
-				if (form['event_id[]'].length) {
-					var length = form['event_id[]'].length ;
-					//There are more than one events
-					for (var  i = 0 ; i < length ; i++) {
-						eventId = form['event_id[]'][i].value ;
-						enteredQuantity = form['quantity[]'][i].value ;
-						index = findIndex(eventId, arrEventIds);
-						availableQuantity = arrQuantities[index] ;
-						if ((availableQuantity != -1) && (enteredQuantity >availableQuantity)) {
-							alert("<?php echo JText::_("EB_INVALID_QUANTITY"); ?>" + availableQuantity);
-							form['event_id[]'][i].focus();
-							return false ;
-						}							
-					}
-				} else {
-					//There is only one event						
-					enteredQuantity = form['quantity[]'].value ;
-					availableQuantity = arrQuantities[0] ;
-					if ((availableQuantity != -1) && (enteredQuantity >availableQuantity)) {
-						alert("<?php echo JText::_("EB_INVALID_QUANTITY"); ?>" + availableQuantity);
-						form['event_id[]'].focus();
-						return false ;
-					}
-				}					
-				return true ;
-			}
-
-			function findIndex(eventId, eventIds) {
-				for (var i = 0 ; i < eventIds.length ; i++) {
-					if (eventIds[i] == eventId) {
-						return i ;
-					}
-				}
-				return -1 ;
-			}														
 		</script>	
 	</form>					
 <?php	
