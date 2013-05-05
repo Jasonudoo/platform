@@ -131,10 +131,9 @@ class ScheduleCart
 		$session = JFactory::getSession();
 		$cart = $session->get('schedule_cart');
 		if (isset($cart['items']))
-			return $cart;
+			return $cart['items'];
 		else
-			return array('items' => array(), 'quantities' => array());
-		;
+			return array();
 	}
 
 	/**
