@@ -14,25 +14,25 @@ defined('_JEXEC') or die('Restricted Access');
 jimport('joomla.database.table');
 
 /**
- * #__schorder_address table.
+ * #__schorder_package table.
  *
  * @package     Joomla
  * @subpackage  Schedule Order
  * @since       V1.0.0
  */
-class ScheduleOrderTableAddress extends JTable
+class ScheduleOrderTablePackage extends JTable
 {
     /**
      * Constructor.
      *
      * @param   JDatabase  $db  A database connector object.
      *
-     * @return  ScheduleOrderTableAddress
+     * @return  ScheduleOrderTablePackage
      * @since   V1.0.0
      */
     public function __construct($db)
     {
-        parent::__construct('#__schorder_address', 'address_id', $db);
+        parent::__construct('#__schorder_package', 'pid', $db);
     }
 
     /**
@@ -86,21 +86,19 @@ class ScheduleOrderTableAddress extends JTable
     public function store($updateNulls = false)
     {
         // Initialiase variables.
-        /*$date = JFactory::getDate()->toMySQL();
+        $date = JFactory::getDate()->toMySQL();
         $userId = JFactory::getUser()->get('id');
 
-        if (empty($this->id)) 
+        if (empty($this->pid)) 
         {
             // New record.
-            $this->created_time = $date;
-            $this->created_user_id = $userId;
+            $this->created_by = $userId;
         } else {
             // Existing record.
-            $this->modified_time = $date;
-            $this->modified_user_id = $userId;
+            $this->modified_by = $userId;
         }
 
         // Attempt to store the data.
-        return parent::store($updateNulls);*/
+        return parent::store($updateNulls);
     }
 }

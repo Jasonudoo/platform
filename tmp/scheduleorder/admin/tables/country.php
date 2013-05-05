@@ -14,25 +14,25 @@ defined('_JEXEC') or die('Restricted Access');
 jimport('joomla.database.table');
 
 /**
- * #__schorder_address table.
+ * #__schorder_country table.
  *
  * @package     Joomla
  * @subpackage  Schedule Order
  * @since       V1.0.0
  */
-class ScheduleOrderTableAddress extends JTable
+class ScheduleOrderTableCountry extends JTable
 {
     /**
      * Constructor.
      *
      * @param   JDatabase  $db  A database connector object.
      *
-     * @return  ScheduleOrderTableAddress
+     * @return  ScheduleOrderTableCountry
      * @since   V1.0.0
      */
     public function __construct($db)
     {
-        parent::__construct('#__schorder_address', 'address_id', $db);
+        parent::__construct('#__schorder_country', 'country_id', $db);
     }
 
     /**
@@ -98,9 +98,9 @@ class ScheduleOrderTableAddress extends JTable
             // Existing record.
             $this->modified_time = $date;
             $this->modified_user_id = $userId;
-        }
+        }*/
 
         // Attempt to store the data.
-        return parent::store($updateNulls);*/
+        return parent::store($updateNulls);
     }
 }

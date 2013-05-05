@@ -20,19 +20,19 @@ jimport('joomla.database.table');
  * @subpackage  Schedule Order
  * @since       V1.0.0
  */
-class ScheduleOrderTableAddress extends JTable
+class ScheduleOrderTableStates extends JTable
 {
     /**
      * Constructor.
      *
      * @param   JDatabase  $db  A database connector object.
      *
-     * @return  ScheduleOrderTableAddress
+     * @return  ScheduleOrderTableStates
      * @since   V1.0.0
      */
     public function __construct($db)
     {
-        parent::__construct('#__schorder_address', 'address_id', $db);
+        parent::__construct('#__schorder_states', 'state_id', $db);
     }
 
     /**
@@ -98,9 +98,9 @@ class ScheduleOrderTableAddress extends JTable
             // Existing record.
             $this->modified_time = $date;
             $this->modified_user_id = $userId;
-        }
+        }*/
 
         // Attempt to store the data.
-        return parent::store($updateNulls);*/
+        return parent::store($updateNulls);
     }
 }

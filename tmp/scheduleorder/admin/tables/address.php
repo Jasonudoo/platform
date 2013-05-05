@@ -86,21 +86,21 @@ class ScheduleOrderTableAddress extends JTable
     public function store($updateNulls = false)
     {
         // Initialiase variables.
-        /*$date = JFactory::getDate()->toMySQL();
+        $date = JFactory::getDate()->toMySQL();
         $userId = JFactory::getUser()->get('id');
 
         if (empty($this->id)) 
         {
             // New record.
-            $this->created_time = $date;
-            $this->created_user_id = $userId;
+            $this->created_on = $date;
+            $this->created_by = $userId;
         } else {
             // Existing record.
-            $this->modified_time = $date;
-            $this->modified_user_id = $userId;
+            $this->modified_on = $date;
+            $this->modified_by = $userId;
         }
 
         // Attempt to store the data.
-        return parent::store($updateNulls);*/
+        return parent::store($updateNulls);
     }
 }

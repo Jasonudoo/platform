@@ -63,7 +63,8 @@ class ScheduleOrderController extends JController
                 }
                 break;
         }
-        if (version_compare(JVERSION, '3.0', 'le')) {
+        if (version_compare(JVERSION, '3.0', 'le')) 
+        {
             ScheduleOrderHelper::loadBootstrap();
         }
         ScheduleOrderHelper::addSubmenus(JRequest::getVar('view', 'scheduleorder'));
