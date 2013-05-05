@@ -22,30 +22,23 @@ require "connect.php";
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
 <script type="text/javascript" src="simpletip/jquery.simpletip-1.3.1.pack.js"></script>
-
-
 <script type="text/javascript" src="script.js"></script>
-
 </head>
 
 <body>
-
 <div id="main-container">
-
 	<div class="tutorialzine">
     <h1>Shopping cart</h1>
     <h3>The best products at the best prices</h3>
     </div>
-
 
     <div class="container">
 <?php 
 $sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a 
 		LEFT JOIN tbl_virtuemart_categories_en_gb AS b ON a.virtuemart_category_id = b.virtuemart_category_id
 		WHERE a.published = 1 ORDER BY a.virtuemart_category_id ASC";
-$result = mysql_qury($sql);
+$result = mysql_query($sql);
 while($row = mysql_fetch_assoc($result))
 {
 	echo "<span class='top-label'>";
