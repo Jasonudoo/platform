@@ -28,11 +28,11 @@ class ScheduleCart
 	{
 		$db = JFactory::getDBO();
 		$userId = JFactory::getUser()->get('id');		
-		$sql = "SELECT a.* FROM #__schorder_cart WHERE mem_id = " . $userId;
+		$sql = "SELECT * FROM #__schorder_cart WHERE mem_id = " . $userId;
 		$db->setQuery($sql);
 		$cart = $db->loadObjectList();
 		
-		$sql = "SELECT a.product_id, a.quantity FROM #__schorder_cart_product WHERE cart_id = " . $cart->cart_id;
+		$sql = "SELECT product_id, quantity FROM #__schorder_cart_product WHERE cart_id = " . $cart->cart_id;
 		$db->setQuery($sql);
 		$products = $db->loadObjectList();
 		
