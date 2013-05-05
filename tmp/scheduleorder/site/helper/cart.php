@@ -224,7 +224,7 @@ class ScheduleCart
 		
 		if (count($items))
 		{
-			$sql = 'SELECT a.* FROM #__virtuemart_products AS a 
+			$sql = 'SELECT a.*, b.* FROM #__virtuemart_products AS a 
 					LEFT JOIN #__virtuemart_products_en_gb AS b ON a.virtuemart_product_id = b.virtuemart_product_id 
 					WHERE a.virtuemart_product_id IN (' . implode(',', $items) . ')';
 		    $db->setQuery($sql);
