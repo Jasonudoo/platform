@@ -32,7 +32,7 @@ class ScheduleCart
 		$db->setQuery($sql);
 		$cart = $db->loadObjectList();
 		
-		$sql = "SELECT product_id, quantity FROM #__schorder_cart_product WHERE cart_id = " . $cart->cart_id;
+		$sql = "SELECT product_id, quantity FROM #__schorder_cart_product WHERE cart_id = " . $cart[0]->cart_id;
 		$db->setQuery($sql);
 		$products = $db->loadObjectList();
 		
