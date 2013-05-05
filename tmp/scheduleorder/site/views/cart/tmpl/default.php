@@ -49,7 +49,8 @@ for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
 	echo "<td><img src='/" . $item->image_file_url_thumb . "' style='width:120px;height:120px'></td>";
 	echo "<td width='50%'>" . $item->product_name . "</td>";
 	echo "<td width='20%'>" . $item->quantity * 1000 . " g </td>";
-	echo "<td width='20%'>" . $item->price . "</td>";
+	echo "<td width='20%'>" . $item->currency_symbol. number_format($item->price, 2, '.', '') .  "<br/>";
+	echo $item->custom_value . "</td>";
 	echo "</tr>";
 }
 ?>

@@ -242,17 +242,21 @@ class ScheduleCart
 				$product->image_file_url = $images[0]->file_url;
 				$product->image_file_url_thumb = $images[0]->file_url_thumb;
 				
-				$sql = 'SELECT p.product_price FROM #__virtuemart_product_prices AS p WHERE p.virtuemart_product_id = ' . $product->virtuemart_product_id;
+				$sql = 'SELECT p.product_price, c.currency_code_3, c.currency_symbol FROM #__virtuemart_product_prices AS p 
+						LEFT JOIN #__virtuemart_currencies AS d ON d.virtuemart_currency_id = p.product_currency
+						WHERE p.virtuemart_product_id = ' . $product->virtuemart_product_id;
 				$db->setQuery($sql);
 				$price = $db->loadObjectList();
 				
-				$sql = 'SELECT c.custom_value, c.custom_price FROM #__virtuemart_product_customfields AS c 
+				$sql = 'SELECT c.custom_value, c.custom_price FROM #__virtuemart_product_customfields AS c
 						WHERE c.virtuemart_custom_id = 3 and c.virtuemart_product_id = ' .$product->virtuemart_product_id;
 				$db->setQuery($sql);
 				$custPrice = $db->loadObjectList();
 				
 				$product->custom_value = $custPrice->custom_value;
 				$product->custom_price = $custPrice->custom_price;
+				$product->currency_symbol = $price[0]->currency_symbol;
+				$product->currency_code = $price[0]->currency_code_3;
 				$product->price = $custPrice[0]->custom_price * $product->quantity; 
 				$result[] = $product;
 			}
