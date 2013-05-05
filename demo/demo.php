@@ -41,20 +41,21 @@ require "connect.php";
 
 
     <div class="container">
-    
-    	<span class="top-label">
-            <span class="label-txt">Plan A</span>
-        </span>
-     	<span class="top-label">
-            <span class="label-txt">Plan B</span>
-        </span>
-     	<span class="top-label">
-            <span class="label-txt">Plan C</span>
-        </span>             
+<?php 
+$sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a 
+		LEFT JOIN tbl_virtuemart_categories_en_gb AS b ON a.virtuemart_category_id = b.virtuemart_category_id
+		WHERE a.published = 1 ORDER BY a.virtuemart_category_id ASC";
+$result = mysql_qury($sql);
+while($row = mysql_fetch_assoc($result))
+{
+	echo "<span class='top-label'>";
+	echo "<span class='label-txt'><a href='demo.php?cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
+	echo "</span>";
+	
+}
+?>    
         <div class="content-area">
-    
     		<div class="content drag-desired">
-            	
 <?php
     $Products = $_SESSION['schedule_cart'];
                 
