@@ -32,13 +32,13 @@ class ScheduleOrderViewCart extends JView
 	{							
 	    $this->setLayout('default') ;
 		$Itemid = JRequest::getInt('Itemid');
-		$config = ScheduleOrderHelper::getConfig();				
+		//$config = ScheduleOrderHelper::getConfig();				
 		//Get category ID of the current event
 		require_once JPATH_COMPONENT.'/helper/cart.php';
 		$cart = new ScheduleCart() ;
 		$productIds = $cart->getProducts();
 		$this->assignRef('items', $productIds) ;
-		$this->assignRef('config', $config) ;
+		//$this->assignRef('config', $config) ;
 		$this->assignRef('Itemid', $Itemid) ;		
 		parent::display($tpl) ;					
 	}	
