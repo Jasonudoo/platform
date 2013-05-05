@@ -253,8 +253,8 @@ class ScheduleCart
 				$db->setQuery($sql);
 				$custPrice = $db->loadObjectList();
 				
-				$product->custom_value = $custPrice->custom_value;
-				$product->custom_price = $custPrice->custom_price;
+				$product->custom_value = $custPrice[0]->custom_value;
+				$product->custom_price = $custPrice[0]->custom_price;
 				$product->currency_symbol = $price[0]->currency_symbol;
 				$product->currency_code = $price[0]->currency_code_3;
 				$product->price = $custPrice[0]->custom_price * $product->quantity; 
