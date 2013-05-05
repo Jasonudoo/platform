@@ -27,7 +27,7 @@ if ($this->config->use_https) {
 if (count($this->items)) {
 ?>
 	<form method="post" name="adminForm" id="adminForm" action="<?php echo $url; ?>">		
-		<table class="table table-striped table-bordered table-condensed">
+		<table class="table table-striped table-bordered table-condensed" width='80%'>
 			<thead>
 				<tr>					
 					<th class="col_image">&nbsp;</th>
@@ -46,10 +46,10 @@ for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
 	
 	echo "<tr>";
 	//images
-	echo "<td><img src='/" . $item->image_file_url_thumb . "'></td>";
-	echo "<td>" . $item->product_name . "</td>";
-	echo "<td>" . $item->quantity * 1000 . " g </td>";
-	echo "<td>" . $item->price . "</td>";
+	echo "<td><img src='/" . $item->image_file_url_thumb . "' style='width:16px;height:16px'></td>";
+	echo "<td width='50%'>" . $item->product_name . "</td>";
+	echo "<td width='20%'>" . $item->quantity * 1000 . " g </td>";
+	echo "<td width='20%'>" . $item->price . "</td>";
 	echo "</tr>";
 }
 ?>
