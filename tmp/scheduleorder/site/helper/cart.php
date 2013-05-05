@@ -37,7 +37,7 @@ class ScheduleCart
 		$products = $db->loadObjectList();
 		
 		$cartInfo = array('items' => array(), 'quantities' => array());
-	    for($i = 0; $i < count($prodcuts); $i++)
+	    for($i = 0; $i < count($products); $i++)
 	    {
 	    	$product = $products[$i];
 	    	$cartInfo['items'][] = $product->product_id;
@@ -242,8 +242,18 @@ class ScheduleCart
 				$product->image_file_url = $images[0]->file_url;
 				$product->image_file_url_thumb = $images[0]->file_url_thumb;
 				
-				$sql = 'SELECT p.* FROM #__virtuemart_product_prices AS p WHERE '
+				$sql = 'SELECT p.product_price FROM #__virtuemart_product_prices AS p WHERE p.virtuemart_product_id = ' . $product->virtuemart_product_id;
+				$db->setQuery($sql);
+				$price = $db->loadObjectList();
 				
+				$sql = 'SELECT c.custom_value, c.custom_price FROM #__virtuemart_product_customfields AS c 
+						WHERE c.virtuemart_custom_id = 3 and c.virtuemart_product_id = ' .$product->virtuemart_product_id;
+				$db->setQuery($sql);
+				$custPrice = $db->loadObjectList();
+				
+				$product->custom_value = $custPrice->custom_value;
+				$product->custom_price = $custPrice->custom_price;
+				$product->price = $customPrice->custom_price * $product->quantity; 
 				$result[] = $product;
 			}
 		}

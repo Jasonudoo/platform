@@ -33,7 +33,7 @@ class ScheduleOrderViewCart extends JViewLegacy
 		//Get category ID of the current event
 		require_once JPATH_COMPONENT.'/helper/cart.php';
 		$cart = new ScheduleCart() ;
-		$productIds = $cart->getItems();
+		$productIds = $cart->getProducts();
 		$this->assignRef('items', $productIds) ;
 		$this->assignRef('config', $config) ;
 		$this->assignRef('Itemid', $Itemid) ;		

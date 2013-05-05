@@ -31,24 +31,30 @@ if (count($this->items)) {
 			<thead>
 				<tr>					
 					<th class="col_image">&nbsp;</th>
-					<th class="col_event">
-						<?php echo JText::_('SCH_PRODCUT_NAME'); ?>
-					</th>
+					<th class="col_event">Product Name</th>
 					<th class="col_weight">Weight</th>
-					<th class="col_price">
-						<?php echo JText::_('SCH_PRICE'); ?>
-					</th>									
-					<th class="col_quantity">
-						<?php echo JText::_('SCH_QUANTITY'); ?><a href="javascript:updateCart()"><img src="<?php echo JURI::base(true).'/components/com_scheduleorder/assets/images/update_quantity.png' ?>" title="<?php echo JText::_("SCH_UPDATE_QUANTITY"); ?>" align="top" /></a>
-					</th>																
-					<th class="col_quantity">
-						<?php echo JText::_('SCH_SUB_TOTAL'); ?>
-					</th>
+					<th class="col_price">Price</th>	
 				</tr>
 			</thead>
 			<tbody>	
+<?php
+$total = 0 ;
+$k = 0 ;
+for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
+	$item = $this->items[$i] ;
+	$total += $item->quantity;
+	
+	echo "<tr>";
+	//images
+	echo "<td><img src='/" . $item->image_file_url_thumb . "'></td>";
+	echo "<td>" . $item->product_name . "</td>";
+	echo "<td>" . $item->quantity * 1000 . " g </td>";
+	echo "<td>" . $item->price . "</td>";
+	echo "</tr>";
+}
+?>
 				<tr>				
-					<td colspan="<?php echo $cols ; ?>" style="text-align: right;">
+					<td colspan="4" style="text-align: right;">
 						<input type="button" class="btn btn-primary" value="<?php echo JText::_('EB_ADD_MORE_EVENTS'); ?>" onclick="continueShopping();" />
 						<input type="button" class="btn btn-primary" value="<?php echo JText::_('EB_UPDATE'); ?>" onclick="updateCart();" />																										
 						<input type="button" class="btn btn-primary" value="<?php echo JText::_('EB_CHECKOUT'); ?>" onclick="checkout();" />						
