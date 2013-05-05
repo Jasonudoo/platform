@@ -20,8 +20,8 @@ require "connect.php";
 <![endif]-->
 
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
 <script type="text/javascript" src="simpletip/jquery.simpletip-1.3.1.pack.js"></script>
 
@@ -43,20 +43,27 @@ require "connect.php";
     <div class="container">
     
     	<span class="top-label">
-            <span class="label-txt">Products</span>
+            <span class="label-txt">Plan A</span>
         </span>
-        
+     	<span class="top-label">
+            <span class="label-txt">Plan B</span>
+        </span>
+     	<span class="top-label">
+            <span class="label-txt">Plan C</span>
+        </span>             
         <div class="content-area">
     
     		<div class="content drag-desired">
             	
-                <?php
-
-				$result = mysql_query("SELECT * FROM internet_shop");
-				while($row=mysql_fetch_assoc($result))
-				{
-					echo '<div class="product"><img src="img/products/'.$row['img'].'" alt="'.htmlspecialchars($row['name']).'" width="128" height="128" class="pngfix" /></div>';
-				}
+<?php
+    $Products = $_SESSION['schedule_cart'];
+                
+    $sql = "";
+	$result = mysql_query("SELECT * FROM internet_shop");
+	while($row=mysql_fetch_assoc($result))
+	{
+		echo '<div class="product"><img src="img/products/'.$row['img'].'" alt="'.htmlspecialchars($row['name']).'" width="128" height="128" class="pngfix" /></div>';
+	}
 
 				?>
                 

@@ -70,12 +70,12 @@ for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
 			<?php echo $this->jsString ; ?>
 			function checkout() {
 				var form = document.adminForm ;
-				form.action='/demo/demo.php';
+				form.action='/demo/order.php';
 				form.submit() ;
 			}												
 			function updateCart() {
 				var form = document.adminForm ;
-				form.task.value = 'update_cart';
+				form.action='/demo/demo.php';
 				form.submit();										
 			}
 		</script>	
