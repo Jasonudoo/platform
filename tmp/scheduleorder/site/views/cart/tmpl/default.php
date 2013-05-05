@@ -46,7 +46,7 @@ for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
 	
 	echo "<tr>";
 	//images
-	echo "<td><img src='/" . $item->image_file_url_thumb . "' style='width:16px;height:16px'></td>";
+	echo "<td><img src='/" . $item->image_file_url_thumb . "' style='width:160px;height:160px'></td>";
 	echo "<td width='50%'>" . $item->product_name . "</td>";
 	echo "<td width='20%'>" . $item->quantity * 1000 . " g </td>";
 	echo "<td width='20%'>" . $item->price . "</td>";
