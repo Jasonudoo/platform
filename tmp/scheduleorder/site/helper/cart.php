@@ -242,7 +242,7 @@ class ScheduleCart
 				$product->image_file_url = $images[0]->file_url;
 				$product->image_file_url_thumb = $images[0]->file_url_thumb;
 				
-				$sql = 'SELECT p.product_price, c.currency_code_3, c.currency_symbol FROM #__virtuemart_product_prices AS p 
+				$sql = 'SELECT p.product_price, d.currency_code_3, d.currency_symbol FROM #__virtuemart_product_prices AS p 
 						LEFT JOIN #__virtuemart_currencies AS d ON d.virtuemart_currency_id = p.product_currency
 						WHERE p.virtuemart_product_id = ' . $product->virtuemart_product_id;
 				$db->setQuery($sql);
