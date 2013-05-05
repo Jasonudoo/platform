@@ -51,8 +51,8 @@ while($row = mysql_fetch_assoc($result))
     		<div class="content drag-desired">
 <?php
     $Products = $_SESSION['schedule_cart'];
-                
-    $sql = "";
+    var_dump($Products);      
+    $sql = "SELECT * FROM ";
 	$result = mysql_query("SELECT * FROM internet_shop");
 	while($row=mysql_fetch_assoc($result))
 	{
