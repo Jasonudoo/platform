@@ -20,8 +20,8 @@ require "connect.php";
 <![endif]-->
 
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 
 <script type="text/javascript" src="simpletip/jquery.simpletip-1.3.1.pack.js"></script>
 
@@ -73,7 +73,7 @@ require "connect.php";
 
 
 
-    <div class="container">
+    <div class="container" style='float:left; width:300px'>
     
     	<span class="top-label">
             <span class="label-txt">Shopping Cart</span>
