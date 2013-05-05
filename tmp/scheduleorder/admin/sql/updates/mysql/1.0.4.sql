@@ -62,3 +62,13 @@ CREATE TABLE IF NOT EXISTS `#__schorder_shipping` (
    `modified_on` datetime DEFAULT NULL,	
 	PRIMARY KEY (`shipping_id`)
 ) ENGINE=MyISAM COMMENT='the shipping information' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;
+
+DROP TABLE IF EXISTS `#__schorder_cart_product`;
+CREATE TABLE IF NOT EXISTS `#__schorder_cart_product` (
+   `cart_product_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+   `cart_id` int(11) UNSIGNED NOT NULL DEFAULT '0',
+   `product_id` int(11) UNSIGNED NOT NULL DEFAULT '0',
+   `quantity` int(11) UNSIGNED NOT NULL DEFAULT '0',
+   PRIMARY KEY (`cart_product_id`),
+   KEY `IDX_cart_id` (`cart_id`)
+) ENGINE=MyISAM COMMENT='the product in a cart' /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci*/;

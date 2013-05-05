@@ -37,13 +37,16 @@ class ScheduleOrderController extends JController
      */
     public function display($cachable = false)
     {
-        $task = $this->getTask();
+        /*
         $document = JFactory::getDocument();
         $styleUrl = JURI::base(true) . '/components/com_scheduleorder/assets/css/style.css';
         $document->addStylesheet($styleUrl, 'text/css', null, null);
 
-        switch ($task) {
-        case 'view_categories':
+        $task = $this->getTask();
+        
+        switch ($task) 
+        {
+        case 'member_login':
             JRequest::setVar('view', 'categories');
             JRequest::setVar('layout', 'default');
             break;
@@ -185,7 +188,7 @@ class ScheduleOrderController extends JController
             break;
         }
 
-        parent::display($cachable);
+        parent::display($cachable);*/
     }
 
 }
