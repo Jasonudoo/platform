@@ -46,7 +46,7 @@ for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
 	
 	echo "<tr>";
 	//images
-	echo "<td><img src='/" . $item->image_file_url_thumb . "' style='width:160px;height:160px'></td>";
+	echo "<td><img src='/" . $item->image_file_url_thumb . "' style='width:120px;height:120px'></td>";
 	echo "<td width='50%'>" . $item->product_name . "</td>";
 	echo "<td width='20%'>" . $item->quantity * 1000 . " g </td>";
 	echo "<td width='20%'>" . $item->price . "</td>";
@@ -55,9 +55,8 @@ for ($i = 0 , $n = count($this->items) ; $i < $n; $i++) {
 ?>
 				<tr>				
 					<td colspan="4" style="text-align: right;">
-						<input type="button" class="btn btn-primary" value="<?php echo JText::_('EB_ADD_MORE_EVENTS'); ?>" onclick="continueShopping();" />
-						<input type="button" class="btn btn-primary" value="<?php echo JText::_('EB_UPDATE'); ?>" onclick="updateCart();" />																										
-						<input type="button" class="btn btn-primary" value="<?php echo JText::_('EB_CHECKOUT'); ?>" onclick="checkout();" />						
+						<input type="button" class="btn btn-primary" value="Update" onclick="updateCart();" />																										
+						<input type="button" class="btn btn-primary" value="Checkout" onclick="checkout();" />						
 					</td>								
 				</tr>	
 			</tbody>			
