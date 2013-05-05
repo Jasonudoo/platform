@@ -226,7 +226,7 @@ class ScheduleCart
 		{
 			$sql = 'SELECT a.* FROM #__virtuemart_products AS a 
 					LEFT JOIN #__virtuemart_products_en_gb AS b ON a.virtuemart_product_id = b.virtuemart_product_id 
-					WHERE a.virtuemart_prodcut_id IN (' . implode(',', $items) . ')';
+					WHERE a.virtuemart_product_id IN (' . implode(',', $items) . ')';
 		    $db->setQuery($sql);
 			$products = $db->loadObjectList();
 			for ($i = 0, $n = count($products); $i < $n; $i++)
