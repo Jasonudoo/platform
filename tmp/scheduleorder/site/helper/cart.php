@@ -253,7 +253,7 @@ class ScheduleCart
 				
 				$product->custom_value = $custPrice->custom_value;
 				$product->custom_price = $custPrice->custom_price;
-				$product->price = $customPrice->custom_price * $product->quantity; 
+				$product->price = $custPrice[0]->custom_price * $product->quantity; 
 				$result[] = $product;
 			}
 		}
