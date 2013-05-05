@@ -10,15 +10,18 @@
 // no direct access
 defined( '_JEXEC' ) or die('Restricted Access') ;
 
+// import Joomla view library
+jimport('joomla.application.component.view');
+
 /**
- * HTML View class for Event Booking component
+ * HTML View class for Schedule Order component
  *
  * @static
  * @package		Joomla
- * @subpackage	Event Booking
+ * @subpackage	Schedule Order
  * @since 1.0
  */
-class ScheduleOrderViewCart extends JViewLegacy
+class ScheduleOrderViewCart extends JView
 {
 	/**
 	 * Display interface to user
