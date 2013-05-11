@@ -179,6 +179,7 @@ a.btnCheckout:hover{
 	color:#429132;
 }
 #downloadContainer .simpleCart_quantity{
+	float:left;
 	font-size:18px;
 	color:#429132;
 }
