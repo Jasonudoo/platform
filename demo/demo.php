@@ -3,39 +3,86 @@ define('INCLUDE_CHECK',1);
 require "connect.php";
 
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Schedule Order Front demo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<link rel="stylesheet" type="text/css" href="demo.css" />
-
-<!--[if lt IE 7]>
-<style type="text/css">
-	.pngfix { behavior: url(pngfix/iepngfix.htc);}
-    .tooltip{width:200px;};
-</style>
-<![endif]-->
-
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script type="text/javascript" src="simpletip/jquery.simpletip-1.3.1.pack.js"></script>
-<script type="text/javascript" src="script.js"></script>
+	<title>simpleCart (js) Demo</title>
+	<link rel="stylesheet" href="example.css" type="text/css" media="screen" charset="utf-8" />
+	<!--[if lte IE 6]><link rel="stylesheet" href="ie6.css" type="text/css" media="screen" charset="utf-8" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="ie7.css" type="text/css" media="screen" charset="utf-8" /><![endif]-->
+	<!--Include the SimpleCart(js) script-->
+	<script src="javascripts/simpleCart.js" type="text/javascript" charset="utf-8"></script>
+	
+	<!--Make a new cart instance with your paypal login email-->
+	<script type="text/javascript">
+		myCart = new cart("mycart");
+	</script>
+	
+	<!--CSS for the Cart. Customize anything you damn well please.
+		Use Firebug or Webkit's Element Inspector to get a more 
+		indepth idea of what simpleCart Generates.
+	-->
+	<style>
+		.cartHeaders,.totalRow{display:none;}
+		.simpleCart_items{
+			overflow-y:auto;
+			overflow-x:hidden;
+			height:324px;
+			width:243px;
+			margin-bottom:20px;
+		}
+		.itemContainer{
+			clear:both;
+			width:229px;
+			padding:11px 0;
+			font-size:11px;
+		}
+		.itemImage{
+			float:left;
+			width:60px;
+		}
+		.itemName{
+			float:left;
+			width:85px;
+		}
+		.itemPrice{
+			float:left;
+			width:85px;
+			color:#418932;
+		}
+		.itemQuantity{
+			float:left;
+			width:33px;
+			margin-top:-12px;
+			vertical-align:middle;
+		}
+		.itemQuantity input{
+			width:20px;
+			border:1px solid #ccc;
+			padding:3px 2px;
+		}
+		
+		.itemTotal{
+			float:left;
+			color:#c23f26;
+			margin-top:-6px
+		}
+	</style>
 </head>
-
 <body>
-<div id="main-container">
-	<div class="tutorialzine">
-    <h1>Shopping cart</h1>
-    <h3>The best products at the best prices</h3>
-    </div>
-
-    <div class="container">
-<?php 
-$sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a 
+	<div id="topFrame"></div>
+		<div id="content">
+			<div id="header">
+				<h1>Shopping Cart</h1>
+				<h3>The best products at the best prices</h3>
+			</div>
+			<ul>
+<?php
+$sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a
 		LEFT JOIN tbl_virtuemart_categories_en_gb AS b ON a.virtuemart_category_id = b.virtuemart_category_id
 		WHERE a.published = 1 ORDER BY a.virtuemart_category_id ASC";
 $result = mysql_query($sql);
@@ -46,18 +93,25 @@ while($row = mysql_fetch_assoc($result))
 	{
 		$default_category_id = $row['virtuemart_category_id'];
 	}
+	echo "<li>";
 	echo "<span class='top-label'>";
 	echo "<span class='label-txt'><a href='demo.php?cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
 	echo "</span>";
-	
+	echo "</li>";
+
 }
-?>    
-        <div class="content-area">
-    		<div class="content drag-desired">
+
+?>			
+			</ul>
+			<!--Here's the Catalog Items. You can make anything into a product, 
+				just copy and paste the onclick attribute from one of the products 
+				below.
+			-->
+			<ul id="catalog">
 <?php
-var_dump($_SESSION);
-    $Products = $_SESSION['schedule_cart'];
-    var_dump($Products);
+    var_dump($_SESSION);
+    $products = $_SESSION['schedule_cart'];
+    var_dump($products);
     unset($row);
     unset($result);
     $sql = 'SELECT virtuemart_product_id, virtuemart_category_id FROM tbl_virtuemart_product_categories ORDER BY ordering ASC';
@@ -116,66 +170,41 @@ var_dump($_SESSION);
 		$products[$i]['currency_symbol'] = $priceInfo['currency_symbol'];
 		$products[$i]['currency_code'] = $priceInfo['currency_code_3'];
 		$products[$i]['price'] = $custPrice['custom_price'];
-		
-		echo '<div class="product"><img src="/' . 
-		    $products[$i]['image_file_url_thumb'] . 
-		    '" style="width:120px;height:120px" alt="' . 
-		    htmlspecialchars($products[$i]['product_name']) . 
-		    '" width="128" height="128" class="pngfix" /></div>';
+
+		echo '<li>';
+		echo '<img src="/' . $products[$i]['image_file_url_thumb'] . '" alt="' . htmlspecialchars($products[$i]['product_name']) . '" />';
+		echo '</li>';
+		echo '<span class="price">' . $products[$i]['price'] . '</span><b>' . htmlspecialchars($products[$i]['product_name']) . 
+		    '<br/><a href="#" onclick="myCart.add(\'name=' . htmlspecialchars($products[$i]['product_name']) . 
+		    '\',\'price=50\',\'image=' . $products[$i]['image_file_url_thumb'] . ' \');return false;"> add to cart</a></b>';
+
 	}
 	unset($row);
 	unset($result);
 ?>
-       	        <div class="clear"></div>
-            </div>
-
-        </div>
-        
-        <div class="bottom-container-border">
-        </div>
-
-    </div>
-
-
-
-    <div class="container" style='float:left; width:300px'>
-    
-    	<span class="top-label">
-            <span class="label-txt">Shopping Cart</span>
-        </span>
-        
-        <div class="content-area">
-    
-    		<div class="content drop-here">
-            	<div id="cart-icon">
-	            	<img src="img/Shoppingcart_128x128.png" alt="shopping cart" class="pngfix" width="128" height="128" />
-					<img src="img/ajax_load_2.gif" alt="loading.." id="ajax-loader" width="16" height="16" />
-                </div>
-
-				<form name="checkoutForm" method="post" action="order.php">
-                
-                <div id="item-list">
-                </div>
-                
-				</form>                
-                <div class="clear"></div>
-
-				<div id="total"></div>
-
-       	        <div class="clear"></div>
-                
-                <a href="" onclick="document.forms.checkoutForm.submit(); return false;" class="button">Checkout</a>
-                
-          </div>
-
-        </div>
-        
-        <div class="bottom-container-border">
-        </div>
-
-    </div>
-
-</div>
-
+			</ul>
+			<!--/ Catalog-->
+			
+			
+			<div id="sidebar">
+				<h2>Your Cart</h2>
+				
+				
+				<!--Add a Div with the class "simpleCart_items" to show your shopping cart area.-->
+				<div class="simpleCart_items" >
+				</div>
+				
+				
+				<!--Here's the Links to Checkout and Empty Cart-->
+				<a href="#" class="simpleCart_empty">empty cart</a>
+				<a href="#" class="simpleCart_checkout">Checkout</a>
+				
+			<!--End #sidebar-->	
+			</div>
+			<div id="footer">
+				Created by <a href="http://www.netwebx.com"></a> <a href="http://netwebx.com">NetWebX.COM</a> &nbsp;&nbsp;
+			</div>	
+		<!--End #content-->		
+		</div>
 </body>
 </html>
