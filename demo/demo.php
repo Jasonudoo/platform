@@ -263,7 +263,7 @@ while($row = mysql_fetch_assoc($result))
 				
 				<div id="downloadContainer">
 <h3>Total</h3>
-<div class="simpleCart_total"></div><span class="simpleCart_quantity"></span> items
+<div class="simpleCart_total"></div><span class="simpleCart_quantity"></span> <span style="font-size:20px">ITEMS</span>
 </div>
 			<!--End #sidebar-->	
 			</div>
