@@ -15,7 +15,7 @@ require "connect.php";
 	<!--[if lte IE 6]><link rel="stylesheet" href="ie6.css" type="text/css" media="screen" charset="utf-8" /><![endif]-->
 	<!--[if IE 7]><link rel="stylesheet" href="ie7.css" type="text/css" media="screen" charset="utf-8" /><![endif]-->
 	<!--Include the SimpleCart(js) script-->
-	<script src="javascripts/simpleCart.js" type="text/javascript" charset="utf-8"></script>
+	<script src="javascripts/simpleCart_uncompressed.js" type="text/javascript" charset="utf-8"></script>
 	
 	<!--Make a new cart instance with your paypal login email-->
 	<script type="text/javascript">
@@ -78,8 +78,8 @@ require "connect.php";
 		<div id="content">
 			<div id="header">
 				<h1>Shopping Cart</h1>
-				<h3>The best products at the best prices</h3>
 			</div>
+			<!--
 			<ul>
 <?php
 $sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a
@@ -103,6 +103,7 @@ while($row = mysql_fetch_assoc($result))
 
 ?>			
 			</ul>
+			-->
 			<!--Here's the Catalog Items. You can make anything into a product, 
 				just copy and paste the onclick attribute from one of the products 
 				below.
