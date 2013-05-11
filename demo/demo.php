@@ -77,7 +77,7 @@ require "connect.php";
 	<div id="topFrame"></div>
 		<div id="content">
 			<div id="header">
-				<h2>Shopping Cart</h2>
+				<h1></h1></h2><h2>Shopping Cart</h2>
 			</div>
 			<!--
 			<ul>
