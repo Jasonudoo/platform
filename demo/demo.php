@@ -84,7 +84,8 @@ require "connect.php";
 	</style>
 </head>
 <body>
-	<div id="topFrame">
+	<div id="topFrame"></div>
+	<div id="content_area">
 <?php
 $sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a
 		LEFT JOIN tbl_virtuemart_categories_en_gb AS b ON a.virtuemart_category_id = b.virtuemart_category_id
