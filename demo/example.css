@@ -141,6 +141,9 @@ b a{
 	margin-top:-70px;
 	
 }
+#sidebar h2{
+	padding-top:60px;
+}
 #sidebar a{
 	font-size:11px;
 	color:#000;
