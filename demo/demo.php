@@ -173,7 +173,7 @@ while($row = mysql_fetch_assoc($result))
 		$products[$i]['price'] = $custPrice['custom_price'];
 
 		echo '<li>';
-		echo '<img src="/' . $products[$i]['image_file_url_thumb'] . '" alt="' . htmlspecialchars($products[$i]['product_name']) . '" />';
+		echo '<img src="/' . $products[$i]['image_file_url'] . '" alt="' . htmlspecialchars($products[$i]['product_name']) . '" width="134" height="77"/>';
 		echo '</li>';
 		echo '<span class="price">' . $products[$i]['price'] . '</span><b>' . htmlspecialchars($products[$i]['product_name']) . 
 		    '<br/><a href="#" onclick="myCart.add(\'name=' . htmlspecialchars($products[$i]['product_name']) . 
