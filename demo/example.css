@@ -60,6 +60,7 @@ body{
 	display: inline-block; 
 	height:40px; 
 	line-height:40px;
+	margin-top:60px;
 }
 h2{
 	font-size:22px;
