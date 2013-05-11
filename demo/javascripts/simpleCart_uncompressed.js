@@ -605,8 +605,8 @@ var getElementsByClassName = function (className, tag, elm){
 //*************************************************************************************************
 
 function createCart(){
-	myCart.initialize();
+	simpleCart.initialize();
 	return;
 }
-var ElementCheckInterval = setInterval("myCart.updatePageElements()", 2000);
+var ElementCheckInterval = setInterval("simpleCart.updatePageElements()", 2000);
 window.onload = createCart;
