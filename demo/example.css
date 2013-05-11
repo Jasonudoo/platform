@@ -48,6 +48,10 @@ body{
 	height:14px;
 }
 
+.clear{
+	clear:both;
+}
+
 #header{
 	padding:20px 0;
 	margin-left:20px;
