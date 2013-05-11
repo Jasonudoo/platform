@@ -24,8 +24,7 @@ require "connect.php";
     $sql = "SELECT * FROM tbl_schorder_cart WHERE mem_id = 331";
     $result = mysql_query($sql);
     $row = mysql_fetch_assoc($result);
-    $sql = "SELECT product_id, quantity FROM tbl_schorder_cart_product WHERE cart_id = " . $row['card_id'];
-    echo $sql;
+    $sql = "SELECT product_id, quantity FROM tbl_schorder_cart_product WHERE cart_id = " . $row['cart_id'];
     $result = mysql_query($sql);
     while( $row = mysql_fetch_assoc($result) )
     {
