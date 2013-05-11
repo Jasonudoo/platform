@@ -275,7 +275,7 @@ function cart( email ) {
 					tempCell.className = "item" + this.ItemColumns[i];
 					if( this.ItemColumns[i] == 'Image' ) {
 						if( tempItem.getValue('image') ) {
-							tempCell.innerHTML = '<img src="' + tempItem.getValue('image') + '" />';
+							tempCell.innerHTML = '<img src="' + tempItem.getValue('image') + '" width="32" height="32"/>';
 						}
 					}
 					if( this.ItemColumns[i] == 'Name' ) {
