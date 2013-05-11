@@ -261,6 +261,10 @@ while($row = mysql_fetch_assoc($result))
 				<a href="#" class="simpleCart_empty">empty cart</a>
 				<a href="#" class="simpleCart_checkout">Checkout</a>
 				
+				<div id="downloadContainer">
+<h3>Total</h3>
+<a href="#">
+</div>
 			<!--End #sidebar-->	
 			</div>
 			<div id="footer">
