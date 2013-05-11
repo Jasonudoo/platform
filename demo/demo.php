@@ -27,6 +27,16 @@ require "connect.php";
 		indepth idea of what simpleCart Generates.
 	-->
 	<style>
+        .product-grid-1 .tab-content { border:1px solid #DDDDDD; border-top:none; background:#fff }
+        .product-grid-1 .nav { margin-bottom:0 } /* overrides from bootstrap */
+        .product-grid-1 .nav a { color:#aaa; }
+        .product-grid-1 .nav .active a { color:#000 }
+        .product-grid-1 .tab-content { padding:15px }
+        .product-grid-1 .title { font-size:20px; color:#000; font-weight:bold }
+        .product-grid-1 .subtitle { font-size:14px; font-weight:bold; margin-bottom:10px }
+        .product-grid-1 .highlight { background:#F8F7F6; border:1px solid #EBEAEA; padding:5px 10px; font-size:13px; font-weight:bold; color:#5F5F5F }
+        .product-grid-1 address { font-size:12px; }
+        .product-grid-1 .about .u { float:left; width:49% } 
 		.cartHeaders,.totalRow{display:none;}
 		.simpleCart_items{
 			overflow-y:auto;
@@ -79,8 +89,6 @@ require "connect.php";
 			<div id="header">
 				<img class="logo" src="images/logo.gif" width="1" height="1" /><span class="logo_font">Shopping Cart</span>
 			</div>
-			<!--
-			<ul>
 <?php
 $sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a
 		LEFT JOIN tbl_virtuemart_categories_en_gb AS b ON a.virtuemart_category_id = b.virtuemart_category_id
@@ -93,17 +101,15 @@ while($row = mysql_fetch_assoc($result))
 	{
 		$default_category_id = $row['virtuemart_category_id'];
 	}
-	echo "<li>";
+	//echo "<li>";
 	echo "<span class='top-label'>";
 	echo "<span class='label-txt'><a href='demo.php?cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
 	echo "</span>";
-	echo "</li>";
+	//echo "</li>";
 
 }
 
 ?>			
-			</ul>
-			-->
 			<!--Here's the Catalog Items. You can make anything into a product, 
 				just copy and paste the onclick attribute from one of the products 
 				below.
