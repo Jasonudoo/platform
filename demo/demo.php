@@ -261,15 +261,12 @@ while($row = mysql_fetch_assoc($result))
 				<a href="#" class="simpleCart_checkout">Checkout</a>
 				
 				<div id="downloadContainer">
-<h3>Total</h3>
-<div class="simpleCart_total"></div> - <span class="simpleCart_quantity"></span> <span style="font-size:20px">ITEMS</span>
-</div>
+                    <h3>Total</h3>
+                    <div class="simpleCart_total"></div> - <span class="simpleCart_quantity"></span> <span style="font-size:20px">ITEMS</span>
+                </div>
 			<!--End #sidebar-->
 			</div>
 			<div class="clear></div>
-			<div id="footer">
-				Created by <a href="http://www.netwebx.com"></a> <a href="http://netwebx.com">NetWebX.COM</a> &nbsp;&nbsp;
-			</div>	
 		<!--End #content-->		
 		</div>
 </body>
