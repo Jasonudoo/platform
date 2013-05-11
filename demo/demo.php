@@ -69,7 +69,7 @@ require "connect.php";
     	for($i = 0; $i < $row['quantity']; $i++)
     	{
     	    echo 'simpleCart.add(\'name=' . htmlspecialchars($product['product_name']) .
-    		'\',\'price=' . $product['price'] . '\',\'image=/' . $product['image_file_url_thumb'] . ' \');';
+    		'\',\'price=' . $product['price'] . '\',\'image=/' . $prodImage['image_file_url_thumb'] . ' \');';
     	}
     }
 ?>		
