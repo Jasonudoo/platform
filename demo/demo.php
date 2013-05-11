@@ -10,7 +10,7 @@ require "connect.php";
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<title>simpleCart (js) Demo</title>
+	<title>My Shopping Cart</title>
 	<link rel="stylesheet" href="example.css" type="text/css" media="screen" charset="utf-8" />
 	<!--[if lte IE 6]><link rel="stylesheet" href="ie6.css" type="text/css" media="screen" charset="utf-8" /><![endif]-->
 	<!--[if IE 7]><link rel="stylesheet" href="ie7.css" type="text/css" media="screen" charset="utf-8" /><![endif]-->
