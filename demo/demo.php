@@ -19,7 +19,7 @@ require "connect.php";
 	
 	<!--Make a new cart instance with your paypal login email-->
 	<script type="text/javascript">
-		simpleCart = new cart("mycart");
+		simpleCart = new cart("jasonudoo@gmail.com");
 	</script>
 	
 	<!--CSS for the Cart. Customize anything you damn well please.
