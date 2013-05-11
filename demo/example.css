@@ -47,9 +47,10 @@ body{
 	float:left;
 }
 h1{
-	width:75px;
+	width:287px;
 	height:0;
-	background:url(images/logo.gif);
+	background-image:url(images/logo.gif);
+	background-position:0px -75px;
 	font-size:0px;
 	padding-top:60px;
 	overflow:hidden;
