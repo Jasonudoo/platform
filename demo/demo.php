@@ -140,8 +140,8 @@ require "connect.php";
 	<div id="topFrame"></div>
 	<div id="content">
 		<div id="header">
-				<img class="logo" src="images/logo.gif" width="1" height="1" /><span class="logo_font">Shopping Cart</span>
-	<div id="content_area">
+				<!--<img class="logo" src="images/logo.gif" width="1" height="1" />-->
+				<span class="logo_font">Shopping Cart</span>
 <?php
 $sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a
 		LEFT JOIN tbl_virtuemart_categories_en_gb AS b ON a.virtuemart_category_id = b.virtuemart_category_id
@@ -163,8 +163,6 @@ while($row = mysql_fetch_assoc($result))
 }
 
 ?>
-    </div>
-				
 		</div>
 			<!--Here's the Catalog Items. You can make anything into a product, 
 				just copy and paste the onclick attribute from one of the products 
