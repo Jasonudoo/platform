@@ -79,10 +79,12 @@ h2{
 #catalog li img{
 	display:block;
 }
+#catalog li b{
+	word-wrap:break-word;overflow:hidden;
+}
 .price{
 	display:block;
 	float:left;
-	background:url(images/span.png);
 	width:33px;
 	height:21px;
 	line-height:20px;
@@ -90,8 +92,8 @@ h2{
 	color:#fff;
 	font-size:15px;
 	padding:2px 0 0 5px;
-	font-weight:lighter;
-	
+	font-weight:bolder;
+	color:#429132;
 }
 b{
 	float:left;
