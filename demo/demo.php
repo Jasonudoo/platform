@@ -77,7 +77,7 @@ require "connect.php";
 	<div id="topFrame"></div>
 		<div id="content">
 			<div id="header">
-				<img class="logo" src="images/logo.gif" width="1" height="1" /><h1>Shopping Cart</h1>
+				<img class="logo" src="images/logo.gif" width="1" height="1" /><span class="logo_font">Shopping Cart</span>
 			</div>
 			<!--
 			<ul>
