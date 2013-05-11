@@ -120,19 +120,17 @@ h2{
 .price{
 	display:block;
 	float:left;
-	background:url(images/span.png);
 	width:33px;
 	height:21px;
 	line-height:20px;
 	margin:6px 4px 0 0;
-	color:#fff;
+	color:#429132;
 	font-size:15px;
 	padding:2px 0 0 5px;
-	font-weight:lighter;
+	font-weight:bloder;
 	
 }
 b{
-	float:left;
 	font-size:15px;
 	color:#333;
 }
