@@ -84,8 +84,7 @@ require "connect.php";
 	</style>
 </head>
 <body>
-	<div id="topFrame"></div>
-	<div id="topNavigate">
+	<div id="topFrame">
 <?php
 $sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a
 		LEFT JOIN tbl_virtuemart_categories_en_gb AS b ON a.virtuemart_category_id = b.virtuemart_category_id
@@ -182,11 +181,11 @@ while($row = mysql_fetch_assoc($result))
 
 		echo '<li>';
 		echo '<img src="/' . $products[$i]['image_file_url'] . '" alt="' . htmlspecialchars($products[$i]['product_name']) . '" width="134" height="77"/>';
-		echo '</li>';
-		echo '<span class="price">' . $products[$i]['custom_value'] . '</span><br/><b>' . htmlspecialchars($products[$i]['product_name']) . 
-		    '<br/><a href="#" onclick="simpleCart.add(\'name=' . htmlspecialchars($products[$i]['product_name']) . 
+		echo '<span class="price">' . $products[$i]['custom_value'] . '</span><b>' . htmlspecialchars($products[$i]['product_name']) . 
+		    '<a href="#" onclick="simpleCart.add(\'name=' . htmlspecialchars($products[$i]['product_name']) . 
 		    '\',\'price=50\',\'image=/' . $products[$i]['image_file_url_thumb'] . ' \');return false;"> add to cart</a></b>';
-
+		echo '</li>';
+		
 	}
 	unset($row);
 	unset($result);
