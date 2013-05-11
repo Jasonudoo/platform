@@ -110,9 +110,9 @@ while($row = mysql_fetch_assoc($result))
 			-->
 			<ul id="catalog">
 <?php
-    var_dump($_SESSION);
+    //var_dump($_SESSION);
     $products = $_SESSION['schedule_cart'];
-    var_dump($products);
+    //var_dump($products);
     unset($row);
     unset($result);
     $sql = 'SELECT virtuemart_product_id, virtuemart_category_id FROM tbl_virtuemart_product_categories ORDER BY ordering ASC';
