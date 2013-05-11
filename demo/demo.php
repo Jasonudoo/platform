@@ -20,6 +20,59 @@ require "connect.php";
 	<!--Make a new cart instance with your paypal login email-->
 	<script type="text/javascript">
 		simpleCart = new cart("jasonudoo@gmail.com");
+<?php 
+    $sql = "SELECT * FROM tbl_schorder_cart WHERE mem_id = 331";
+    $result = mysql_query($sql);
+    $row = mysql_fetch_assoc($result);
+    $sql = "SELECT product_id, quantity FROM tbl_schorder_cart_product WHERE cart_id = " . $row['card_id'];
+    $result = mysql_query($sql);
+    while( $row = mysql_fetch_assoc($result) )
+    {
+    	$sql = 'SELECT a.*, b.* FROM tbl_virtuemart_products AS a
+			LEFT JOIN tbl_virtuemart_products_en_gb AS b ON a.virtuemart_product_id = b.virtuemart_product_id
+			WHERE a.virtuemart_product_id = ' . $row['product_id'];
+    	$result_1 = mysql_query($sql);
+    	$product = mysql_fetch_assoc($result_1);
+    	
+    	$sql = 'SELECT c.* FROM tbl_virtuemart_product_medias AS b
+				LEFT JOIN tbl_virtuemart_medias AS c ON b.virtuemart_media_id = c.virtuemart_media_id
+    			WHERE b.virtuemart_product_id = ' . $row['product_id'];
+    	$result_1 = mysql_query($sql);
+    	$row_1 = mysql_fetch_assoc($result_1);
+    	$prodImage['image_file_url_thumb'] = $row_1['file_url_thumb'];
+    	unset($row_1);
+    	unset($result_1);
+    	
+    	$sql = 'SELECT p.product_price, d.currency_code_3, d.currency_symbol FROM tbl_virtuemart_product_prices AS p
+				LEFT JOIN tbl_virtuemart_currencies AS d ON d.virtuemart_currency_id = p.product_currency
+				WHERE p.virtuemart_product_id = ' . $row['product_id'];
+    	$result_1 = mysql_query($sql);
+    	$row_1 = mysql_fetch_assoc($result_1);
+    	$priceInfo = $row_1;
+    	unset($row_1);
+    	unset($result_1);
+    	
+    	$sql = 'SELECT c.custom_value, c.custom_price FROM tbl_virtuemart_product_customfields AS c
+				WHERE c.virtuemart_custom_id = 3 and c.virtuemart_product_id = ' . $row['product_id'];
+    	$result_1 = mysql_query($sql);
+    	$row_1 = mysql_fetch_assoc($result_1);
+    	$custPrice = $row_1;
+    	unset($row_1);
+    	unset($result_1);
+    	
+    	$product['custom_value'] = $custPrice['custom_value'];
+    	$product['custom_price'] = $custPrice['custom_price'];
+    	$product['currency_symbol'] = $priceInfo['currency_symbol'];
+    	$product['currency_code'] = $priceInfo['currency_code_3'];
+    	$product['price'] = $custPrice['custom_price'];
+
+    	for($i = 0; $i < $row['quantity']; $i++)
+    	{
+    	    echo 'simpleCart.add(\'name=' . htmlspecialchars($product['product_name']) .
+    		'\',\'price=' . $product['price'] . '\',\'image=/' . $product['image_file_url_thumb'] . ' \');';
+    	}
+    }
+?>		
 	</script>
 	
 	<!--CSS for the Cart. Customize anything you damn well please.
