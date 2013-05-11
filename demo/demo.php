@@ -39,8 +39,13 @@ $sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a
 		LEFT JOIN tbl_virtuemart_categories_en_gb AS b ON a.virtuemart_category_id = b.virtuemart_category_id
 		WHERE a.published = 1 ORDER BY a.virtuemart_category_id ASC";
 $result = mysql_query($sql);
+$default_category_id = null;
 while($row = mysql_fetch_assoc($result))
 {
+	if( is_null($default_category_id) )
+	{
+		$default_category_id = $row['virtuemart_category_id'];
+	}
 	echo "<span class='top-label'>";
 	echo "<span class='label-txt'><a href='demo.php?cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
 	echo "</span>";
@@ -50,18 +55,77 @@ while($row = mysql_fetch_assoc($result))
         <div class="content-area">
     		<div class="content drag-desired">
 <?php
+var_dump($_SESSION);
     $Products = $_SESSION['schedule_cart'];
-    var_dump($Products);      
-    $sql = "SELECT * FROM ";
-	$result = mysql_query("SELECT * FROM internet_shop");
-	while($row=mysql_fetch_assoc($result))
+    var_dump($Products);
+    unset($row);
+    unset($result);
+    $sql = 'SELECT virtuemart_product_id, virtuemart_category_id FROM tbl_virtuemart_product_categories ORDER BY ordering ASC';
+    $result = mysql_query($sql);
+    
+    $category_product = array();
+    while($row = mysql_fetch_assoc($result))
+    {
+    	$category_product[$row['virtuemart_category_id']][] = $row['virtuemart_product_id'];
+    }
+    $cgid = (isset($_REQUEST['cid']) && !empty($_REQUEST['cid'])) ? $_REQUEST['cid'] : $default_category_id;
+    
+    unset($row);
+    unset($result);
+    $items = $category_product[$cgid];
+    $sql = 'SELECT a.*, b.* FROM tbl_virtuemart_products AS a 
+			LEFT JOIN tbl_virtuemart_products_en_gb AS b ON a.virtuemart_product_id = b.virtuemart_product_id 
+			WHERE a.virtuemart_product_id IN (' . implode(',', $items) . ')';
+	$result = mysql_query($sql);
+	$products = array();
+	$i = 0;
+	while($row = mysql_fetch_assoc($result))
 	{
-		echo '<div class="product"><img src="img/products/'.$row['img'].'" alt="'.htmlspecialchars($row['name']).'" width="128" height="128" class="pngfix" /></div>';
+		$products[$i] = $row;
+		
+		$sql = 'SELECT c.* FROM tbl_virtuemart_product_medias AS b
+				LEFT JOIN tbl_virtuemart_medias AS c ON b.virtuemart_media_id = c.virtuemart_media_id
+    			WHERE b.virtuemart_product_id = ' . $row['virtuemart_product_id'];
+		$result_1 = mysql_query($sql);
+		$row_1 = mysql_fetch_assoc($result_1);
+        $products[$i]['image_file_title'] = $row_1['file_title'];
+		$products[$i]['image_file_url'] = $row_1['file_url'];
+		$products[$i]['image_file_url_thumb'] = $row_1['file_url_thumb'];
+        unset($row_1);
+        unset($result_1);
+        
+		$sql = 'SELECT p.product_price, d.currency_code_3, d.currency_symbol FROM tbl_virtuemart_product_prices AS p
+				LEFT JOIN tbl_virtuemart_currencies AS d ON d.virtuemart_currency_id = p.product_currency
+				WHERE p.virtuemart_product_id = ' . $row['virtuemart_product_id'];
+		$result_1 = mysql_query($sql);
+		$row_1 = mysql_fetch_assoc($result_1);
+		$priceInfo = $row_1;
+		unset($row_1);
+		unset($result_1);
+		
+		$sql = 'SELECT c.custom_value, c.custom_price FROM tbl_virtuemart_product_customfields AS c
+				WHERE c.virtuemart_custom_id = 3 and c.virtuemart_product_id = ' . $row['virtuemart_product_id'];
+		$result_1 = mysql_query($sql);
+		$row_1 = mysql_fetch_assoc($result_1);
+		$custPrice = $row_1;
+		unset($row_1);
+		unset($result_1);
+		
+		$products[$i]['custom_value'] = $custPrice['custom_value'];
+		$products[$i]['custom_price'] = $custPrice['custom_price'];
+		$products[$i]['currency_symbol'] = $priceInfo['currency_symbol'];
+		$products[$i]['currency_code'] = $priceInfo['currency_code_3'];
+		$products[$i]['price'] = $custPrice['custom_price'];
+		
+		echo '<div class="product"><img src="' . 
+		    $products[$i]['image_file_url_thumb'] . 
+		    '" style="width:120px;height:120px" alt="' . 
+		    htmlspecialchars($products[$i]['product_name']) . 
+		    '" width="128" height="128" class="pngfix" /></div>';
 	}
-
-				?>
-                
-                
+	unset($row);
+	unset($result);
+?>
        	        <div class="clear"></div>
             </div>
 
