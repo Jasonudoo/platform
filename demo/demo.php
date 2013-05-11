@@ -138,6 +138,9 @@ require "connect.php";
 </head>
 <body>
 	<div id="topFrame"></div>
+	<div id="content">
+		<div id="header">
+				<img class="logo" src="images/logo.gif" width="1" height="1" /><span class="logo_font">Shopping Cart</span>
 	<div id="content_area">
 <?php
 $sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a
@@ -161,10 +164,8 @@ while($row = mysql_fetch_assoc($result))
 
 ?>
     </div>
-	<div id="content">
-		<div id="header">
-				<img class="logo" src="images/logo.gif" width="1" height="1" /><span class="logo_font">Shopping Cart</span>
-			</div>
+				
+		</div>
 			<!--Here's the Catalog Items. You can make anything into a product, 
 				just copy and paste the onclick attribute from one of the products 
 				below.
