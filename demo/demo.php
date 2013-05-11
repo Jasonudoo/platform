@@ -117,7 +117,7 @@ var_dump($_SESSION);
 		$products[$i]['currency_code'] = $priceInfo['currency_code_3'];
 		$products[$i]['price'] = $custPrice['custom_price'];
 		
-		echo '<div class="product"><img src="' . 
+		echo '<div class="product"><img src="/' . 
 		    $products[$i]['image_file_url_thumb'] . 
 		    '" style="width:120px;height:120px" alt="' . 
 		    htmlspecialchars($products[$i]['product_name']) . 
