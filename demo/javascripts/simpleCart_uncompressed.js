@@ -608,5 +608,5 @@ function createCart(){
 	simpleCart.initialize();
 	return;
 }
-var ElementCheckInterval = setInterval("simpleCart.updatePageElements()", 2000);
+//var ElementCheckInterval = setInterval("simpleCart.updatePageElements()", 2000);
 window.onload = createCart;

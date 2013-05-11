@@ -62,7 +62,7 @@ if(!$_POST)
 				
 				if(!mysql_num_rows($result))
 				{
-					echo '<h1>There was an error with your order!</h1>';
+					echo '<h1>Thank you for purchasing items!</h1>';
 				}
 				else
 				{
