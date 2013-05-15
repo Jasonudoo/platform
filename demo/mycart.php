@@ -136,16 +136,19 @@ while($row = mysql_fetch_assoc($result))
 	if($mem_id = 331 && $row['virtuemart_category_id'] == 9)
 	{
 		echo "<h3><a href='demo.php?uid=" . $mem_id . "&cid=". $row['virtuemart_category_id'] . "' class='left_title'>" . $row['category_name'] ."</a></h3>";
-	    break;
+	    $cid = $row['virtuemart_category_id'];
+		break;
 	}
 	if($mem_id = 332 && $row['virtuemart_category_id'] == 10)
 	{
 		echo "<h3><a href='demo.php?uid=" . $mem_id . "&cid=". $row['virtuemart_category_id'] . "' class='left_title'>" . $row['category_name'] ."</a></h3>";
+	    $cid = $row['virtuemart_category_id'];
 		break;
 	}
 	if($mem_id = 333 && $row['virtuemart_category_id'] == 11)
 	{
 		echo "<h3><a href='demo.php?uid=" . $mem_id . "&cid=". $row['virtuemart_category_id'] . "' class='left_title'>" . $row['category_name'] ."</a></h3>";
+	    $cid = $row['virtuemart_category_id'];
 		break;
 	}		
 }
@@ -158,10 +161,11 @@ echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unt
 			</div>
 			<div id="downloadContainer" style="margin:200px 0 35px 0;float:left">
 			    <h3>Check Out</h3>
-			    <!--Here's the Links to Checkout and Empty Cart-->
-			    <a href="#" class="simpleCart_checkout">Checkout</a>
-			    <br/>
-			    <a href="demo.php?uid=<?php echo $mem_id; ?>" class="simpleCart_modify">Modify Cart</a>
+				<div class="checkoutEmptyLinks">
+				<!--Here's the Links to Checkout and Empty Cart-->
+				<a href="demo.php?uid=<?php echo $mem_id; ?>&cid=<?php echo $cid; ?>" class="simpleCart_modify">Modify cart</a>
+				<a href="#" class="simpleCart_checkout">Checkout</a>
+				</div>
 			    </div>	
 			<!--End #sidebar-->	
 		</div>
