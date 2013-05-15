@@ -131,8 +131,6 @@ function cart( email ) {
 		if(!newItem.getValue('quantity')) {
 			newItem.addValue('quantity',1);
 		}
-		//this.totalItems = this.totalItems + newItem.getValue('quantity');
-		this.totalItems = this.totalItems + 1;
 		
 		x=0;
 		for( x=0;x < this.items.length;x++ ) {
@@ -147,6 +145,9 @@ function cart( email ) {
 			this.items[this.items.length] = newItem;
 			this.totalPrice = this.totalPrice + parseFloat(newItem.getValue('quantity')) * parseFloat(newItem.getValue('price'));
 		}
+		//this.totalItems = this.totalItems + newItem.getValue('quantity');
+		this.totalItems = this.items.length;
+
 		this.updateCookie();
 		this.updatePageElements();
 		return;
@@ -159,14 +160,14 @@ function cart( email ) {
 			if( tempItem.equalTo(newItem) ){
 				tempItem.addValue('quantity', parseFloat(newItem.getValue('quantity')) + parseFloat(tempItem.getValue('quantity')) );
 				//this.totalItems = this.totalItems + parseInt(newItem.getValue('quantity'));
-				this.totalItems = this.totalItems + 1;
+				this.totalItems = this.items.length;
 				this.totalPrice = this.totalPrice + parseFloat(newItem.getValue('quantity'))*parseFloat(newItem.getValue('price'));
 				return;
 			}
 		}
 		this.items[this.items.length] = newItem;
 		//this.totalItems = this.totalItems + parseInt(newItem.getValue('quantity'));
-		this.totalItems = this.totalItems + 1;
+		this.totalItems = this.items.length;
 		this.totalPrice = this.totalPrice + parseFloat(newItem.getValue('quantity'))*parseFloat(newItem.getValue('price'));
 		return;
 	};
@@ -204,8 +205,9 @@ function cart( email ) {
 			tempItem = this.items[x];		
 			if( tempItem.equalTo(item) ) {
 				found = true;
-				this.totalItems = this.totalItems - parseFloat(tempItem.getValue('quantity'));
-				this.totalPrice = this.totalPrice - parseFloat(tempItem.getValue('price'));
+				//this.totalItems = this.totalItems - parseFloat(tempItem.getValue('quantity'));
+				this.totalItems = this.items.length - 1;
+				this.totalPrice = this.totalPrice - parseFloat(tempItem.getValue('quantity') * parseFloat(tempItem.getValue('price'));
 			}
 			if( found ) {
 				if( x < ( this.items.length - 1 ) ) {

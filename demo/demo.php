@@ -5,6 +5,11 @@ require "connect.php";
 $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
 $cgid = (isset($_REQUEST['cid']) && !empty($_REQUEST['cid'])) ? $_REQUEST['cid'] : 9;
 
+$sql = "SELECT * FROM tbl_schorder_cart WHERE mem_id = " . $mem_id;
+$result = mysql_query($sql);
+$cartInfo = mysql_fetch_assoc($result);
+unset($result);
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -215,9 +220,10 @@ while($row = mysql_fetch_assoc($result))
                     <h3>Total</h3>
                     <div class="simpleCart_total"></div> - <span class="simpleCart_quantity"></span> <span style="font-size:20px">ITEMS</span>
                 </div>
+                <input type='hidden' name='minPrice' id='minPrice' value='<?php echo number_format($cartInfo['cart_total'], 2, '.', ''); ?>" />
 			<!--End #sidebar-->
 			</div>
-			<div class="clear></div>
+			<div class="clear"></div>
 		<!--End #content-->		
 		</div>
 </body>
