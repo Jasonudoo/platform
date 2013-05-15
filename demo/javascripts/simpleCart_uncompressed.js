@@ -131,19 +131,21 @@ function cart( email ) {
 		if(!newItem.getValue('quantity')) {
 			newItem.addValue('quantity',1);
 		}
-		this.totalItems = this.totalItems + newItem.getValue('quantity');
+		//this.totalItems = this.totalItems + newItem.getValue('quantity');
+		this.totalItems = this.totalItems + 1;
+		
 		x=0;
 		for( x=0;x < this.items.length;x++ ) {
 			tempItem = this.items[x];
 			if( tempItem.equalTo(newItem) ) {
 				tempItem.addValue( 'quantity' , (parseFloat(tempItem.getValue('quantity')) + parseFloat(newItem.getValue('quantity')) ) );
-				this.totalPrice = this.totalPrice + parseFloat( tempItem.getValue('price') );
+				this.totalPrice = this.totalPrice + parseFloat(tempItem.getValue('quantity')) * parseFloat( tempItem.getValue('price') );
 				isnew = false;
 			}
 		}
 		if( isnew ) {
 			this.items[this.items.length] = newItem;
-			this.totalPrice = this.totalPrice + parseFloat(newItem.getValue('price'));
+			this.totalPrice = this.totalPrice + parseFloat(tempItem.getValue('quantity')) * parseFloat(newItem.getValue('price'));
 		}
 		this.updateCookie();
 		this.updatePageElements();
