@@ -191,6 +191,7 @@ echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unt
     $row = mysql_fetch_assoc($result);
     $sql = "SELECT product_id, quantity FROM tbl_schorder_cart_product WHERE cart_id = " . $cartInfo['cart_id'];
     $result = mysql_query($sql);
+    $script = "";
     while( $row = mysql_fetch_assoc($result) )
     {
     	$sql = 'SELECT a.*, b.* FROM tbl_virtuemart_products AS a
@@ -254,7 +255,7 @@ echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unt
         $script .= "simpleCart.add('name=" . htmlspecialchars($product['product_name']) . 
                                     "','price=" . $product['custom_price'] .
                                     "','image=/" . $prodImage['image_file_url_thumb'] . 
-                                    "','quantity=" . $row['quantity'] . "');\n";
+                                    "','quantity=" . number_format($row['quantity'], 2, '.', '') . "');\n";
     }
 ?>		
 			    <div class="totalRow">
@@ -265,7 +266,7 @@ echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unt
 		</div>
 			
 		<div id="footer" class="cartFoot">
-		<script language="javascript/text">
+        <script type="text/javascript">
         <?php echo $script; ?>
         </script>
 		</div>	
