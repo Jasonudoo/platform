@@ -143,11 +143,12 @@ while($row = mysql_fetch_assoc($result))
 	}
 	if($mem_id = 333 && $row['virtuemart_category_id'] == 11)
 	{
-		echo "<span class='label-txt'><a href='demo.php?cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
+		echo "<span class='label-txt'><a href='demo.php?uid=" . $mem_id . "&cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
 		break;
 	}		
 }
-echo "Package Price : CHF" . $cartInfo['cart_total'];
+echo "<br/>";
+echo "<h4>Package Price : CHF" . $cartInfo['cart_total'] . "</h4>";
 echo "<br/>";
 echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank! </span>"; 
 ?>
