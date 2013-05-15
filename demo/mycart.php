@@ -37,7 +37,7 @@ require "connect.php";
         .product-grid-1 address { font-size:12px; }
         .product-grid-1 .about .u { float:left; width:49% } 
 		.cartHeaders,.totalRow{display:none;}
-		.simpleCart_items{
+		.simpleCart_item{
 			overflow-y:auto;
 			overflow-x:hidden;
 			height:324px;
@@ -63,6 +63,11 @@ require "connect.php";
 			width:85px;
 			color:#418932;
 		}
+		.itemDesc{
+			float:left;
+			width:120px;
+			color:#418932;
+		}
 		.itemQuantity{
 			float:left;
 			width:33px;
@@ -85,73 +90,76 @@ require "connect.php";
 <body>
 	<div id="topFrame"></div>
 	<div id="content">
-			
-			
-			<div id="sidebar" style="margin-top:20px">
-				<h2>You Might Also Like</h2>
-				<div class="alsoContainer">
-					<div class="alsoImage">
-						<img src="images/thumbs/blackGold.jpg" alt="" />
-					</div>
-					<div class="alsoInfo">
-						Black Gold<br/>
-						<a href="#" onclick="simpleCart.add('name=Black Gold','price=58','image=images/thumbs/blackGold.jpg');return false;">add to cart</a>
-					</div>
-					<div class="alsoPrice">$58</div>
+		<div id="sidebar" style="margin-top:20px">
+			<h2>You Might Also Like</h2>
+			<div class="alsoContainer">
+				<div class="alsoImage">
+					<img src="images/thumbs/blackGold.jpg" alt="" />
 				</div>
-				
-				<div class="alsoContainer">
-					<div class="alsoImage">
-						<img src="images/thumbs/goldShoe.jpg" alt="" />
-					</div>
-					<div class="alsoInfo">
-						Gold Shoe<br/>
-						<a href="#" onclick="simpleCart.add('name=Gold Shoe','price=70','image=images/thumbs/goldShoe.jpg');return false;">add to cart</a>
-					</div>
-					<div class="alsoPrice">$58</div>
+				<div class="alsoInfo">
+					Black Gold<br/>
+					<a href="#" onclick="simpleCart.add('name=Black Gold','price=58','image=images/thumbs/blackGold.jpg');return false;">add to cart</a>
 				</div>
+				<div class="alsoPrice">$58</div>
+			</div>
+			<div class="alsoContainer">
+				<div class="alsoImage">
+					<img src="images/thumbs/goldShoe.jpg" alt="" />
+				</div>
+				<div class="alsoInfo">
+					Gold Shoe<br/>
+					<a href="#" onclick="simpleCart.add('name=Gold Shoe','price=70','image=images/thumbs/goldShoe.jpg');return false;">add to cart</a>
+				</div>
+				<div class="alsoPrice">$58</div>
+			</div>
 				
-				<div class="alsoContainer">
-					<div class="alsoImage">
-						<img src="images/thumbs/greenStripe.jpg" alt="" />
-					</div>
-					<div class="alsoInfo">
-						Green Stripe<br/>
-						<a href="#" onclick="simpleCart.add('name=Green Stripe','price=90','image=images/thumbs/greenStripe.jpg');return false;">add to cart</a>
-					</div>
-					<div class="alsoPrice">$58</div>
-				</div>	
-				
-				
-				
-				
-				
-				<div id="downloadContainer" style="margin:250px 0 35px 0;float:left">
-					<h3>Download</h3>
-					<a href="#"><img src="images/smallLogo.gif" alt="Download simpleCart(js)" style="margin-top:2px;vertical-align:bottom"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="#">Version 1.0</a>&nbsp;&nbsp;<a href="#"><img src="images/arrow.gif" alt="Download simpleCart(js)"></a>
-				</div>	
+			<div class="alsoContainer">
+				<div class="alsoImage">
+					<img src="images/thumbs/greenStripe.jpg" alt="" />
+				</div>
+				<div class="alsoInfo">
+					Green Stripe<br/>
+					<a href="#" onclick="simpleCart.add('name=Green Stripe','price=90','image=images/thumbs/greenStripe.jpg');return false;">add to cart</a>
+				</div>
+				<div class="alsoPrice">$58</div>
+			</div>	
+			<div id="downloadContainer" style="margin:250px 0 35px 0;float:left">
+				<h3>Total Price</h3>
+				<a href="#"><img src="images/smallLogo.gif" alt="Download simpleCart(js)" style="margin-top:2px;vertical-align:bottom"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#">Version 1.0</a>&nbsp;&nbsp;<a href="#"><img src="images/arrow.gif" alt="Download simpleCart(js)"></a>
+			</div>	
 			<!--End #sidebar-->	
+		</div>
+		<div id="header">
+			<span class="logo_font">Shopping Cart</span>
+		</div>
+		<div id="left">
+		<!--Add a Div with the class "simpleCart_items" to show your shopping cart area.-->
+			<div class="simpleCart_item" >
+			    <div class="cartHeaders">
+			        <div class="itemImage">Image</div>
+			        <div class="itemName">Name</div>
+			        <div class="itemDesc">Description</div>
+			        <div class="itemPrice">Price</div>
+			        <div class="itemQuantity">Quantity</div>
+			        <div class="itemTotal">Total</div>
+			    </div>
+			    <div class="totalRow">
+			        <div class="totalItems"></div>
+			        <div class="totalPrice"></div>
+			    </div>
 			</div>
-			
-			
-			
-			<div id="header">
-				<span class="logo_font">Shopping Cart</span>
-			</div>
-			<div id="left">
-			<!--Add a Div with the class "simpleCart_items" to show your shopping cart area.-->
-				<div class="simpleCart_items" >
-				</div>
 				
-				<div class="checkoutEmptyLinks">
+			<div class="checkoutEmptyLinks">
 				<!--Here's the Links to Checkout and Empty Cart-->
 				<a href="#" class="simpleCart_empty">Modify Cart</a>
 				<a href="#" class="simpleCart_checkout">Checkout</a>
-				</div>
 			</div>
-			
-			<div id="footer" class="cartFoot">
-			</div>	
-		<!--End #content-->		
 		</div>
+			
+		<div id="footer" class="cartFoot">
+		</div>	
+		<!--End #content-->		
+	</div>
+</body>
+</html>	
