@@ -122,7 +122,6 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
 			<div class="alsoContainer">
 			    <!--Here's the Links to Checkout and Empty Cart-->
 			    <a href="demo.php?uid=<?php echo $mem_id; ?>" class="simpleCart_modify">Modify Cart</a>
-			    <br/>
 			    <a href="#" class="simpleCart_checkout">Checkout</a>
 			</div>
 			<div id="downloadContainer" style="margin:250px 0 35px 0;float:left">
@@ -202,9 +201,10 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
         else
         {
         	if($product['product_unit'] == 'Piec') $unit = 'Piece(s)';
-        	echo "<div class='itemQuantity'>" . $product['product_packageing'] . " " . $unit . "</div>";
+        	else $unit = '';
+        	echo "<div class='itemQuantity'>" . $product['product_packaging'] . " " . $unit . "</div>";
         }
-        echo "<div class=''>" . $product['price'] . "</div>";
+        echo "<div class=''>" . $product['currency_code'] . $product['price'] . "</div>";
         echo "</div>";
         echo "\n";
     }
