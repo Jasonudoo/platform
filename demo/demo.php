@@ -175,7 +175,7 @@ while($row = mysql_fetch_assoc($result))
     	
     	if( $product['product_weight'] > '0.0' )
     	{
-    		$weight = ($product['product_weight'] == 'KG') ? $product['product_weight'] : $product['product_weight'] / 1000;
+    		$weight = ($product['product_weight_uom'] == 'KG') ? $product['product_weight'] : $product['product_weight'] / 1000;
     		$quanity = number_format($product['product_weight'], 2, '.', '');
     	}
     	else
