@@ -124,7 +124,7 @@ require "connect.php";
 			vertical-align:middle;
 		}
 		.itemQuantity input{
-			width:20px;
+			width:25px;
 			border:1px solid #ccc;
 			padding:3px 2px;
 		}
