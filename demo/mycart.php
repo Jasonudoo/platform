@@ -43,7 +43,7 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
 			color:#333;
 		}
 		
-        .left_title { font-size:20px; color:#DDDDDD; font-weight:bold }
+        h3 a.left_title { font-size:25px; color:#DDDDDD; font-weight:bold }
 		.simpleCart_item{
 			float:left;
 			clear:left;
