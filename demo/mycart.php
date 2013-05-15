@@ -154,14 +154,14 @@ while($row = mysql_fetch_assoc($result))
 }
 echo "<br/>";
 echo "<br/>";
-echo "<h4>Package Price : CHF" . $cartInfo['cart_total'] . "</h4>";
+echo "<span class='left_title'>Package Price : CHF" . $cartInfo['cart_total'] . "</span>";
 echo "<br/>";
 echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank! </span>"; 
 ?>
 			</div>
-			<div id="downloadContainer" style="margin:200px 0 35px 0;float:left">
+			<div id="downloadContainer" style="margin:220px 0 35px 0;float:left">
 			    <h3>Check Out</h3>
-				<div class="checkoutEmptyLinks">
+				<div class="checkoutEmptyLinks" style="padding:0px;">
 				<!--Here's the Links to Checkout and Empty Cart-->
 				<a href="demo.php?uid=<?php echo $mem_id; ?>&cid=<?php echo $cid; ?>" class="simpleCart_modify">Modify cart</a>
 				<a href="#" class="simpleCart_checkout">Checkout</a>
