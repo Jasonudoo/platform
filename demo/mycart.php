@@ -118,14 +118,45 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
 	<div id="topFrame"></div>
 	<div id="content">
 		<div id="sidebar" style="margin-top:20px">
-			<h2>Check Out</h2>
+			<h2>Package Information</h2>
 			<div class="alsoContainer">
+<?php
+$sql = "SELECT * FROM tbl_schorder_cart WHERE mem_id = " . $mem_id;
+$result = mysql_query($sql);
+$cartInfo = mysql_fetch_assoc($result);
+
+$sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a
+		LEFT JOIN tbl_virtuemart_categories_en_gb AS b ON a.virtuemart_category_id = b.virtuemart_category_id
+		WHERE a.published = 1 ORDER BY a.virtuemart_category_id ASC";
+$result = mysql_query($sql);
+while($row = mysql_fetch_assoc($result))
+{
+	if($mem_id = 331 && $row['virtuemart_category_id'] == 9)
+	{
+	    echo "<span class='label-txt'><a href='demo.php?cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
+	    break;
+	}
+	if($mem_id = 332 && $row['virtuemart_category_id'] == 10)
+	{
+		echo "<span class='label-txt'><a href='demo.php?cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
+		break;
+	}
+	if($mem_id = 333 && $row['virtuemart_category_id'] == 11)
+	{
+		echo "<span class='label-txt'><a href='demo.php?cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
+		break;
+	}		
+}
+echo "Package Price : CHF" . $cartInfo['cart_total'];
+echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank! </span>"; 
+?>
+			</div>
+			<div id="downloadContainer" style="margin:250px 0 35px 0;float:left">
+			    <h3>Check Out</h3>
 			    <!--Here's the Links to Checkout and Empty Cart-->
 			    <a href="demo.php?uid=<?php echo $mem_id; ?>" class="simpleCart_modify">Modify Cart</a>
 			    <a href="#" class="simpleCart_checkout">Checkout</a>
-			</div>
-			<div id="downloadContainer" style="margin:250px 0 35px 0;float:left">
-			</div>	
+			    </div>	
 			<!--End #sidebar-->	
 		</div>
 		<div id="header">
@@ -146,7 +177,7 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
     $sql = "SELECT * FROM tbl_schorder_cart WHERE mem_id = " . $mem_id;
     $result = mysql_query($sql);
     $row = mysql_fetch_assoc($result);
-    $sql = "SELECT product_id, quantity FROM tbl_schorder_cart_product WHERE cart_id = " . $row['cart_id'];
+    $sql = "SELECT product_id, quantity FROM tbl_schorder_cart_product WHERE cart_id = " . $cartInfo['cart_id'];
     $result = mysql_query($sql);
     while( $row = mysql_fetch_assoc($result) )
     {
@@ -194,7 +225,7 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
         echo "<div class='itemName'>" . htmlspecialchars($product['product_name']) . "</div>";
         echo "<div class='itemDesc'>" . htmlspecialchars($product['product_s_desc']) . "&nbsp;</div>";
         echo "<div class='itemPrice'>" . $product['custom_title'] . " " . $product['currency_code'] . $product['custom_price'] . "</div>";
-        if( $product['product_weight'] > 0 )
+        if( $product['product_weight'] > '0.0' )
         {
             echo "<div class='itemQuantity'>" . number_format($product['product_weight'], 2, '.', '') .$product['product_weight_uom'] . "</div>";
         }
