@@ -152,6 +152,12 @@ b a{
 	font-size:11px;
 	color:#000;
 }
+
+#sidebar a.left_title{
+	font-size:25px;
+	color:#000;
+}
+
 #sidebar a.simpleCart_checkout,
 .checkoutEmptyLinks a.simpleCart_checkout{
 	display:-moz-inline-box;

@@ -43,7 +43,7 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
 			color:#333;
 		}
 		
-        .left_title { font-size:25px; color:#DDDDDD; font-weight:bold }
+        .left_title { font-size:20px; color:#418932; font-weight:bold }
 		.simpleCart_item{
 			float:left;
 			clear:left;
@@ -159,7 +159,7 @@ echo "<br/>";
 echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank! </span>"; 
 ?>
 			</div>
-			<div id="downloadContainer" style="margin:220px 0 35px 0;float:left">
+			<div id="downloadContainer" style="margin:210px 0 35px 0;float:left">
 			    <h3>Check Out</h3>
 				<div class="checkoutEmptyLinks" style="padding:0px;">
 				<!--Here's the Links to Checkout and Empty Cart-->
