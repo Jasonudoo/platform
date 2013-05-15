@@ -397,12 +397,13 @@ function cart( email, minprice ) {
 					"&currency_code=CHF" +
 		  			"&lc=CHF";
 		if( this.totalPrice < this.minPrice ){
-			strn = strn + 	"&item_name=Package Name" +
-        		"&quantity=1" +
-        		"&amount=" + this.returnFormattedPrice_1(this.minPrice) +
-        		"&currency_code=CHF" + 
-				"&no_shipping=0" +
-				"&no_note=1";
+			strn = strn + 	"&item_name_1=Package Name" +
+				"&item_number_1=1" +
+        		"&quantity_1=1" +
+        		"&amount_1=" + this.returnFormattedPrice_1(this.minPrice) +
+        		"&currency_code_1=CHF" + 
+				"&no_shipping_1=0" +
+				"&no_note_1=1";
 		}
 		else{
 			counter = 0;
