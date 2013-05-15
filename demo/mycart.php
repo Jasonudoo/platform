@@ -154,7 +154,7 @@ while($row = mysql_fetch_assoc($result))
 }
 echo "<br/>";
 echo "<br/>";
-echo "<span class='left_title'>Package Price : CHF" . $cartInfo['cart_total'] . "</span>";
+echo "<span class='left_title'>Package Price : CHF" . number_format($cartInfo['cart_total'], 2, '.', '') . "</span>";
 echo "<br/>";
 echo "<br/>";
 echo "<br/>";
