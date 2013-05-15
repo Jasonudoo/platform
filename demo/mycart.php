@@ -36,7 +36,7 @@ require "connect.php";
         .product-grid-1 .highlight { background:#F8F7F6; border:1px solid #EBEAEA; padding:5px 10px; font-size:13px; font-weight:bold; color:#5F5F5F }
         .product-grid-1 address { font-size:12px; }
         .product-grid-1 .about .u { float:left; width:49% } 
-		.cartHeaders,.totalRow{display:none;}
+
 		.simpleCart_item{
 			overflow-y:auto;
 			overflow-x:hidden;
