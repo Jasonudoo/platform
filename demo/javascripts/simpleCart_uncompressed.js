@@ -194,7 +194,7 @@ function cart( email, minprice ) {
 		if(this.totalPrice < this.minPrice){
 			$( "#dialog-confirm" ).dialog({
 				resizable: false,
-				height:140,
+				height:240,
 				modal: true,
 				buttons: {
 				 "Check Out": function() {
