@@ -2,6 +2,8 @@
 define('INCLUDE_CHECK',1);
 require "connect.php";
 
+$mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -118,40 +120,14 @@ require "connect.php";
 		<div id="sidebar" style="margin-top:20px">
 			<h2>You Might Also Like</h2>
 			<div class="alsoContainer">
-				<div class="alsoImage">
-					<img src="images/thumbs/blackGold.jpg" alt="" />
-				</div>
-				<div class="alsoInfo">
-					Black Gold<br/>
-					<a href="#" onclick="simpleCart.add('name=Black Gold','price=58','image=images/thumbs/blackGold.jpg');return false;">add to cart</a>
-				</div>
-				<div class="alsoPrice">$58</div>
-			</div>
-			<div class="alsoContainer">
-				<div class="alsoImage">
-					<img src="images/thumbs/goldShoe.jpg" alt="" />
-				</div>
-				<div class="alsoInfo">
-					Gold Shoe<br/>
-					<a href="#" onclick="simpleCart.add('name=Gold Shoe','price=70','image=images/thumbs/goldShoe.jpg');return false;">add to cart</a>
-				</div>
-				<div class="alsoPrice">$58</div>
-			</div>
-				
-			<div class="alsoContainer">
-				<div class="alsoImage">
-					<img src="images/thumbs/greenStripe.jpg" alt="" />
-				</div>
-				<div class="alsoInfo">
-					Green Stripe<br/>
-					<a href="#" onclick="simpleCart.add('name=Green Stripe','price=90','image=images/thumbs/greenStripe.jpg');return false;">add to cart</a>
-				</div>
-				<div class="alsoPrice">$58</div>
-			</div>	
+            </div>
 			<div id="downloadContainer" style="margin:250px 0 35px 0;float:left">
-				<h3>Total Price</h3>
-				<a href="#"><img src="images/smallLogo.gif" alt="Download simpleCart(js)" style="margin-top:2px;vertical-align:bottom"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">Version 1.0</a>&nbsp;&nbsp;<a href="#"><img src="images/arrow.gif" alt="Download simpleCart(js)"></a>
+				<h3>Check Out</h3>
+			    <div class="checkoutEmptyLinks">
+				    <!--Here's the Links to Checkout and Empty Cart-->
+				    <a href="demo.php?uid=<?php echo $mem_id; ?>" class="simpleCart_modify">Modify Cart</a>
+				    <a href="#" class="simpleCart_checkout">Checkout</a>
+			    </div>
 			</div>	
 			<!--End #sidebar-->	
 		</div>
@@ -169,9 +145,7 @@ require "connect.php";
 			        <div class="itemQuantity">Quantity</div>
 			        <div class="itemTotal">Total</div>
 			    </div>
-<?php
-    $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
-    
+<?php    
     $sql = "SELECT * FROM tbl_schorder_cart WHERE mem_id = " . $mem_id;
     $result = mysql_query($sql);
     $row = mysql_fetch_assoc($result);
@@ -233,12 +207,6 @@ require "connect.php";
 			        <div class="totalItems"></div>
 			        <div class="totalPrice"></div>
 			    </div>
-			</div>
-				
-			<div class="checkoutEmptyLinks">
-				<!--Here's the Links to Checkout and Empty Cart-->
-				<a href="#" class="simpleCart_empty">Modify Cart</a>
-				<a href="#" class="simpleCart_checkout">Checkout</a>
 			</div>
 		</div>
 			
