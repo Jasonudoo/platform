@@ -219,9 +219,9 @@ require "connect.php";
     	$product['price'] = number_format($custPrice['custom_price'] * $row['quantity'], 2, '.', '');
 
     	echo "<div class='itemContainer'>";
-        echo "<div class='itemImage'><img src='/" . $prodImage['image_file_url_thumb'] . "' width='50' height='40' /></div>";
+        echo "<div class='itemImage'><img src='/" . $prodImage['image_file_url_thumb'] . "' width='100' height='80' /></div>";
         echo "<div class='itemName'>" . htmlspecialchars($product['product_name']) . "</div>";
-        echo "<div class='itemDesc'>" . htmlspecialchars($product['product_s_desc']) . "</div>";
+        echo "<div class='itemDesc'>" . htmlspecialchars($product['product_s_desc']) . "&nbsp;</div>";
         echo "<div class='itemPrice'>" . $product['custom_title'] . $product['currency_code'] . $product['custom_price'] . "</div>";
         echo "<div class='itemQuantity'>" . number_format($product['product_weight'], 2, '.', '') .$product['product_weight_uom'] . "</div>";
         echo "<div class=''>" . $product['price'] . "</div>";
