@@ -136,6 +136,8 @@ function cart( email ) {
 		for( x=0;x < this.items.length;x++ ) {
 			tempItem = this.items[x];
 			if( tempItem.equalTo(newItem) ) {
+				alert(tempItem.getValue('quantity'));
+				alert(newItem.getValue('quantity'));
 				tempItem.addValue( 'quantity' , parseFloat(tempItem.getValue('quantity') + parseFloat(newItem.getValue('quantity')) ) );
 				this.totalPrice = this.totalPrice + parseFloat(newItem.getValue('quantity')) * parseFloat( newItem.getValue('price') );
 				isnew = false;
