@@ -43,13 +43,13 @@ require "connect.php";
 		.simpleCart_item{
 			float:left;
 			clear:left;
-			width:546px;
+			width:600px;
 			margin:20px;
 		}
 		.itemContainer{
 			clear:both;
-			width:543px;
-			padding:15px;
+			width:600px;
+			padding:15px 0px;
 			font-size:11px;
 			line-height:25px;
 			height:10px;
@@ -63,7 +63,7 @@ require "connect.php";
 		}
 		.itemName{
 			float:left;
-			width:160px;
+			width:120px;
 		}
 		.itemPrice{
 			float:left;
@@ -107,7 +107,7 @@ require "connect.php";
 		}
 		.itemDesc{
 			float:left;
-			width:120px;
+			width:160px;
 		}
 
 	</style>
