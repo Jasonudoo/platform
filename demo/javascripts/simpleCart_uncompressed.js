@@ -388,7 +388,7 @@ function cart( email ) {
 			strn = strn + 	"&item_name_"    + j + "=" + tempItem.getValue('name') +
 		                	"&item_number_"  + j + "=" + j +
 		                	"&quantity_"     + j + "=" + "1" +
-		                	"&amount_"       + j + "=" + this.returnFormattedPrice_1(tempItem.getValue('price') ) +
+		                	"&amount_"       + j + "=" + this.returnFormattedPrice_1(parseFloat(tempItem.getValue('quantity')) * tempItem.getValue('price') ) +
 		                	"&currency_code" + j + "=" + "CHF" + 
 		      				"&no_shipping_"  + j + "=" + "0" +
 							"&no_note_"   	 + j + "=" + "1";
