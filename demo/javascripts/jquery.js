@@ -1774,7 +1774,7 @@ jQuery.extend({
 			return false;
 		}
 
-		var noData = elem.nodeName && jQuery.noData[ elem.nodeName.toLowerCase() ];
+		var noData = elem.nodeName && jQuery.noData[ elem.nodeName.toString().toLowerCase() ];
 
 		// nodes accept data unless otherwise specified; rejection can be conditional
 		return !noData || noData !== true && elem.getAttribute("classid") === noData;
