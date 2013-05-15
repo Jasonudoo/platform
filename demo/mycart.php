@@ -190,14 +190,22 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
     	$product['custom_title'] = $custPrice['custom_title'];
     	$product['currency_symbol'] = $priceInfo['currency_symbol'];
     	$product['currency_code'] = $priceInfo['currency_code_3'];
-    	$product['price'] = number_format($custPrice['custom_price'] * $row['quantity'], 2, '.', '');
+    	$product['price'] = number_format($product['custom_price'] * $row['quantity'], 2, '.', '');
 
     	echo "<div class='itemContainer'>";
         echo "<div class='itemImage'><img src='/" . $prodImage['image_file_url_thumb'] . "' width='50' height='40' /></div>";
         echo "<div class='itemName'>" . htmlspecialchars($product['product_name']) . "</div>";
         echo "<div class='itemDesc'>" . htmlspecialchars($product['product_s_desc']) . "&nbsp;</div>";
         echo "<div class='itemPrice'>" . $product['custom_title'] . " " . $product['currency_code'] . $product['custom_price'] . "</div>";
-        echo "<div class='itemQuantity'>" . number_format($product['product_weight'], 2, '.', '') .$product['product_weight_uom'] . "</div>";
+        if( $product['product_weight'] > 0 )
+        {
+            echo "<div class='itemQuantity'>" . number_format($product['product_weight'], 2, '.', '') .$product['product_weight_uom'] . "</div>";
+        }
+        else
+        {
+        	if($product['product_unit'] == 'Piec') $unit = 'Piece(s)';
+        	echo "<div class='itemQuantity'>" . $product['product_packageing'] . " " . $unit . "</div>";
+        }
         echo "<div class=''>" . $product['price'] . "</div>";
         echo "</div>";
         echo "\n";
