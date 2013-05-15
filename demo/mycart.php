@@ -156,10 +156,12 @@ echo "<br/>";
 echo "<br/>";
 echo "<span class='left_title'>Package Price : CHF" . $cartInfo['cart_total'] . "</span>";
 echo "<br/>";
+echo "<br/>";
+echo "<br/>";
 echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank! </span>"; 
 ?>
 			</div>
-			<div id="downloadContainer" style="margin:210px 0 35px 0;float:left">
+			<div id="downloadContainer" style="margin:200px 0 35px 0;float:left">
 			    <h3>Check Out</h3>
 				<div class="checkoutEmptyLinks" style="padding:0px;">
 				<!--Here's the Links to Checkout and Empty Cart-->
