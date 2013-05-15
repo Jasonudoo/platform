@@ -40,10 +40,10 @@ require "connect.php";
 		.cartHeaders div{
 			color:#333;
 		}
-		.simpleCart_items{
+		.simpleCart_item{
 			float:left;
 			clear:left;
-			width:446px;
+			width:546px;
 			margin:20px;
 		}
 		.itemContainer{
