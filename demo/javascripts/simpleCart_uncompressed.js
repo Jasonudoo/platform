@@ -329,6 +329,18 @@ function cart( email ) {
 		temp = String(Math.floor(temp/100));
 		return "CHF" + temp + "." + change;
 	};
+
+	this.returnFormattedPrice_1 = function( price ) {
+		temp = Math.round(price*100);
+		change = String(temp%100);
+		if( change.length == 0) {
+			change = "00";
+		} else if( change.length == 1) {
+			change = "0" + change;
+		}
+		temp = String(Math.floor(temp/100));
+		return temp + "." + change;
+	};	
 	
 	this.updateQuantity = function() {
 		newItem = new item();
@@ -374,7 +386,8 @@ function cart( email ) {
 			strn = strn + 	"&item_name_"    + j + "=" + tempItem.getValue('name') +
 		                	"&item_number_"  + j + "=" + j +
 		                	"&quantity_"     + j + "=" + "1" +
-		                	"&amount_"       + j + "=" + this.returnFormattedPrice(tempItem.getValue('price') ) +
+		                	"&amount_"       + j + "=" + this.returnFormattedPrice_1(tempItem.getValue('price') ) +
+		                	"&currency_code" + j + "=" + "CHF" + 
 		      				"&no_shipping_"  + j + "=" + "0" +
 							"&no_note_"   	 + j + "=" + "1";
 			if( tempItem.optionList() ) {
