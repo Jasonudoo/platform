@@ -185,7 +185,7 @@ while($row = mysql_fetch_assoc($result))
 
 		echo '<li>';
 		echo '<img src="/' . $product['image_file_url'] . '" alt="' . htmlspecialchars($product['product_name']) . '" width="160" height="110"/>';
-		echo '<span class="price">' . $product['custom_title'] . " " . $product['currency_code'] . $product['custom_price'] . '</span><b>' . htmlspecialchars($product['product_name']) . 
+		echo '<span class="price">' . $product['custom_title'] . ' ' . $product['currency_code'] . $product['custom_price'] . '</span><b>' . htmlspecialchars($product['product_name']) . 
 		    '</b><br/><b><a href="#" onclick="simpleCart.add(\'name=' . htmlspecialchars($products[$i]['product_name']) . 
 		    '\',\'price=' . $product['price'] . '\',\'quantity=' . $quanity . '\',\'image=/' . $products[$i]['image_file_url_thumb'] . ' \');return false;"> add to cart</a></b>';
 		echo '</li>';
