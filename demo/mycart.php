@@ -169,7 +169,6 @@ require "connect.php";
 			        <div class="itemQuantity">Quantity</div>
 			        <div class="itemTotal">Total</div>
 			    </div>
-			    <div class="itemContainer">
 <?php
     $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
     
@@ -219,16 +218,17 @@ require "connect.php";
     	$product['currency_code'] = $priceInfo['currency_code_3'];
     	$product['price'] = number_format($custPrice['custom_price'] * $row['quantity'], 2, '.', '');
 
+    	echo "<div class='itemContainer'>";
         echo "<div class='itemImage'><img src='/" . $prodImage['image_file_url_thumb'] . "' width='50' height='40' /></div>";
         echo "<div class='itemName'>" . htmlspecialchars($product['product_name']) . "</div>";
         echo "<div class='itemDesc'>" . htmlspecialchars($product['product_s_desc']) . "</div>";
         echo "<div class='itemPrice'>" . $product['custom_title'] . $product['currency_code'] . $product['custom_price'] . "</div>";
         echo "<div class='itemQuantity'>" . number_format($product['product_weight'], 2, '.', '') .$product['product_weight_uom'] . "</div>";
         echo "<div class=''>" . $product['price'] . "</div>";
+        echo "</div>";
         echo "\n";
     }
 ?>		
-			    </div>
 			    <div class="totalRow">
 			        <div class="totalItems"></div>
 			        <div class="totalPrice"></div>
