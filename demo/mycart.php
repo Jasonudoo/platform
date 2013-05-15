@@ -41,7 +41,7 @@ require "connect.php";
 			overflow-y:auto;
 			overflow-x:hidden;
 			height:324px;
-			width:243px;
+			width:343px;
 			margin-bottom:20px;
 		}
 		.itemContainer{
@@ -136,7 +136,7 @@ require "connect.php";
 		<div id="left">
 		<!--Add a Div with the class "simpleCart_items" to show your shopping cart area.-->
 			<div class="simpleCart_item" >
-			    <div class="cartHeaders">
+			    <div class="cartHeader">
 			        <div class="itemImage">Image</div>
 			        <div class="itemName">Name</div>
 			        <div class="itemDesc">Description</div>
