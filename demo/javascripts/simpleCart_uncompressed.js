@@ -23,9 +23,10 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 ******************************************************************/
 
-function cart( email ) {
+function cart( email, minprice ) {
 	this.totalItems 	= 0;
 	this.totalPrice	= 0.00;
+	this.minPrice = minprice;
 	this.items 		= new Array();
 	this.userEmail = email;
 	// order of columns, you change the order here or by accessing the value in your html
@@ -149,6 +150,8 @@ function cart( email ) {
 		}
 		//this.totalItems = this.totalItems + newItem.getValue('quantity');
 		this.totalItems = this.items.length;
+		
+		
 
 		this.updateCookie();
 		this.updatePageElements();
@@ -185,6 +188,12 @@ function cart( email ) {
 			cookieString = cookieString + "&" + tempItem.cookieString();
 		}
 		createCookie("simpleCart", cookieString, 30 );
+	}
+	
+	this.alertPrice = function(){
+		if(this.totalPrice < this.minPrice){
+			
+		}
 	}
 	
 	// reset the variables of the cart, update the cookies

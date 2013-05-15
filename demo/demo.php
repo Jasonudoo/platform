@@ -23,11 +23,18 @@ unset($result);
 	<!--[if lte IE 6]><link rel="stylesheet" href="ie6.css" type="text/css" media="screen" charset="utf-8" /><![endif]-->
 	<!--[if IE 7]><link rel="stylesheet" href="ie7.css" type="text/css" media="screen" charset="utf-8" /><![endif]-->
 	<!--Include the SimpleCart(js) script-->
+	<script type="text/javascript">
+    var GB_ROOT_DIR = "http://farm.netwebx.com/demo/greybox/";
+	</script>
+	<script type="text/javascript" src="greybox/AJS.js"></script>
+	<script type="text/javascript" src="greybox/AJS_fx.js"></script>
+	<script type="text/javascript" src="greybox/gb_scripts.js"></script>
+	<link href="greybox/gb_styles.css" rel="stylesheet" type="text/css" />
 	<script src="javascripts/simpleCart_uncompressed.js" type="text/javascript" charset="utf-8"></script>
 	
 	<!--Make a new cart instance with your paypal login email-->
 	<script type="text/javascript">
-		simpleCart = new cart("jasonudoo@gmail.com");
+		simpleCart = new cart("jasonudoo@gmail.com", <?php echo number_format($cartInfo['cart_total'], 2, '.', ''); ?>);
 	</script>
 	
 	<!--CSS for the Cart. Customize anything you damn well please.
@@ -189,7 +196,7 @@ while($row = mysql_fetch_assoc($result))
     	}    	
 
 		echo "<li>";
-		echo "<img src='/" . $product['image_file_url'] . "' alt='" . htmlspecialchars($product['product_name']) . "' width='160' height='110'/>";
+		echo "<a title='" . htmlspecialchars($product['product_name']) . "' rel='gb_imageset[" . $cgid . "]'><img src='/" . $product['image_file_url'] . "' alt='" . htmlspecialchars($product['product_name']) . "' width='160' height='110'/></a>";
 		echo "<span class='price' style='width:120px;font-size:10px'>" . $product['custom_title'] . " " . $product['currency_code'] . $product['custom_price'] . "</span><b>" . htmlspecialchars($product['product_name']) . 
 		     "</b><br/><b><a href='#' onclick=\"simpleCart.add('name=" . htmlspecialchars($product['product_name']) . 
 		     "','price=" . $product['price'] . "','quantity=" . $quanity . "','image=/" . $product['image_file_url_thumb'] . "');return false;\"> add to cart</a></b>";

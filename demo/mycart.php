@@ -3,6 +3,9 @@ define('INCLUDE_CHECK',1);
 require "connect.php";
 
 $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
+$sql = "SELECT * FROM tbl_schorder_cart WHERE mem_id = " . $mem_id;
+$result = mysql_query($sql);
+$cartInfo = mysql_fetch_assoc($result);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -21,7 +24,7 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
 	
 	<!--Make a new cart instance with your paypal login email-->
 	<script type="text/javascript">
-		simpleCart = new cart("jasonudoo@gmail.com");
+		simpleCart = new cart("jasonudoo@gmail.com", <?php echo number_format($cartInfo['cart_total'], 2, '.', ''); ?>);
 	</script>
 	<!--CSS for the Cart. Customize anything you damn well please.
 		Use Firebug or Webkit's Element Inspector to get a more 
@@ -123,9 +126,7 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
 			<h2>Package Information</h2>
 			<div class="alsoContainer">
 <?php
-$sql = "SELECT * FROM tbl_schorder_cart WHERE mem_id = " . $mem_id;
-$result = mysql_query($sql);
-$cartInfo = mysql_fetch_assoc($result);
+
 
 $sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a
 		LEFT JOIN tbl_virtuemart_categories_en_gb AS b ON a.virtuemart_category_id = b.virtuemart_category_id
