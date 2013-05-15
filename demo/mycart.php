@@ -67,7 +67,7 @@ require "connect.php";
 		}
 		.itemPrice{
 			float:left;
-			width:55px;
+			width:60px;
 			color:#418932;
 		}
 		.itemQuantity{
