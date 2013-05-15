@@ -37,54 +37,80 @@ require "connect.php";
         .product-grid-1 address { font-size:12px; }
         .product-grid-1 .about .u { float:left; width:49% } 
 
-		.simpleCart_item{
-			overflow-y:auto;
-			overflow-x:hidden;
-			height:324px;
-			width:343px;
-			margin-bottom:20px;
+		.cartHeaders div{
+			color:#333;
+		}
+		.simpleCart_items{
+			float:left;
+			clear:left;
+			width:446px;
+			margin:20px;
 		}
 		.itemContainer{
 			clear:both;
-			width:229px;
-			padding:11px 0;
+			width:543px;
+			padding:15px 0;
 			font-size:11px;
+			line-height:25px;
+			height:10px;
 		}
 		.itemImage{
 			float:left;
-			width:60px;
+			width:80px;
+		}
+		.itemImage img{
+			vertical-align:middle;
 		}
 		.itemName{
 			float:left;
-			width:85px;
+			width:160px;
 		}
 		.itemPrice{
 			float:left;
-			width:85px;
+			width:55px;
 			color:#418932;
+		}
+		.itemQuantity{
+			float:left;
+			width:105px;
+			vertical-align:middle;
+			text-align:center;
+		}
+		.itemQuantity input{
+			width:20px;
+			border:1px solid #ccc;
+			padding:3px 2px;
+			margin:0 auto;
+			display:block;
+			font-size:11px;
+		}
+		.itemTotal{
+			float:left;
+			color:#c23f26;
+			text-align:right;
+			width:45px;
+		}
+		.totalRow{
+			clear:both;
+			float:left;
+			margin-top:10px;
+		}
+		.totalItems{
+			float:left;
+			width:105px;
+			margin-left:295px;
+			text-align:center;
+		}
+		.totalPrice{
+			float:right;
+			text-align:right;
 		}
 		.itemDesc{
 			float:left;
 			width:120px;
 			color:#418932;
 		}
-		.itemQuantity{
-			float:left;
-			width:33px;
-			margin-top:-12px;
-			vertical-align:middle;
-		}
-		.itemQuantity input{
-			width:20px;
-			border:1px solid #ccc;
-			padding:3px 2px;
-		}
-		
-		.itemTotal{
-			float:left;
-			color:#c23f26;
-			margin-top:-6px
-		}
+
 	</style>
 </head>
 <body>
