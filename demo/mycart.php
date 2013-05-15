@@ -118,16 +118,15 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
 	<div id="topFrame"></div>
 	<div id="content">
 		<div id="sidebar" style="margin-top:20px">
-			<h2>You Might Also Like</h2>
+			<h2>Check Out</h2>
 			<div class="alsoContainer">
-            </div>
-			<div id="downloadContainer" style="margin:250px 0 35px 0;float:left">
-				<h3>Check Out</h3>
 			    <div class="checkoutEmptyLinks">
 				    <!--Here's the Links to Checkout and Empty Cart-->
 				    <a href="demo.php?uid=<?php echo $mem_id; ?>" class="simpleCart_modify">Modify Cart</a>
 				    <a href="#" class="simpleCart_checkout">Checkout</a>
 			    </div>
+			</div>
+			<div id="downloadContainer" style="margin:250px 0 35px 0;float:left">
 			</div>	
 			<!--End #sidebar-->	
 		</div>
