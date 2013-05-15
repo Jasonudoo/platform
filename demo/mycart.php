@@ -19,6 +19,13 @@ $cartInfo = mysql_fetch_assoc($result);
 	<link rel="stylesheet" href="example.css" type="text/css" media="screen" charset="utf-8" />
 	<!--[if lte IE 6]><link rel="stylesheet" href="ie6.css" type="text/css" media="screen" charset="utf-8" /><![endif]-->
 	<!--[if IE 7]><link rel="stylesheet" href="ie7.css" type="text/css" media="screen" charset="utf-8" /><![endif]-->
+	<script type="text/javascript">
+    var GB_ROOT_DIR = "http://farm.netwebx.com/demo/greybox/";
+	</script>
+	<script type="text/javascript" src="greybox/AJS.js"></script>
+	<script type="text/javascript" src="greybox/AJS_fx.js"></script>
+	<script type="text/javascript" src="greybox/gb_scripts.js"></script>
+	<link href="greybox/gb_styles.css" rel="stylesheet" type="text/css" />	
 	<!--Include the SimpleCart(js) script-->
 	<script src="javascripts/simpleCart_uncompressed.js" type="text/javascript" charset="utf-8"></script>
 	
