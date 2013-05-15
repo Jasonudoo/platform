@@ -160,7 +160,7 @@ while($row = mysql_fetch_assoc($result))
 		
     	$sql = 'SELECT c.custom_value, d.custom_title FROM tbl_virtuemart_product_customfields AS c
         		LEFT JOIN tbl_virtuemart_customs d ON c.virtuemart_custom_id = d.virtuemart_custom_id
-				WHERE c.virtuemart_product_id = ' . $row['product_id'];
+				WHERE c.virtuemart_product_id = ' . $row['virtuemart_product_id'];
 		$result_1 = mysql_query($sql);
 		$row_1 = mysql_fetch_assoc($result_1);
 		$custPrice = $row_1;
@@ -183,11 +183,11 @@ while($row = mysql_fetch_assoc($result))
             $quanity = $product['product_packaging'];
     	}    	
 
-		echo '<li>';
-		echo '<img src="/' . $product['image_file_url'] . '" alt="' . htmlspecialchars($product['product_name']) . '" width="160" height="110"/>';
-		echo '<span class="price">' . $product['custom_title'] . ' ' . $product['currency_code'] . $product['custom_price'] . '</span><b>' . htmlspecialchars($product['product_name']) . 
-		    '</b><br/><b><a href="#" onclick="simpleCart.add(\'name=' . htmlspecialchars($products[$i]['product_name']) . 
-		    '\',\'price=' . $product['price'] . '\',\'quantity=' . $quanity . '\',\'image=/' . $products[$i]['image_file_url_thumb'] . ' \');return false;"> add to cart</a></b>';
+		echo "<li>";
+		echo "<img src='" . $product['image_file_url'] . "' alt='" . htmlspecialchars($product['product_name']) . "' width='160' height='110'/>";
+		echo "<span class='price'>" . $product['custom_title'] . " " . $product['currency_code'] . $product['custom_price'] . "</span><b>" . htmlspecialchars($product['product_name']) . 
+		     "</b><br/><b><a href='#' onclick=\"simpleCart.add('name=" . htmlspecialchars($product['product_name']) . 
+		     "','price=" . $product['price'] . "','quantity=" . $quanity . "','image=/" . $products[$i]['image_file_url_thumb'] . "');return false;\"> add to cart</a></b>";
 		echo '</li>';
 		
 	}
