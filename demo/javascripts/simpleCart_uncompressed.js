@@ -207,7 +207,7 @@ function cart( email ) {
 				found = true;
 				//this.totalItems = this.totalItems - parseFloat(tempItem.getValue('quantity'));
 				this.totalItems = this.items.length - 1;
-				this.totalPrice = this.totalPrice - parseFloat(tempItem.getValue('quantity') * parseFloat(tempItem.getValue('price'));
+				this.totalPrice = this.totalPrice - parseFloat(tempItem.getValue('quantity')) * parseFloat(tempItem.getValue('price'));
 			}
 			if( found ) {
 				if( x < ( this.items.length - 1 ) ) {
