@@ -192,25 +192,10 @@ function cart( email, minprice ) {
 	
 	this.preCheckOut = function(){
 		if(this.totalPrice < this.minPrice){
-			alert("11111");
-			$( "#dialog-confirm" ).dialog({
-				resizable: false,
-				height:240,
-				modal: true,
-				buttons: {
-				 "Check Out": function() {
-					 this.checkOut();
-				 },
-				 Cancel: function() {
-					 $( this ).dialog( "close" );
-				 }
-				}
-			});			
+			var txt = 'Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank!';
+			alert(txt);
 		}
-		else
-		{
-			this.checkOut();
-		}
+		this.checkOut();
 	}
 	
 	// reset the variables of the cart, update the cookies
