@@ -192,6 +192,7 @@ function cart( email, minprice ) {
 	
 	this.preCheckOut = function(){
 		if(this.totalPrice < this.minPrice){
+			alert("11111");
 			$( "#dialog-confirm" ).dialog({
 				resizable: false,
 				height:240,
