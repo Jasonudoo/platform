@@ -133,19 +133,19 @@ $sql = "SELECT a.*, b.* FROM tbl_virtuemart_categories a
 $result = mysql_query($sql);
 while($row = mysql_fetch_assoc($result))
 {
-	if($mem_id = 331 && $row['virtuemart_category_id'] == 9)
+	if($mem_id == 331 && $row['virtuemart_category_id'] == 9)
 	{
 		echo "<h3><a href='demo.php?uid=" . $mem_id . "&cid=". $row['virtuemart_category_id'] . "' class='left_title'>" . $row['category_name'] ."</a></h3>";
 	    $cid = $row['virtuemart_category_id'];
 		break;
 	}
-	if($mem_id = 332 && $row['virtuemart_category_id'] == 10)
+	if($mem_id == 332 && $row['virtuemart_category_id'] == 10)
 	{
 		echo "<h3><a href='demo.php?uid=" . $mem_id . "&cid=". $row['virtuemart_category_id'] . "' class='left_title'>" . $row['category_name'] ."</a></h3>";
 	    $cid = $row['virtuemart_category_id'];
 		break;
 	}
-	if($mem_id = 333 && $row['virtuemart_category_id'] == 11)
+	if($mem_id == 333 && $row['virtuemart_category_id'] == 11)
 	{
 		echo "<h3><a href='demo.php?uid=" . $mem_id . "&cid=". $row['virtuemart_category_id'] . "' class='left_title'>" . $row['category_name'] ."</a></h3>";
 	    $cid = $row['virtuemart_category_id'];
