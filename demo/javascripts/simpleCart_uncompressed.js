@@ -365,15 +365,15 @@ function cart( email ) {
 		var strn  = "https://www.paypal.com/cgi-bin/webscr?cmd=_cart" +
 		   			"&upload=1" +
 		        	"&business=" + this.userEmail + 
-					"&currency_code=USD" +
-		  			"&lc=US";
+					"&currency_code=CHF" +
+		  			"&lc=CHF";
 		counter = 0;
 		for (counter = 0; counter < this.items.length; counter++) { 
 			tempItem = this.items[counter];
 			j = counter + 1; 
 			strn = strn + 	"&item_name_"    + j + "=" + tempItem.getValue('name') +
 		                	"&item_number_"  + j + "=" + j +
-		                	"&quantity_"     + j + "=" + tempItem.getValue('quantity') +
+		                	//"&quantity_"     + j + "=" + tempItem.getValue('quantity') +
 		                	"&amount_"       + j + "=" + this.returnFormattedPrice(tempItem.getValue('price') ) +
 		      				"&no_shipping_"  + j + "=" + "0" +
 							"&no_note_"   	 + j + "=" + "1";

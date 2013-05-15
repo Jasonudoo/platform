@@ -191,7 +191,7 @@ echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unt
     $row = mysql_fetch_assoc($result);
     $sql = "SELECT product_id, quantity FROM tbl_schorder_cart_product WHERE cart_id = " . $cartInfo['cart_id'];
     $result = mysql_query($sql);
-    $script = "";
+    $script = "simpleCart.empty();\n";
     while( $row = mysql_fetch_assoc($result) )
     {
     	$sql = 'SELECT a.*, b.* FROM tbl_virtuemart_products AS a
