@@ -30,6 +30,9 @@ unset($result);
 	<script type="text/javascript" src="greybox/AJS_fx.js"></script>
 	<script type="text/javascript" src="greybox/gb_scripts.js"></script>
 	<link href="greybox/gb_styles.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>	
 	<script src="javascripts/simpleCart_uncompressed.js" type="text/javascript" charset="utf-8"></script>
 	
 	<!--Make a new cart instance with your paypal login email-->
@@ -230,6 +233,9 @@ while($row = mysql_fetch_assoc($result))
                 <input type='hidden' name='minPrice' id='minPrice' value='<?php echo number_format($cartInfo['cart_total'], 2, '.', ''); ?>" />
 			<!--End #sidebar-->
 			</div>
+            <div id="dialog-confirm" title="Empty the recycle bin?">
+            <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank!</p>
+            </div>			
 			<div class="clear"></div>
 		<!--End #content-->		
 		</div>
