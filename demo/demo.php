@@ -87,7 +87,7 @@ $cgid = (isset($_REQUEST['cid']) && !empty($_REQUEST['cid'])) ? $_REQUEST['cid']
 	</style>
 </head>
 <body>
-	<div id="topFrame"></div>
+	<div id="topFrame"><a href="mycart.php?uid=<?php echo $mem_id; ?>">Return Back to My Cart</a> &nbsp;&nbsp;&nbsp;</div>
 	<div id="content">
 		<div id="header">
 				<!--<img class="logo" src="images/logo.gif" width="1" height="1" />-->
