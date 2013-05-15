@@ -112,7 +112,7 @@ while($row = mysql_fetch_assoc($result))
 				just copy and paste the onclick attribute from one of the products 
 				below.
 			-->
-			<ul id="catalog">
+			<ul id="catalog" style="overflow-y:auto; overflow-x:hidden;">
 <?php
     unset($row);
     unset($result);
