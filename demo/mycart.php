@@ -148,6 +148,7 @@ while($row = mysql_fetch_assoc($result))
 	}		
 }
 echo "Package Price : CHF" . $cartInfo['cart_total'];
+echo "<br/>";
 echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank! </span>"; 
 ?>
 			</div>
