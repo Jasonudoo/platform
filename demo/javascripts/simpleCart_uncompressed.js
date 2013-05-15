@@ -136,8 +136,8 @@ function cart( email ) {
 		for( x=0;x < this.items.length;x++ ) {
 			tempItem = this.items[x];
 			if( tempItem.equalTo(newItem) ) {
-				tempItem.addValue( 'quantity' , (parseFloat(tempItem.getValue('quantity')) + parseFloat(newItem.getValue('quantity')) ) );
-				this.totalPrice = this.totalPrice + parseFloat(tempItem.getValue('quantity')) * parseFloat( tempItem.getValue('price') );
+				tempItem.addValue( 'quantity' , parseFloat(tempItem.getValue('quantity') + parseFloat(newItem.getValue('quantity')) ) );
+				this.totalPrice = this.totalPrice + parseFloat(newItem.getValue('quantity')) * parseFloat( newItem.getValue('price') );
 				isnew = false;
 			}
 		}
