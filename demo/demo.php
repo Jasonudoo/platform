@@ -233,11 +233,10 @@ while($row = mysql_fetch_assoc($result))
                 <input type='hidden' name='minPrice' id='minPrice' value='<?php echo number_format($cartInfo['cart_total'], 2, '.', ''); ?>" />
 			<!--End #sidebar-->
 			</div>
-            <div id="dialog-confirm" title="Empty the recycle bin?">
-            <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank!</p>
-            </div>			
 			<div class="clear"></div>
 		<!--End #content-->		
-		</div>
-</body>
+            <div id="dialog-confirm" title="Check Out">
+            <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank!</p>
+            </div>			
+	</body>
 </html>
