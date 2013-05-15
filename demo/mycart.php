@@ -214,6 +214,7 @@ echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unt
     	$result_1 = mysql_query($sql);
     	$row_1 = mysql_fetch_assoc($result_1);
     	$prodImage['image_file_url_thumb'] = $row_1['file_url_thumb'];
+    	$prodImage['image_file_url'] = $row_1['file_url'];
     	unset($row_1);
     	unset($result_1);
     	
@@ -242,7 +243,7 @@ echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unt
     	$product['price'] = number_format($product['custom_price'] * $row['quantity'], 2, '.', '');
 
     	echo "<div class='itemContainer'>";
-        echo "<div class='itemImage'><a href='/" . $prodImage['image_file_url_thumb'] . "' title='" . htmlspecialchars($product['product_name']) . "' rel='gb_imageset[" . $mem_id . "]'><img src='/" . $prodImage['image_file_url_thumb'] . "' alt='" . htmlspecialchars($product['product_name']) . "' width='50' height='40'/></a></div>";
+        echo "<div class='itemImage'><a href='/" . $prodImage['image_file_url'] . "' title='" . htmlspecialchars($product['product_name']) . "' rel='gb_imageset[" . $mem_id . "]'><img src='/" . $prodImage['image_file_url_thumb'] . "' alt='" . htmlspecialchars($product['product_name']) . "' width='50' height='40'/></a></div>";
         echo "<div class='itemName'>" . htmlspecialchars($product['product_name']) . "</div>";
         echo "<div class='itemDesc'>" . htmlspecialchars($product['product_s_desc']) . "&nbsp;</div>";
         echo "<div class='itemPrice'>" . $product['custom_title'] . " " . $product['currency_code'] . $product['custom_price'] . "</div>";
