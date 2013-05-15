@@ -135,12 +135,12 @@ while($row = mysql_fetch_assoc($result))
 {
 	if($mem_id = 331 && $row['virtuemart_category_id'] == 9)
 	{
-	    echo "<span class='label-txt'><a href='demo.php?cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
+		echo "<h3><a href='demo.php?uid=" . $mem_id . "&cid=". $row['virtuemart_category_id'] . "' class='left_title'>" . $row['category_name'] ."</a></h3>";
 	    break;
 	}
 	if($mem_id = 332 && $row['virtuemart_category_id'] == 10)
 	{
-		echo "<span class='label-txt'><a href='demo.php?cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
+		echo "<h3><a href='demo.php?uid=" . $mem_id . "&cid=". $row['virtuemart_category_id'] . "' class='left_title'>" . $row['category_name'] ."</a></h3>";
 		break;
 	}
 	if($mem_id = 333 && $row['virtuemart_category_id'] == 11)
