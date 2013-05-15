@@ -612,7 +612,7 @@ jQuery.extend({
 	},
 
 	nodeName: function( elem, name ) {
-		return elem.nodeName && elem.nodeName.toString().toLowerCase() === name.toString().toLowerCase();
+		return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 	},
 
 	// args is for internal usage only
@@ -945,7 +945,7 @@ jQuery.ready.promise = function( obj ) {
 
 // Populate the class2type map
 jQuery.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(i, name) {
-	class2type[ "[object " + name + "]" ] = name.toString().toLowerCase();
+	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
 function isArraylike( obj ) {
@@ -1774,7 +1774,7 @@ jQuery.extend({
 			return false;
 		}
 
-		var noData = elem.nodeName && jQuery.noData[ elem.nodeName.toString().toLowerCase() ];
+		var noData = elem.nodeName && jQuery.noData[ elem.nodeName.toLowerCase() ];
 
 		// nodes accept data unless otherwise specified; rejection can be conditional
 		return !noData || noData !== true && elem.getAttribute("classid") === noData;
