@@ -70,7 +70,7 @@ function cart( email, minprice ) {
 	 */
 	
 	this.checkOutEvent = function() {
-		simpleCart.checkOut();
+		simpleCart.preCheckOut();
 		return false;
 	};
 	
@@ -190,7 +190,7 @@ function cart( email, minprice ) {
 		createCookie("simpleCart", cookieString, 30 );
 	}
 	
-	this.alertPrice = function(){
+	this.preCheckOut = function(){
 		if(this.totalPrice < this.minPrice){
 			$( "#dialog-confirm" ).dialog({
 				resizable: false,
@@ -205,6 +205,10 @@ function cart( email, minprice ) {
 				 }
 				}
 			});			
+		}
+		else
+		{
+			this.checkOut();
 		}
 	}
 	
@@ -406,22 +410,32 @@ function cart( email, minprice ) {
 		        	"&business=" + this.userEmail + 
 					"&currency_code=CHF" +
 		  			"&lc=CHF";
-		counter = 0;
-		for (counter = 0; counter < this.items.length; counter++) { 
-			tempItem = this.items[counter];
-			j = counter + 1; 
-			strn = strn + 	"&item_name_"    + j + "=" + tempItem.getValue('name') +
-		                	"&item_number_"  + j + "=" + j +
-		                	"&quantity_"     + j + "=" + "1" +
-		                	"&amount_"       + j + "=" + this.returnFormattedPrice_1(parseFloat(tempItem.getValue('quantity')) * tempItem.getValue('price') ) +
-		                	"&currency_code" + j + "=" + "CHF" + 
-		      				"&no_shipping_"  + j + "=" + "0" +
-							"&no_note_"   	 + j + "=" + "1";
-			if( tempItem.optionList() ) {
-				strn = strn + "&on0_"		+ j + "=" + "Options" +
-				 			  "&os0_"		+ j + "=" + tempItem.optionList();
-			}			
-				
+		if( this.totalPrice < this.minPrice ){
+			strn = strn + 	"&item_name=Package Name" +
+        		"&quantity=1" +
+        		"&amount=" + this.returnFormattedPrice_1(this.minPrice) +
+        		"&currency_code=CHF" + 
+				"&no_shipping=0" +
+				"&no_note=1";
+		}
+		else{
+			counter = 0;
+			for (counter = 0; counter < this.items.length; counter++) { 
+				tempItem = this.items[counter];
+				j = counter + 1; 
+				strn = strn + 	"&item_name_"    + j + "=" + tempItem.getValue('name') +
+			                	"&item_number_"  + j + "=" + j +
+			                	"&quantity_"     + j + "=" + "1" +
+			                	"&amount_"       + j + "=" + this.returnFormattedPrice_1(parseFloat(tempItem.getValue('quantity')) * tempItem.getValue('price') ) +
+			                	"&currency_code" + j + "=" + "CHF" + 
+			      				"&no_shipping_"  + j + "=" + "0" +
+								"&no_note_"   	 + j + "=" + "1";
+				if( tempItem.optionList() ) {
+					strn = strn + "&on0_"		+ j + "=" + "Options" +
+					 			  "&os0_"		+ j + "=" + tempItem.optionList();
+				}			
+					
+			}
 		}
 		window.open (strn, "paypal", winpar);
 		return false;
