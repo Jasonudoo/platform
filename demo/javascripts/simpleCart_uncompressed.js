@@ -145,7 +145,7 @@ function cart( email ) {
 		}
 		if( isnew ) {
 			this.items[this.items.length] = newItem;
-			this.totalPrice = this.totalPrice + parseFloat(tempItem.getValue('quantity')) * parseFloat(newItem.getValue('price'));
+			this.totalPrice = this.totalPrice + parseFloat(newItem.getValue('quantity')) * parseFloat(newItem.getValue('price'));
 		}
 		this.updateCookie();
 		this.updatePageElements();
