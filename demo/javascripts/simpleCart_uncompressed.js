@@ -327,7 +327,7 @@ function cart( email ) {
 			change = "0" + change;
 		}
 		temp = String(Math.floor(temp/100));
-		return "$" + temp + "." + change;
+		return "CHF" + temp + "." + change;
 	};
 	
 	this.updateQuantity = function() {
@@ -342,7 +342,7 @@ function cart( email ) {
 				newItem.addValue(data[0],data[1]);
 			}
 		}
-		if( new_quantity < 1 ) {
+		if( new_quantity == 0) {
 			this.deleteItem( newItem );
 			return;
 		}
