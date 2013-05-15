@@ -148,9 +148,10 @@ while($row = mysql_fetch_assoc($result))
 	}		
 }
 echo "<br/>";
-echo "<h4>Package Price : CHF" . $cartInfo['cart_total'] . "</h4>";
 echo "<br/>";
-echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank! </span>"; 
+echo "<h3>Package Price : CHF" . $cartInfo['cart_total'] . "</h3>";
+echo "<br/>";
+echo "<span>Leider ist es nicht m√∂glich, einen Einkauf zu t√§tigen, welcher unter dem Standardbetrag der Gem√ºsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank! </span>"; 
 ?>
 			</div>
 			<div id="downloadContainer" style="margin:250px 0 35px 0;float:left">
