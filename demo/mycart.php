@@ -145,7 +145,7 @@ while($row = mysql_fetch_assoc($result))
 	}
 	if($mem_id = 333 && $row['virtuemart_category_id'] == 11)
 	{
-		echo "<span class='left_title'><a href='demo.php?uid=" . $mem_id . "&cid=". $row['virtuemart_category_id'] . "'>" . $row['category_name'] ."</a></span>";
+		echo "<h3><a href='demo.php?uid=" . $mem_id . "&cid=". $row['virtuemart_category_id'] . "' class='left_title'>" . $row['category_name'] ."</a></h3>";
 		break;
 	}		
 }
