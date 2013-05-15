@@ -120,11 +120,10 @@ $mem_id = isset($_REQUEST['uid']) ? intval($_REQUEST['uid']) : 331;
 		<div id="sidebar" style="margin-top:20px">
 			<h2>Check Out</h2>
 			<div class="alsoContainer">
-			    <div class="checkoutEmptyLinks">
-				    <!--Here's the Links to Checkout and Empty Cart-->
-				    <a href="demo.php?uid=<?php echo $mem_id; ?>" class="simpleCart_modify">Modify Cart</a>
-				    <a href="#" class="simpleCart_checkout">Checkout</a>
-			    </div>
+			    <!--Here's the Links to Checkout and Empty Cart-->
+			    <a href="demo.php?uid=<?php echo $mem_id; ?>" class="simpleCart_modify">Modify Cart</a>
+			    <br/>
+			    <a href="#" class="simpleCart_checkout">Checkout</a>
 			</div>
 			<div id="downloadContainer" style="margin:250px 0 35px 0;float:left">
 			</div>	
