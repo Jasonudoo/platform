@@ -136,7 +136,7 @@ function cart( email ) {
 		for( x=0;x < this.items.length;x++ ) {
 			tempItem = this.items[x];
 			if( tempItem.equalTo(newItem) ) {
-				tempItem.addValue( 'quantity' , (parseInt(tempItem.getValue('quantity')) + parseInt(newItem.getValue('quantity')) ) );
+				tempItem.addValue( 'quantity' , (parseFloat(tempItem.getValue('quantity')) + parseFloat(newItem.getValue('quantity')) ) );
 				this.totalPrice = this.totalPrice + parseFloat( tempItem.getValue('price') );
 				isnew = false;
 			}
@@ -155,15 +155,17 @@ function cart( email ) {
 		for(x=0;x<this.items.length;x++) {
 			var tempItem = this.items[x];
 			if( tempItem.equalTo(newItem) ){
-				tempItem.addValue('quantity', parseInt(newItem.getValue('quantity')) + parseInt(tempItem.getValue('quantity')) );
-				this.totalItems = this.totalItems + parseInt(newItem.getValue('quantity'));
-				this.totalPrice = this.totalPrice + parseInt(newItem.getValue('quantity'))*parseFloat(newItem.getValue('price'));
+				tempItem.addValue('quantity', parseFloat(newItem.getValue('quantity')) + parseFloat(tempItem.getValue('quantity')) );
+				//this.totalItems = this.totalItems + parseInt(newItem.getValue('quantity'));
+				this.totalItems = this.totalItems + 1;
+				this.totalPrice = this.totalPrice + parseFloat(newItem.getValue('quantity'))*parseFloat(newItem.getValue('price'));
 				return;
 			}
 		}
 		this.items[this.items.length] = newItem;
-		this.totalItems = this.totalItems + parseInt(newItem.getValue('quantity'));
-		this.totalPrice = this.totalPrice + parseInt(newItem.getValue('quantity'))*parseFloat(newItem.getValue('price'));
+		//this.totalItems = this.totalItems + parseInt(newItem.getValue('quantity'));
+		this.totalItems = this.totalItems + 1;
+		this.totalPrice = this.totalPrice + parseFloat(newItem.getValue('quantity'))*parseFloat(newItem.getValue('price'));
 		return;
 	};
 	

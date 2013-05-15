@@ -250,6 +250,11 @@ echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unt
         echo "<div class=''>" . $product['currency_code'] . $product['price'] . "</div>";
         echo "</div>";
         echo "\n";
+        
+        $script .= "simpleCart.add('name=" . htmlspecialchars($product['product_name']) . 
+                                    "','price=" . $product['custom_price'] .
+                                    "','image=/" . $prodImage['image_file_url_thumb'] . 
+                                    "','quantity=" . $row['quantity'] . "');\n";
     }
 ?>		
 			    <div class="totalRow">
@@ -260,6 +265,9 @@ echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unt
 		</div>
 			
 		<div id="footer" class="cartFoot">
+		<script language="javascript/text">
+        <?php echo $script; ?>
+        </script>
 		</div>	
 		<!--End #content-->		
 	</div>
