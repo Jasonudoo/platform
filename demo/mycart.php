@@ -156,11 +156,12 @@ echo "<br/>";
 echo "<span>Leider ist es nicht möglich, einen Einkauf zu tätigen, welcher unter dem Standardbetrag der Gemüsetasche liegt. Bitte ziehen Sie weitere Produkte in Ihre Tasche. Vielen Dank! </span>"; 
 ?>
 			</div>
-			<div id="downloadContainer" style="margin:250px 0 35px 0;float:left">
+			<div id="downloadContainer" style="margin:200px 0 35px 0;float:left">
 			    <h3>Check Out</h3>
 			    <!--Here's the Links to Checkout and Empty Cart-->
-			    <a href="demo.php?uid=<?php echo $mem_id; ?>" class="simpleCart_modify">Modify Cart</a>
 			    <a href="#" class="simpleCart_checkout">Checkout</a>
+			    <br/>
+			    <a href="demo.php?uid=<?php echo $mem_id; ?>" class="simpleCart_modify">Modify Cart</a>
 			    </div>	
 			<!--End #sidebar-->	
 		</div>
