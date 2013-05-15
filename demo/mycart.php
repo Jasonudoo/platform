@@ -49,7 +49,7 @@ require "connect.php";
 		.itemContainer{
 			clear:both;
 			width:543px;
-			padding:15px 0;
+			padding:15px;
 			font-size:11px;
 			line-height:25px;
 			height:10px;
@@ -108,7 +108,6 @@ require "connect.php";
 		.itemDesc{
 			float:left;
 			width:120px;
-			color:#418932;
 		}
 
 	</style>
